@@ -35,3 +35,4 @@ data/
 *.bin
 *.h5
 *.mat
+*.csv
