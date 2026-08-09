@@ -1,0 +1,14 @@
+# VMD3 Test Plan
+
+| ID | Task | Purpose | Procedure | Pass / Fail |
+|---|---|---|---|---|
+| VMD3-01 | Confirm and record raw IQ output | Determine whether VMD3 can support Bob's downstream mocomp processing | Capture raw complex IQ, I/Q pairs, phase, or range-bin complex data using phantom initially set to 12 BrPM at 6 m. Save a short file and document field names, BrPM, sample rate, and timestamp format. Repeat at 6, 9, 15, 18, 21, 24, 27, 30 BrPM if time permits — otherwise confirm 6, 12, 30 BrPM. | **Pass:** Raw IQ or phase-like data is exportable with timestamps. **Fail:** Only black-box RR output is available. |
+| VMD3-02 | Confirm sample/frame rate | Respiration extraction needs stable time sampling | Record 60 sec of data with no subject. Log timestamps and compute actual frame rate and jitter. | **Pass:** ≥5 Hz usable; ≥10 Hz preferred. Low dropped-frame rate. |
+| VMD3-03 | Empty-scene baseline at 6 m | Check false respiration peaks from clutter | Aim VMD3 at test area with no person. Record 60 sec. | **Pass:** No strong false peak in 0.1–0.6 Hz respiration band. |
+| VMD3-04 | Human normal breathing at 6 m | Basic feasibility test | Subject seated or lying at exactly 6 m. Record 90 sec. Manually count breaths or use respiration belt/metronome. | **Pass:** Visible periodic phase/IQ variation and RR within ±2–3 BPM of reference. |
+| VMD3-05 | Human shallow breathing at 6 m | Low-SNR feasibility | Same as above, but subject breathes shallowly. Record 90 sec. | **Pass:** Respiration peak still visible; RR within ±3–4 BPM. |
+| VMD3-06 | Breath-hold control | Confirm signal is actually respiration | Subject breathes normally 30 sec, holds breath 20–30 sec, resumes breathing 30 sec. | **Pass:** Respiration signal decreases/disappears during breath hold and returns afterward. |
+| VMD3-07 | Range-bin / target-bin behavior | Determine whether VMD3 can lock onto torso range | Move subject to 5.5 m, 6.0 m, and 6.5 m. Record 30–60 sec each. | **Pass:** Dominant torso bin shifts consistently with distance. |
+| VMD3-08 | Small platform-motion artifact test | Assess mocomp need and feasibility | Keep subject still or use empty scene. Move radar gently ±5–20 mm or use a controlled slider/phantom. Record raw IQ/phase. | **Pass:** Platform motion appears as measurable phase/range artifact that can potentially be compensated. |
+| VMD3-09 | Side-by-side A121 comparison, if available (optional) | Compare against current baseline | Run VMD3 and A121 on same subject at 6 m. Record simultaneous or back-to-back 90 sec trials. | **Pass:** VMD3 RR agrees with A121/reference within ±2–3 BPM. |
+| VMD3-10 | Export data package for Bob | Enable offline analysis | Send raw files plus notes: distance, posture, breathing condition, sample rate, VMD3 settings, timestamp source. | **Pass:** Bob can load the file and reconstruct time-series phase/IQ per bin. |
