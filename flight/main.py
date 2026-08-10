@@ -79,6 +79,7 @@ def main(rset_config, saveBin, filePath, fileName):
 
                 # Read frame from VMD3
                 raw = vmd3.read_frame(b'RADC')
+                frameSize = len(raw)
                 frame = raw
                 payload = frame[8:]
 
@@ -113,7 +114,7 @@ def main(rset_config, saveBin, filePath, fileName):
                 if cube is None:
                     continue
 
-                print(f'Frame Number: {frameNum}, Frame Size: {len(frame)}, Frame Time: {dt_ms} ms, Total Time: {datetime.now() - programStartTime}')
+                print(f'Frame Number: {frameNum}, Frame Size: {frameSize}, Frame Time: {dt_ms} ms, Total Time: {datetime.now() - programStartTime}')
                 frameNum += 1
 
                 # Save to binary file
@@ -181,7 +182,7 @@ if __name__ == '__main__':
     parser.add_argument("--saveBin", type=bool, default=False, help="Save frames into binary file or not. Default: False")
     parser.add_argument("--filePath", type=str, default='data/radc', help="Filepath to save raw binary data into. Only enabled when --saveBin=True. Default: data/radc/")
     parser.add_argument("--fileName", type=str, default=datetime.now().strftime("%Y-%m-%d_%H-%M-%S"), help="Filename to save raw binary data into. Only enabled when --saveBin=True. Default: YYYY-MM-DD_H-M-S")
-    parser.add_argument("--mode", type=int, default=6, help="Mode of the VMD3 radar (0-8). Default: 6")
+    parser.add_argument("--mode", type=int, default=1, help="Mode of the VMD3 radar (0-8). Default: 6")
 
     args = parser.parse_args()
 

@@ -20,7 +20,7 @@ from lib.QtWidgets.BarGraphWidget import BarChartWidget
 from lib.QtWidgets.QDropdown import QDropdown
 
 ### GLOBALS
-RSET_CONFIG = 6
+RSET_CONFIG = 1
 TIME_STEP = 0.13
 MAX_ANGLE_RANGE = 67
 slow_time_samples = []
