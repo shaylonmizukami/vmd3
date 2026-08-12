@@ -230,7 +230,7 @@ def read_frame(header_requested):
             continue
 
         respLength = int.from_bytes(data[4:8], byteorder='little')
-        while len(data) < respLength:
+        while len(data) < respLength + 8:
             packageData = sock.recv(packageLength)
             data += packageData
 
