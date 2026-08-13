@@ -367,7 +367,7 @@ if __name__ == '__main__':
                    help='Frames to average for the profile (default: 1).')
     # motion
     p.add_argument('--targets', type=int, default=1, choices=[1, 2], 
-                   help='Number of targets to analyze (motion mode).')
+                   help='Number of targets to analyze (motion mode).')   # Use for circle mode too
     p.add_argument('--band', type=float, nargs=2, metavar=('LO', 'HI'), default=None,
                    help='Band-pass the displacement before measuring peak-to-peak, e.g. --band 0.1 0.6 to strip postural drift from a human target.')
     # angle
