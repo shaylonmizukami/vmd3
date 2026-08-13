@@ -219,27 +219,26 @@ def processFreqDomain(data):
 
     return x_fft, y_fft
 
-def read_frame(header_requested):
+def recv_exact(n):
     global sock
+    buf = bytearray()
+    while len(buf) < n:
+        chunk = sock.recv(n - len(buf))
+        if not chunk:
+            raise ConnectionResetError('socket closed by peer')
+        buf += chunk
+    return bytes(buf)
+
+def read_frame(header_requested):
     global frameDrops
-
-    packageLength = 1456
     while True:
-        data = sock.recv(packageLength)
-        if data[0:4] != header_requested:
-            continue
-
-        respLength = int.from_bytes(data[4:8], byteorder='little')
-        while len(data) < respLength + 8:
-            packageData = sock.recv(packageLength)
-            data += packageData
-
-        if data[0:4] != header_requested or respLength != len(data[8:]):
-            print(f'Invalid frame: LEN {len(data)}')
+        header = recv_exact(8)
+        if header[0:4] != header_requested:
             frameDrops += 1
             continue
-
-        return data
+        respLength = int.from_bytes(header[4:8], byteorder='little')
+        payload = recv_exact(respLength)
+        return header + payload
 
 def main(ip, port):
     global sock
