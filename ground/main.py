@@ -39,6 +39,7 @@ sock = None
 programStartTime = datetime.now()
 frameTimes = deque(maxlen=1000)
 frameDrops = 0
+framesMissed = 0
 ###
 
 def cleanup_threads():
@@ -257,6 +258,7 @@ def main(ip, port):
 
     def vmd3_thread():
         global vmd3_thread_running
+        global framesMissed
 
         frameNum = 0
         previous_time = time.time()
@@ -269,6 +271,8 @@ def main(ip, port):
             current_time = time.time()
             dt_ms = (current_time - previous_time) * 1000
             previous_time = time.time()
+            if frameNum > 0:
+                framesMissed += max(0, round(dt_ms / (TIME_STEP * 1000)) - 1)
 
             # Decode 2D or 3D. Cube is in Samples x Chirps x Channels
             mode = '2d'
@@ -280,7 +284,9 @@ def main(ip, port):
 
             frameTimes.append(dt_ms)
 
-            print(f'Frame Number: {frameNum} | Frame Size: {len(frame)} | Frame Time: {dt_ms:.02f} ms | Average Time: {np.mean(frameTimes):.02f} ms | Total Time: {datetime.now() - programStartTime} | Frames Dropped: {frameDrops} | Frames Received: {(1 - frameDrops / (frameNum + frameDrops + 1)) * 100:.02f}%')
+            print(f'Frame Number: {frameNum} | Frame Size: {len(frame)} | Frame Time: {dt_ms:.02f} ms | ',
+                    'Average Time: {np.mean(frameTimes):.02f} ms | Total Time: {datetime.now() - programStartTime} | ',
+                    'Frames Missed: {framesMissed} | Frames Received: {(1 - framesMissed / (frameNum + framesMissed + 1)) * 100:.02f}%')
             frameNum += 1
 
             # RANGE FFT: Perform FFT across samples dimension.
