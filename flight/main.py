@@ -122,7 +122,8 @@ def main(rset_config, saveBin, filePath, fileName):
                 # if cube is None:
                 #     continue
 
-                print(f'Frame Number: {frameNum}, Frame Size: {frameSize}, Frame Time: {dt_ms} ms, Skipped: {framesSkipped}, Total Time: {datetime.now() - programStartTime}')
+                print(f'Frame Number: {frameNum}, Frame Size: {frameSize}, Frame Time: {dt_ms} ms, Skipped: {framesSkipped}, '
+                      f'Total Time: {str(datetime.now() - programStartTime)[:-3]}')
                 frameNum += 1
 
                 # Save to binary file

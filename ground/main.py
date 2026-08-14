@@ -284,9 +284,9 @@ def main(ip, port):
 
             frameTimes.append(dt_ms)
 
-            print(f'Frame Number: {frameNum} | Frame Size: {len(frame)} | Frame Time: {dt_ms:.02f} ms | ',
-                    'Average Time: {np.mean(frameTimes):.02f} ms | Total Time: {datetime.now() - programStartTime} | ',
-                    'Frames Missed: {framesMissed} | Frames Received: {(1 - framesMissed / (frameNum + framesMissed + 1)) * 100:.02f}%')
+            print(f'Frame Number: {frameNum} | Frame Size: {len(frame)} | Frame Time: {dt_ms:.02f} ms | '
+                  f'Average Time: {np.mean(frameTimes):.02f} ms | Total Time: {str(datetime.now() - programStartTime)[:-3]} | '
+                  f'Frames Missed: {framesMissed} | Frames Received: {(1 - framesMissed / (frameNum + framesMissed + 1)) * 100:.02f}%')
             frameNum += 1
 
             # RANGE FFT: Perform FFT across samples dimension.
