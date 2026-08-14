@@ -302,7 +302,7 @@ def main(ip, port):
 
             # BEAMFORMING
             nRx = cube.shape[2]
-            angles = np.linspace(-MAX_ANGLE_RANGE, MAX_ANGLE_RANGE, 512)
+            angles = np.linspace(-MAX_ANGLE_RANGE, MAX_ANGLE_RANGE, 64)
             subbeam = []
             for alpha in angles:
                 wBF = []
