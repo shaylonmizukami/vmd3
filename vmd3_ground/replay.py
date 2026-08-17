@@ -1,18 +1,26 @@
-from lib.vmd3 import VMD3, VMD3_SETTING
-
+import argparse
+import math
 import signal
 import sys
-import argparse
 import threading
-import numpy as np
-import math
 
-from PyQt6.QtWidgets import QApplication, QMainWindow, QGridLayout, QWidget, QPushButton, QComboBox, QVBoxLayout, QLabel
+import numpy as np
+from lib.QtWidgets.BarGraphWidget import BarChartWidget
 from lib.QtWidgets.HeatmapWidget import HeatmapWidget
+from lib.QtWidgets.QDropdown import QDropdown
 from lib.QtWidgets.XYPlotWidget import XYPlotWidget
 from lib.QtWidgets.XYZPlotWidget import XYZPlotWidget
-from lib.QtWidgets.BarGraphWidget import BarChartWidget
-from lib.QtWidgets.QDropdown import QDropdown
+from lib.vmd3 import VMD3, VMD3_SETTING
+from PyQt6.QtWidgets import (
+    QApplication,
+    QComboBox,
+    QGridLayout,
+    QLabel,
+    QMainWindow,
+    QPushButton,
+    QVBoxLayout,
+    QWidget,
+)
 
 ### GLOBALS
 RSET_CONFIG = 6

@@ -1,17 +1,16 @@
-from lib.vmd3 import VMD3, RdotConfig, VMD3_SETTING
-
-import socket
-import signal
-import sys
 import argparse
+import math
 import os
+import queue
+import signal
+import socket
+import sys
+import threading
 import time
 from datetime import datetime
 
 import numpy as np
-import math
-import threading
-import queue
+from lib.vmd3 import VMD3, VMD3_SETTING, RdotConfig
 
 ### GLOBALS
 MAX_ANGLE_RANGE = 67

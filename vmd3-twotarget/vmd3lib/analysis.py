@@ -9,7 +9,8 @@ No plotting, no side effects on import.
 """
 
 import numpy as np
-from vmd3lib.config import RANGE_WINDOW, MAX_RANGE_M, N_SAMPLES
+
+from vmd3lib.config import MAX_RANGE_M, N_SAMPLES, RANGE_WINDOW
 
 
 def range_fft(x, axis, window=RANGE_WINDOW):

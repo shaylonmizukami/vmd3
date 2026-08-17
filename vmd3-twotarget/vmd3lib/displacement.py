@@ -9,9 +9,11 @@ Returns arrays and numbers only. No plotting — process.py owns matplotlib.
 """
 
 import numpy as np
-from scipy.signal import butter, filtfilt, sosfiltfilt, detrend as _dt
-from vmd3lib.config import LAMBDA_M, FS_SLOW, RANGE_WINDOW, SLOW_WINDOW
+from scipy.signal import butter, filtfilt, sosfiltfilt
+from scipy.signal import detrend as _dt
+
 from vmd3lib.analysis import range_fft
+from vmd3lib.config import FS_SLOW, LAMBDA_M, RANGE_WINDOW, SLOW_WINDOW
 from vmd3lib.iq import remove_dc
 
 

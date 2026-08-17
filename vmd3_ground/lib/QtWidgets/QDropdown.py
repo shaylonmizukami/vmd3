@@ -1,4 +1,5 @@
-from PyQt6.QtWidgets import QHBoxLayout, QWidget, QComboBox, QLabel
+from PyQt6.QtWidgets import QComboBox, QHBoxLayout, QLabel, QWidget
+
 
 class QDropdown(QWidget):
     def __init__(self, label='', defaultIndex=0, onChange=None):

@@ -9,14 +9,14 @@ Usage:
     python sar_a.py --bin data/scan_2026-05-19/bins/scan_0cm.bin --show
 """
 
-from lib.vmd3 import VMD3
 import argparse
-import numpy as np
-import math
-import matplotlib.pyplot as plt
 import csv
+import math
 import os
 
+import matplotlib.pyplot as plt
+import numpy as np
+from lib.vmd3 import VMD3
 
 # ─── Constants (RSET 0) ──────────────────────────────────────────
 RANGE_BIN_M = 4.69e-2          # m per range bin

@@ -22,30 +22,34 @@ The .bin format is byte-identical to record.py output, so replay.py and
 vmd3_process_bin.m can consume the files unchanged.
 """
 
-from lib.vmd3 import VMD3, RdotConfig
-
-import sys
+import argparse
+import csv
+import math
 import os
 import signal
-import argparse
+import sys
 import threading
-import csv
-from datetime import datetime
 from collections import deque
+from datetime import datetime
 
 import numpy as np
-import math
-
-from PyQt6.QtWidgets import (
-    QApplication, QMainWindow, QGridLayout, QWidget, QPushButton,
-    QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QComboBox
-)
-from PyQt6.QtCore import Qt, QTimer
-
 from lib.QtWidgets.HeatmapWidget import HeatmapWidget
-from lib.QtWidgets.XYPlotWidget import XYPlotWidget
 from lib.QtWidgets.QDropdown import QDropdown
-
+from lib.QtWidgets.XYPlotWidget import XYPlotWidget
+from lib.vmd3 import VMD3, RdotConfig
+from PyQt6.QtCore import Qt, QTimer
+from PyQt6.QtWidgets import (
+    QApplication,
+    QComboBox,
+    QGridLayout,
+    QHBoxLayout,
+    QLabel,
+    QLineEdit,
+    QMainWindow,
+    QPushButton,
+    QVBoxLayout,
+    QWidget,
+)
 
 # ─── Configuration ───────────────────────────────────────────────
 RSET_CONFIG = 0         # 2D, 6m max range, 4.69cm range bin

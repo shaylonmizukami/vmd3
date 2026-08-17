@@ -20,16 +20,15 @@ Usage:
     python analyze_scan.py --session data/FolderWithBinaryDataFolder --show
 """
 
-from lib.vmd3 import VMD3
-
-import sys
-import os
-import csv
 import argparse
-import numpy as np
+import csv
 import math
-import matplotlib.pyplot as plt
+import os
+import sys
 
+import matplotlib.pyplot as plt
+import numpy as np
+from lib.vmd3 import VMD3
 
 # ─── Configuration ───────────────────────────────────────────────
 RSET_CONFIG = 0          # 2D, 6m max range, 4.69 cm range bin

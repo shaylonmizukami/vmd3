@@ -21,8 +21,9 @@ No plotting, no side effects on import.
 """
 
 import numpy as np
-from vmd3lib.config import N_CHANNELS, RANGE_WINDOW
+
 from vmd3lib.analysis import range_fft
+from vmd3lib.config import N_CHANNELS, RANGE_WINDOW
 
 
 def steering_weights(angle_deg, n_ch=N_CHANNELS):

@@ -13,19 +13,26 @@ The .bin is a concatenation of raw frames (8-byte header + payload each),
 readable by vmd3lib.decode.get_frames.
 """
 
-import socket
-import signal
-import os
-import time
 import argparse
-import numpy as np
+import os
+import signal
+import socket
+import time
 from datetime import datetime
-from vmd3lib.vmd3 import VMD3, RdotConfig
+
+import numpy as np
 from vmd3lib.config import (
-    ACTIVE_RSET, HEADER_RADC, UNWRAP_LIMIT_MM_HZ, FRAME_PERIOD_S,
-    TARGET1_DISP_MM, TARGET1_FREQ_HZ, TARGET2_DISP_MM, TARGET2_FREQ_HZ,
+    ACTIVE_RSET,
+    FRAME_PERIOD_S,
+    HEADER_RADC,
+    TARGET1_DISP_MM,
+    TARGET1_FREQ_HZ,
+    TARGET2_DISP_MM,
+    TARGET2_FREQ_HZ,
+    UNWRAP_LIMIT_MM_HZ,
 )
 from vmd3lib.iq import predicted_phase_step
+from vmd3lib.vmd3 import VMD3, RdotConfig
 
 running = True
 

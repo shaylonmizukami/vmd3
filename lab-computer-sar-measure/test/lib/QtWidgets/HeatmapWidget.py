@@ -2,6 +2,7 @@ import numpy as np
 import pyqtgraph as pg
 from PyQt6.QtWidgets import QVBoxLayout, QWidget
 
+
 class HeatmapWidget(QWidget):
     def __init__(self, title='', xLabel='', yLabel='', xUnit='', yUnit='', xTickLimits=[0, 1], yTickLimits=[0, 1]):
         super().__init__()

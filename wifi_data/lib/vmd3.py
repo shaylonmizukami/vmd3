@@ -1,9 +1,8 @@
+from enum import Enum
 import socket
 import sys
-from enum import Enum
 
 import numpy as np
-
 
 class RdotConfig(Enum):
     DISABLED = 0

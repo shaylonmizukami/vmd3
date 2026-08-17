@@ -1,9 +1,9 @@
 import socket
 import struct
-import time
 import threading
-import numpy as np
+import time
 
+import numpy as np
 
 HOST = '0.0.0.0'
 PORT = 6172

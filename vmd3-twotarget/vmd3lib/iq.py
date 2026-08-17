@@ -15,7 +15,7 @@ No plotting, no side effects on import.
 
 import numpy as np
 
-from vmd3lib.config import LAMBDA_M, FS_SLOW
+from vmd3lib.config import FS_SLOW, LAMBDA_M
 
 LAMBDA_MM = LAMBDA_M * 1000.0
 

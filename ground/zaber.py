@@ -4,11 +4,13 @@ pip install zaber-motion
 Example Usage: python zaber.py --serial_dev=/dev/ttyUSB0 --frequency=0.5 --duration=60
 '''
 
-import sys
 import argparse
+import sys
 import time
-from zaber_motion.ascii import Connection
+
 from zaber_motion import Units
+from zaber_motion.ascii import Connection
+
 
 def main(serial_dev='/dev/ttyUSB0', amplitude=5000, frequency=1, duration=60):
     connection = Connection.open_serial_port(serial_dev)

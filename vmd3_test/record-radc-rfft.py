@@ -8,16 +8,16 @@ Stops on Ctrl+C. Output file is processable by vmd3_process_bin.m
 or by replay.py.
 """
 
-from lib.vmd3 import VMD3, RdotConfig
-
-import socket
-import numpy as np
-import signal
-import os
-import sys
 import argparse
+import os
+import signal
+import socket
+import sys
 import time
 from datetime import datetime
+
+import numpy as np
+from lib.vmd3 import VMD3, RdotConfig
 
 running = True
 

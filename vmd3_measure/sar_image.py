@@ -16,17 +16,15 @@ Usage:
     python sar_image.py --session data/scan_2026-05-18 --ref-fix --pga --show
 """
 
-from lib.vmd3 import VMD3
-
-import sys
-import os
-import csv
 import argparse
-import numpy as np
+import csv
+import os
+import sys
+
 import matplotlib.pyplot as plt
-
-from analyze_scan import load_bin_frames   # reuse your exact .bin parser
-
+import numpy as np
+from analyze_scan import load_bin_frames  # reuse your exact .bin parser
+from lib.vmd3 import VMD3
 
 # ─── Radar / geometry constants ──────────────────────────────────
 C = 300000000.0          # m/s

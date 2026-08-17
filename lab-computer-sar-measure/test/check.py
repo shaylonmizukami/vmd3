@@ -1,4 +1,6 @@
-import sys, glob, os
+import glob
+import os
+import sys
 
 # Find the most recent scan_0cm.bin under data/, or take a path argument
 if len(sys.argv) > 1:

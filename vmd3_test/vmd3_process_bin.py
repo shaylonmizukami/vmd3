@@ -10,8 +10,8 @@ Usage:
     (edit the parameters at the top of main() as needed)
 """
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 from scipy.signal import detrend
 
 plt.style.use('seaborn-v0_8-darkgrid')

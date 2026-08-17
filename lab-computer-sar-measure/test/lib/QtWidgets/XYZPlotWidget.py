@@ -2,6 +2,7 @@ import numpy as np
 import pyqtgraph.opengl as gl
 from PyQt6.QtWidgets import QVBoxLayout, QWidget
 
+
 class XYZPlotWidget(QWidget):
     def __init__(self):
         super().__init__()

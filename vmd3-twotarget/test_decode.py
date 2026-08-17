@@ -1,6 +1,6 @@
-from vmd3lib.decode import get_frames, decode_radc_2d
-from vmd3lib.analysis import range_profile, find_target_bins
 import numpy as np
+from vmd3lib.analysis import find_target_bins, range_profile
+from vmd3lib.decode import decode_radc_2d, get_frames
 
 PATH = "data/radc/2026-06-02/plate_6m_1p6mm_0p2hz_rset1.bin"  # <-- your file
 
@@ -18,8 +18,10 @@ print(f"strongest bin: {bins}, range ~{bins[0] * 10/128:.2f} m")
 
 # ---
 from vmd3lib.displacement import (
-    slow_time_signal, phase_to_displacement,
-    displacement_spectrum, dominant_frequency,
+    displacement_spectrum,
+    dominant_frequency,
+    phase_to_displacement,
+    slow_time_signal,
 )
 
 cubes = np.stack([decode_radc_2d(f) for f in frames], axis=0)[1:]  # drop startup frame

@@ -31,17 +31,37 @@ Examples:
 
 import argparse
 import os
-import numpy as np
+
 import matplotlib.pyplot as plt
+import numpy as np
 from scipy.interpolate import CubicSpline
-from vmd3lib.decode import get_frames, decode_radc_2d
-from vmd3lib.analysis import range_profile, find_target_bins, bin_to_range, range_to_bin, range_fft
-from vmd3lib.displacement import (
-    slow_time_signal, phase_to_displacement, motion_spectrum, displacement_spectrum, dominant_frequency, max_phase_step, phase_step_stats, bandpass_filter,
+from vmd3lib.analysis import (
+    bin_to_range,
+    find_target_bins,
+    range_fft,
+    range_profile,
+    range_to_bin,
 )
-from vmd3lib.iq import remove_dc, arc_span_deg, revolutions
-from vmd3lib.config import MAX_RANGE_M, FS_SLOW, TARGET1_RANGE_M, TARGET2_RANGE_M, RANGE_WINDOW
 from vmd3lib.beamform import angle_profile, steered_slow_time
+from vmd3lib.config import (
+    FS_SLOW,
+    MAX_RANGE_M,
+    RANGE_WINDOW,
+    TARGET1_RANGE_M,
+    TARGET2_RANGE_M,
+)
+from vmd3lib.decode import decode_radc_2d, get_frames
+from vmd3lib.displacement import (
+    bandpass_filter,
+    displacement_spectrum,
+    dominant_frequency,
+    max_phase_step,
+    motion_spectrum,
+    phase_step_stats,
+    phase_to_displacement,
+    slow_time_signal,
+)
+from vmd3lib.iq import arc_span_deg, remove_dc, revolutions
 
 
 def load_cubes(filepath, trim):

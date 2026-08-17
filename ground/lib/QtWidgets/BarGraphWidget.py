@@ -1,21 +1,18 @@
-import sys
 import random
+import sys
 
-from PyQt6.QtCore import QTimer, Qt
-from PyQt6.QtWidgets import (
-    QApplication,
-    QWidget,
-    QVBoxLayout
-)
 from PyQt6.QtCharts import (
+    QBarCategoryAxis,
+    QBarSeries,
+    QBarSet,
     QChart,
     QChartView,
-    QBarSet,
-    QBarSeries,
-    QBarCategoryAxis,
-    QValueAxis
+    QValueAxis,
 )
-from PyQt6.QtGui import QPainter, QBrush, QColor
+from PyQt6.QtCore import Qt, QTimer
+from PyQt6.QtGui import QBrush, QColor, QPainter
+from PyQt6.QtWidgets import QApplication, QVBoxLayout, QWidget
+
 
 class BarChartWidget(QWidget):
     def __init__(self, title='', xLabel='', yLabel=''):

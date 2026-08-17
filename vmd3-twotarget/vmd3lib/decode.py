@@ -12,7 +12,11 @@ RADC-only, 2D-only. No plotting, no side effects on import.
 import numpy as np
 
 from vmd3lib.config import (
-    RADC_2D_FRAME_LEN, N_SAMPLES, N_CHIRPS, N_CHANNELS, HEADER_RADC,
+    HEADER_RADC,
+    N_CHANNELS,
+    N_CHIRPS,
+    N_SAMPLES,
+    RADC_2D_FRAME_LEN,
 )
 
 
