@@ -1,0 +1,723 @@
+(.venv) shaylon@x1carbon% python flight/main.py --noStream --saveBin --duration 10 --rset 0
+Recording to /home/shaylon/Projects/vmd3/wifi_data/data/radc/2026-08-17/17-08-55.bin
+Connecting to VMD3...
+[VMD3] Connected to TCP/IP
+[VMD3] Connected to UDP
+[VMD3] Connected to VMD3
+[VMD3] RSET OK
+[VMD3] RDOT OK
+VMD3 connected (rset 0)
+Capture Duration: 10.0 s
+Frame Number: 0 | Frame Size: 131080 | Frame Time: 89.17 ms | Skipped: 0 | Written: 0 | Total Time: 0:00:00.425
+Frame Number: 1 | Frame Size: 131080 | Frame Time: 723.94 ms | Skipped: 0 | Written: 1 | Total Time: 0:00:01.149
+Frame Number: 2 | Frame Size: 131080 | Frame Time: 132.22 ms | Skipped: 0 | Written: 2 | Total Time: 0:00:01.281
+Frame Number: 3 | Frame Size: 131080 | Frame Time: 128.71 ms | Skipped: 0 | Written: 3 | Total Time: 0:00:01.410
+Frame Number: 4 | Frame Size: 131080 | Frame Time: 130.81 ms | Skipped: 0 | Written: 4 | Total Time: 0:00:01.541
+Frame Number: 5 | Frame Size: 131080 | Frame Time: 128.35 ms | Skipped: 0 | Written: 5 | Total Time: 0:00:01.669
+Frame Number: 6 | Frame Size: 131080 | Frame Time: 132.28 ms | Skipped: 0 | Written: 6 | Total Time: 0:00:01.801
+Frame Number: 7 | Frame Size: 131080 | Frame Time: 128.17 ms | Skipped: 0 | Written: 7 | Total Time: 0:00:01.930
+Frame Number: 8 | Frame Size: 131080 | Frame Time: 132.08 ms | Skipped: 0 | Written: 8 | Total Time: 0:00:02.062
+Frame Number: 9 | Frame Size: 131080 | Frame Time: 128.26 ms | Skipped: 0 | Written: 9 | Total Time: 0:00:02.190
+Frame Number: 10 | Frame Size: 131080 | Frame Time: 128.89 ms | Skipped: 0 | Written: 10 | Total Time: 0:00:02.319
+Frame Number: 11 | Frame Size: 131080 | Frame Time: 130.57 ms | Skipped: 0 | Written: 11 | Total Time: 0:00:02.449
+Frame Number: 12 | Frame Size: 131080 | Frame Time: 130.09 ms | Skipped: 0 | Written: 12 | Total Time: 0:00:02.579
+Frame Number: 13 | Frame Size: 131080 | Frame Time: 130.51 ms | Skipped: 0 | Written: 13 | Total Time: 0:00:02.710
+Frame Number: 14 | Frame Size: 131080 | Frame Time: 129.64 ms | Skipped: 0 | Written: 14 | Total Time: 0:00:02.840
+Frame Number: 15 | Frame Size: 131080 | Frame Time: 130.45 ms | Skipped: 0 | Written: 15 | Total Time: 0:00:02.970
+Frame Number: 16 | Frame Size: 131080 | Frame Time: 129.03 ms | Skipped: 0 | Written: 16 | Total Time: 0:00:03.099
+Frame Number: 17 | Frame Size: 131080 | Frame Time: 130.13 ms | Skipped: 0 | Written: 17 | Total Time: 0:00:03.229
+Frame Number: 18 | Frame Size: 131080 | Frame Time: 130.19 ms | Skipped: 0 | Written: 18 | Total Time: 0:00:03.359
+Frame Number: 19 | Frame Size: 131080 | Frame Time: 130.31 ms | Skipped: 0 | Written: 19 | Total Time: 0:00:03.490
+Frame Number: 20 | Frame Size: 131080 | Frame Time: 129.99 ms | Skipped: 0 | Written: 20 | Total Time: 0:00:03.620
+Frame Number: 21 | Frame Size: 131080 | Frame Time: 130.09 ms | Skipped: 0 | Written: 21 | Total Time: 0:00:03.750
+Frame Number: 22 | Frame Size: 131080 | Frame Time: 129.52 ms | Skipped: 0 | Written: 22 | Total Time: 0:00:03.879
+Frame Number: 23 | Frame Size: 131080 | Frame Time: 130.36 ms | Skipped: 0 | Written: 23 | Total Time: 0:00:04.010
+Frame Number: 24 | Frame Size: 131080 | Frame Time: 130.63 ms | Skipped: 0 | Written: 24 | Total Time: 0:00:04.140
+Frame Number: 25 | Frame Size: 131080 | Frame Time: 129.35 ms | Skipped: 0 | Written: 25 | Total Time: 0:00:04.270
+Frame Number: 26 | Frame Size: 131080 | Frame Time: 130.26 ms | Skipped: 0 | Written: 26 | Total Time: 0:00:04.400
+Frame Number: 27 | Frame Size: 131080 | Frame Time: 129.62 ms | Skipped: 0 | Written: 27 | Total Time: 0:00:04.530
+Frame Number: 28 | Frame Size: 131080 | Frame Time: 131.68 ms | Skipped: 0 | Written: 28 | Total Time: 0:00:04.661
+Frame Number: 29 | Frame Size: 131080 | Frame Time: 128.37 ms | Skipped: 0 | Written: 29 | Total Time: 0:00:04.790
+Frame Number: 30 | Frame Size: 131080 | Frame Time: 130.67 ms | Skipped: 0 | Written: 30 | Total Time: 0:00:04.920
+Frame Number: 31 | Frame Size: 131080 | Frame Time: 129.77 ms | Skipped: 0 | Written: 31 | Total Time: 0:00:05.050
+Frame Number: 32 | Frame Size: 131080 | Frame Time: 129.07 ms | Skipped: 0 | Written: 32 | Total Time: 0:00:05.179
+Frame Number: 33 | Frame Size: 131080 | Frame Time: 130.23 ms | Skipped: 0 | Written: 33 | Total Time: 0:00:05.309
+Frame Number: 34 | Frame Size: 131080 | Frame Time: 129.88 ms | Skipped: 0 | Written: 34 | Total Time: 0:00:05.439
+Frame Number: 35 | Frame Size: 131080 | Frame Time: 130.93 ms | Skipped: 0 | Written: 35 | Total Time: 0:00:05.570
+Frame Number: 36 | Frame Size: 131080 | Frame Time: 129.45 ms | Skipped: 0 | Written: 36 | Total Time: 0:00:05.700
+Frame Number: 37 | Frame Size: 131080 | Frame Time: 130.29 ms | Skipped: 0 | Written: 37 | Total Time: 0:00:05.830
+Frame Number: 38 | Frame Size: 131080 | Frame Time: 129.22 ms | Skipped: 0 | Written: 38 | Total Time: 0:00:05.959
+Frame Number: 39 | Frame Size: 131080 | Frame Time: 132.44 ms | Skipped: 0 | Written: 39 | Total Time: 0:00:06.092
+Frame Number: 40 | Frame Size: 131080 | Frame Time: 128.66 ms | Skipped: 0 | Written: 40 | Total Time: 0:00:06.220
+Frame Number: 41 | Frame Size: 131080 | Frame Time: 130.21 ms | Skipped: 0 | Written: 41 | Total Time: 0:00:06.350
+Frame Number: 42 | Frame Size: 131080 | Frame Time: 129.64 ms | Skipped: 0 | Written: 42 | Total Time: 0:00:06.480
+Frame Number: 43 | Frame Size: 131080 | Frame Time: 129.00 ms | Skipped: 0 | Written: 43 | Total Time: 0:00:06.609
+Frame Number: 44 | Frame Size: 131080 | Frame Time: 130.18 ms | Skipped: 0 | Written: 44 | Total Time: 0:00:06.739
+Frame Number: 45 | Frame Size: 131080 | Frame Time: 131.98 ms | Skipped: 0 | Written: 45 | Total Time: 0:00:06.871
+Frame Number: 46 | Frame Size: 131080 | Frame Time: 129.79 ms | Skipped: 0 | Written: 46 | Total Time: 0:00:07.001
+Frame Number: 47 | Frame Size: 131080 | Frame Time: 128.52 ms | Skipped: 0 | Written: 47 | Total Time: 0:00:07.130
+Frame Number: 48 | Frame Size: 131080 | Frame Time: 133.17 ms | Skipped: 0 | Written: 48 | Total Time: 0:00:07.263
+Frame Number: 49 | Frame Size: 131080 | Frame Time: 126.59 ms | Skipped: 0 | Written: 49 | Total Time: 0:00:07.389
+Frame Number: 50 | Frame Size: 131080 | Frame Time: 131.68 ms | Skipped: 0 | Written: 50 | Total Time: 0:00:07.521
+Frame Number: 51 | Frame Size: 131080 | Frame Time: 128.52 ms | Skipped: 0 | Written: 51 | Total Time: 0:00:07.649
+Frame Number: 52 | Frame Size: 131080 | Frame Time: 129.98 ms | Skipped: 0 | Written: 52 | Total Time: 0:00:07.779
+Frame Number: 53 | Frame Size: 131080 | Frame Time: 130.64 ms | Skipped: 0 | Written: 53 | Total Time: 0:00:07.910
+Frame Number: 54 | Frame Size: 131080 | Frame Time: 128.94 ms | Skipped: 0 | Written: 54 | Total Time: 0:00:08.039
+Frame Number: 55 | Frame Size: 131080 | Frame Time: 130.52 ms | Skipped: 0 | Written: 55 | Total Time: 0:00:08.170
+Frame Number: 56 | Frame Size: 131080 | Frame Time: 129.98 ms | Skipped: 0 | Written: 56 | Total Time: 0:00:08.300
+Frame Number: 57 | Frame Size: 131080 | Frame Time: 129.83 ms | Skipped: 0 | Written: 57 | Total Time: 0:00:08.429
+Frame Number: 58 | Frame Size: 131080 | Frame Time: 133.57 ms | Skipped: 0 | Written: 58 | Total Time: 0:00:08.563
+Frame Number: 59 | Frame Size: 131080 | Frame Time: 127.03 ms | Skipped: 0 | Written: 59 | Total Time: 0:00:08.690
+Frame Number: 60 | Frame Size: 131080 | Frame Time: 131.48 ms | Skipped: 0 | Written: 60 | Total Time: 0:00:08.821
+Frame Number: 61 | Frame Size: 131080 | Frame Time: 127.88 ms | Skipped: 0 | Written: 61 | Total Time: 0:00:08.949
+Frame Number: 62 | Frame Size: 131080 | Frame Time: 130.37 ms | Skipped: 0 | Written: 62 | Total Time: 0:00:09.080
+Frame Number: 63 | Frame Size: 131080 | Frame Time: 130.09 ms | Skipped: 0 | Written: 63 | Total Time: 0:00:09.210
+Frame Number: 64 | Frame Size: 131080 | Frame Time: 129.92 ms | Skipped: 0 | Written: 64 | Total Time: 0:00:09.340
+Frame Number: 65 | Frame Size: 131080 | Frame Time: 129.40 ms | Skipped: 0 | Written: 65 | Total Time: 0:00:09.469
+Frame Number: 66 | Frame Size: 131080 | Frame Time: 129.94 ms | Skipped: 0 | Written: 66 | Total Time: 0:00:09.599
+Frame Number: 67 | Frame Size: 131080 | Frame Time: 130.07 ms | Skipped: 0 | Written: 67 | Total Time: 0:00:09.729
+Frame Number: 68 | Frame Size: 131080 | Frame Time: 130.66 ms | Skipped: 0 | Written: 68 | Total Time: 0:00:09.860
+Frame Number: 69 | Frame Size: 131080 | Frame Time: 129.79 ms | Skipped: 0 | Written: 69 | Total Time: 0:00:09.990
+Frame Number: 70 | Frame Size: 131080 | Frame Time: 130.27 ms | Skipped: 0 | Written: 70 | Total Time: 0:00:10.120
+Frame Number: 71 | Frame Size: 131080 | Frame Time: 130.29 ms | Skipped: 0 | Written: 71 | Total Time: 0:00:10.250
+Frame Number: 72 | Frame Size: 131080 | Frame Time: 129.05 ms | Skipped: 0 | Written: 72 | Total Time: 0:00:10.379
+Duration of 10.0 s reached
+Disconnecting VMD3
+[VMD3] Disconnected
+Binary file saved at /home/shaylon/Projects/vmd3/wifi_data/data/radc/2026-08-17/17-08-55.bin with 9568840 bytes (73 frames)
+Metadata saved at /home/shaylon/Projects/vmd3/wifi_data/data/radc/2026-08-17/17-08-55.json
+(.venv) shaylon@x1carbon% git add .
+(.venv) shaylon@x1carbon% git commit -am "Added __init__.py in lib folder. Adjusted flight/main.py .bin file generation timing and vmd3 configuration fetch error for json file."
+[main 00747e1] Added __init__.py in lib folder. Adjusted flight/main.py .bin file generation timing and vmd3 configuration fetch error for json file.
+ 2 files changed, 22 insertions(+), 9 deletions(-)
+ create mode 100644 wifi_data/lib/__init__.py
+(.venv) shaylon@x1carbon% git push
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (7/7), 1.03 KiB | 1.03 MiB/s, done.
+Total 7 (delta 2), reused 1 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:shaylonmizukami/vmd3.git
+   9a7dbe7..00747e1  main -> main
+(.venv) shaylon@x1carbon% python flight/main.py --noStream --saveBin --duration 60
+Recording to /home/shaylon/Projects/vmd3/wifi_data/data/radc/2026-08-17/17-13-53.bin
+Connecting to VMD3...
+[VMD3] Connected to TCP/IP
+[VMD3] Connected to UDP
+[VMD3] Connected to VMD3
+[VMD3] RSET OK
+[VMD3] RDOT OK
+VMD3 connected (rset 1)
+Capture Duration: 60.0 s
+Frame Number: 0 | Frame Size: 131080 | Frame Time: 66.25 ms | Skipped: 0 | Written: 0 | Total Time: 0:00:00.119
+Frame Number: 1 | Frame Size: 131080 | Frame Time: 736.88 ms | Skipped: 0 | Written: 1 | Total Time: 0:00:00.856
+Frame Number: 2 | Frame Size: 131080 | Frame Time: 130.38 ms | Skipped: 0 | Written: 2 | Total Time: 0:00:00.986
+Frame Number: 3 | Frame Size: 131080 | Frame Time: 130.14 ms | Skipped: 0 | Written: 3 | Total Time: 0:00:01.116
+Frame Number: 4 | Frame Size: 131080 | Frame Time: 130.19 ms | Skipped: 0 | Written: 4 | Total Time: 0:00:01.246
+Frame Number: 5 | Frame Size: 131080 | Frame Time: 129.39 ms | Skipped: 0 | Written: 5 | Total Time: 0:00:01.376
+Frame Number: 6 | Frame Size: 131080 | Frame Time: 130.37 ms | Skipped: 0 | Written: 6 | Total Time: 0:00:01.506
+Frame Number: 7 | Frame Size: 131080 | Frame Time: 130.84 ms | Skipped: 0 | Written: 7 | Total Time: 0:00:01.637
+Frame Number: 8 | Frame Size: 131080 | Frame Time: 129.82 ms | Skipped: 0 | Written: 8 | Total Time: 0:00:01.767
+Frame Number: 9 | Frame Size: 131080 | Frame Time: 129.59 ms | Skipped: 0 | Written: 9 | Total Time: 0:00:01.896
+Frame Number: 10 | Frame Size: 131080 | Frame Time: 129.33 ms | Skipped: 0 | Written: 10 | Total Time: 0:00:02.026
+Frame Number: 11 | Frame Size: 131080 | Frame Time: 130.36 ms | Skipped: 0 | Written: 11 | Total Time: 0:00:02.156
+Frame Number: 12 | Frame Size: 131080 | Frame Time: 129.99 ms | Skipped: 0 | Written: 12 | Total Time: 0:00:02.286
+Frame Number: 13 | Frame Size: 131080 | Frame Time: 130.81 ms | Skipped: 0 | Written: 13 | Total Time: 0:00:02.417
+Frame Number: 14 | Frame Size: 131080 | Frame Time: 129.56 ms | Skipped: 0 | Written: 14 | Total Time: 0:00:02.547
+Frame Number: 15 | Frame Size: 131080 | Frame Time: 130.73 ms | Skipped: 0 | Written: 15 | Total Time: 0:00:02.677
+Frame Number: 16 | Frame Size: 131080 | Frame Time: 128.77 ms | Skipped: 0 | Written: 16 | Total Time: 0:00:02.806
+Frame Number: 17 | Frame Size: 131080 | Frame Time: 130.29 ms | Skipped: 0 | Written: 17 | Total Time: 0:00:02.936
+Frame Number: 18 | Frame Size: 131080 | Frame Time: 131.04 ms | Skipped: 0 | Written: 18 | Total Time: 0:00:03.067
+Frame Number: 19 | Frame Size: 131080 | Frame Time: 133.96 ms | Skipped: 0 | Written: 19 | Total Time: 0:00:03.201
+Frame Number: 20 | Frame Size: 131080 | Frame Time: 125.40 ms | Skipped: 0 | Written: 20 | Total Time: 0:00:03.327
+Frame Number: 21 | Frame Size: 131080 | Frame Time: 129.07 ms | Skipped: 0 | Written: 21 | Total Time: 0:00:03.456
+Frame Number: 22 | Frame Size: 131080 | Frame Time: 130.17 ms | Skipped: 0 | Written: 22 | Total Time: 0:00:03.586
+Frame Number: 23 | Frame Size: 131080 | Frame Time: 130.32 ms | Skipped: 0 | Written: 23 | Total Time: 0:00:03.716
+Frame Number: 24 | Frame Size: 131080 | Frame Time: 130.01 ms | Skipped: 0 | Written: 24 | Total Time: 0:00:03.846
+Frame Number: 25 | Frame Size: 131080 | Frame Time: 130.08 ms | Skipped: 0 | Written: 25 | Total Time: 0:00:03.976
+Frame Number: 26 | Frame Size: 131080 | Frame Time: 131.60 ms | Skipped: 0 | Written: 26 | Total Time: 0:00:04.108
+Frame Number: 27 | Frame Size: 131080 | Frame Time: 127.93 ms | Skipped: 0 | Written: 27 | Total Time: 0:00:04.236
+Frame Number: 28 | Frame Size: 131080 | Frame Time: 130.28 ms | Skipped: 0 | Written: 28 | Total Time: 0:00:04.366
+Frame Number: 29 | Frame Size: 131080 | Frame Time: 130.16 ms | Skipped: 0 | Written: 29 | Total Time: 0:00:04.496
+Frame Number: 30 | Frame Size: 131080 | Frame Time: 130.13 ms | Skipped: 0 | Written: 30 | Total Time: 0:00:04.626
+Frame Number: 31 | Frame Size: 131080 | Frame Time: 130.12 ms | Skipped: 0 | Written: 31 | Total Time: 0:00:04.757
+Frame Number: 32 | Frame Size: 131080 | Frame Time: 129.32 ms | Skipped: 0 | Written: 32 | Total Time: 0:00:04.886
+Frame Number: 33 | Frame Size: 131080 | Frame Time: 132.51 ms | Skipped: 0 | Written: 33 | Total Time: 0:00:05.018
+Frame Number: 34 | Frame Size: 131080 | Frame Time: 128.22 ms | Skipped: 0 | Written: 34 | Total Time: 0:00:05.147
+Frame Number: 35 | Frame Size: 131080 | Frame Time: 129.74 ms | Skipped: 0 | Written: 35 | Total Time: 0:00:05.276
+Frame Number: 36 | Frame Size: 131080 | Frame Time: 130.15 ms | Skipped: 0 | Written: 36 | Total Time: 0:00:05.407
+Frame Number: 37 | Frame Size: 131080 | Frame Time: 131.71 ms | Skipped: 0 | Written: 37 | Total Time: 0:00:05.538
+Frame Number: 38 | Frame Size: 131080 | Frame Time: 127.75 ms | Skipped: 0 | Written: 38 | Total Time: 0:00:05.666
+Frame Number: 39 | Frame Size: 131080 | Frame Time: 133.41 ms | Skipped: 0 | Written: 39 | Total Time: 0:00:05.799
+Frame Number: 40 | Frame Size: 131080 | Frame Time: 127.12 ms | Skipped: 0 | Written: 40 | Total Time: 0:00:05.927
+Frame Number: 41 | Frame Size: 131080 | Frame Time: 131.26 ms | Skipped: 0 | Written: 41 | Total Time: 0:00:06.058
+Frame Number: 42 | Frame Size: 131080 | Frame Time: 128.88 ms | Skipped: 0 | Written: 42 | Total Time: 0:00:06.187
+Frame Number: 43 | Frame Size: 131080 | Frame Time: 129.29 ms | Skipped: 0 | Written: 43 | Total Time: 0:00:06.316
+Frame Number: 44 | Frame Size: 131080 | Frame Time: 129.92 ms | Skipped: 0 | Written: 44 | Total Time: 0:00:06.446
+Frame Number: 45 | Frame Size: 131080 | Frame Time: 130.25 ms | Skipped: 0 | Written: 45 | Total Time: 0:00:06.576
+Frame Number: 46 | Frame Size: 131080 | Frame Time: 130.23 ms | Skipped: 0 | Written: 46 | Total Time: 0:00:06.706
+Frame Number: 47 | Frame Size: 131080 | Frame Time: 130.45 ms | Skipped: 0 | Written: 47 | Total Time: 0:00:06.837
+Frame Number: 48 | Frame Size: 131080 | Frame Time: 129.59 ms | Skipped: 0 | Written: 48 | Total Time: 0:00:06.966
+Frame Number: 49 | Frame Size: 131080 | Frame Time: 129.54 ms | Skipped: 0 | Written: 49 | Total Time: 0:00:07.096
+Frame Number: 50 | Frame Size: 131080 | Frame Time: 130.25 ms | Skipped: 0 | Written: 50 | Total Time: 0:00:07.226
+Frame Number: 51 | Frame Size: 131080 | Frame Time: 130.96 ms | Skipped: 0 | Written: 51 | Total Time: 0:00:07.357
+Frame Number: 52 | Frame Size: 131080 | Frame Time: 131.61 ms | Skipped: 0 | Written: 52 | Total Time: 0:00:07.489
+Frame Number: 53 | Frame Size: 131080 | Frame Time: 130.01 ms | Skipped: 0 | Written: 53 | Total Time: 0:00:07.619
+Frame Number: 54 | Frame Size: 131080 | Frame Time: 127.24 ms | Skipped: 0 | Written: 54 | Total Time: 0:00:07.746
+Frame Number: 55 | Frame Size: 131080 | Frame Time: 129.94 ms | Skipped: 0 | Written: 55 | Total Time: 0:00:07.876
+Frame Number: 56 | Frame Size: 131080 | Frame Time: 131.84 ms | Skipped: 0 | Written: 56 | Total Time: 0:00:08.008
+Frame Number: 57 | Frame Size: 131080 | Frame Time: 132.07 ms | Skipped: 0 | Written: 57 | Total Time: 0:00:08.140
+Frame Number: 58 | Frame Size: 131080 | Frame Time: 126.81 ms | Skipped: 0 | Written: 58 | Total Time: 0:00:08.267
+Frame Number: 59 | Frame Size: 131080 | Frame Time: 130.17 ms | Skipped: 0 | Written: 59 | Total Time: 0:00:08.397
+Frame Number: 60 | Frame Size: 131080 | Frame Time: 130.23 ms | Skipped: 0 | Written: 60 | Total Time: 0:00:08.527
+Frame Number: 61 | Frame Size: 131080 | Frame Time: 129.20 ms | Skipped: 0 | Written: 61 | Total Time: 0:00:08.656
+Frame Number: 62 | Frame Size: 131080 | Frame Time: 131.09 ms | Skipped: 0 | Written: 62 | Total Time: 0:00:08.787
+Frame Number: 63 | Frame Size: 131080 | Frame Time: 129.17 ms | Skipped: 0 | Written: 63 | Total Time: 0:00:08.917
+Frame Number: 64 | Frame Size: 131080 | Frame Time: 130.12 ms | Skipped: 0 | Written: 64 | Total Time: 0:00:09.047
+Frame Number: 65 | Frame Size: 131080 | Frame Time: 131.04 ms | Skipped: 0 | Written: 65 | Total Time: 0:00:09.178
+Frame Number: 66 | Frame Size: 131080 | Frame Time: 128.38 ms | Skipped: 0 | Written: 66 | Total Time: 0:00:09.306
+Frame Number: 67 | Frame Size: 131080 | Frame Time: 130.13 ms | Skipped: 0 | Written: 67 | Total Time: 0:00:09.436
+Frame Number: 68 | Frame Size: 131080 | Frame Time: 130.16 ms | Skipped: 0 | Written: 68 | Total Time: 0:00:09.566
+Frame Number: 69 | Frame Size: 131080 | Frame Time: 131.24 ms | Skipped: 0 | Written: 69 | Total Time: 0:00:09.698
+Frame Number: 70 | Frame Size: 131080 | Frame Time: 129.08 ms | Skipped: 0 | Written: 70 | Total Time: 0:00:09.827
+Frame Number: 71 | Frame Size: 131080 | Frame Time: 129.36 ms | Skipped: 0 | Written: 71 | Total Time: 0:00:09.956
+Frame Number: 72 | Frame Size: 131080 | Frame Time: 130.05 ms | Skipped: 0 | Written: 72 | Total Time: 0:00:10.086
+Frame Number: 73 | Frame Size: 131080 | Frame Time: 131.21 ms | Skipped: 0 | Written: 73 | Total Time: 0:00:10.217
+Frame Number: 74 | Frame Size: 131080 | Frame Time: 131.60 ms | Skipped: 0 | Written: 74 | Total Time: 0:00:10.349
+Frame Number: 75 | Frame Size: 131080 | Frame Time: 127.81 ms | Skipped: 0 | Written: 75 | Total Time: 0:00:10.477
+Frame Number: 76 | Frame Size: 131080 | Frame Time: 129.11 ms | Skipped: 0 | Written: 76 | Total Time: 0:00:10.606
+Frame Number: 77 | Frame Size: 131080 | Frame Time: 130.51 ms | Skipped: 0 | Written: 77 | Total Time: 0:00:10.736
+Frame Number: 78 | Frame Size: 131080 | Frame Time: 132.36 ms | Skipped: 0 | Written: 78 | Total Time: 0:00:10.869
+Frame Number: 79 | Frame Size: 131080 | Frame Time: 127.98 ms | Skipped: 0 | Written: 79 | Total Time: 0:00:10.997
+Frame Number: 80 | Frame Size: 131080 | Frame Time: 130.00 ms | Skipped: 0 | Written: 80 | Total Time: 0:00:11.127
+Frame Number: 81 | Frame Size: 131080 | Frame Time: 130.34 ms | Skipped: 0 | Written: 81 | Total Time: 0:00:11.257
+Frame Number: 82 | Frame Size: 131080 | Frame Time: 129.16 ms | Skipped: 0 | Written: 82 | Total Time: 0:00:11.386
+Frame Number: 83 | Frame Size: 131080 | Frame Time: 130.21 ms | Skipped: 0 | Written: 83 | Total Time: 0:00:11.516
+Frame Number: 84 | Frame Size: 131080 | Frame Time: 129.82 ms | Skipped: 0 | Written: 84 | Total Time: 0:00:11.646
+Frame Number: 85 | Frame Size: 131080 | Frame Time: 131.38 ms | Skipped: 0 | Written: 85 | Total Time: 0:00:11.778
+Frame Number: 86 | Frame Size: 131080 | Frame Time: 129.21 ms | Skipped: 0 | Written: 86 | Total Time: 0:00:11.907
+Frame Number: 87 | Frame Size: 131080 | Frame Time: 129.08 ms | Skipped: 0 | Written: 87 | Total Time: 0:00:12.036
+Frame Number: 88 | Frame Size: 131080 | Frame Time: 129.96 ms | Skipped: 0 | Written: 88 | Total Time: 0:00:12.166
+Frame Number: 89 | Frame Size: 131080 | Frame Time: 130.14 ms | Skipped: 0 | Written: 89 | Total Time: 0:00:12.296
+Frame Number: 90 | Frame Size: 131080 | Frame Time: 130.28 ms | Skipped: 0 | Written: 90 | Total Time: 0:00:12.426
+Frame Number: 91 | Frame Size: 131080 | Frame Time: 130.39 ms | Skipped: 0 | Written: 91 | Total Time: 0:00:12.557
+Frame Number: 92 | Frame Size: 131080 | Frame Time: 129.85 ms | Skipped: 0 | Written: 92 | Total Time: 0:00:12.686
+Frame Number: 93 | Frame Size: 131080 | Frame Time: 131.67 ms | Skipped: 0 | Written: 93 | Total Time: 0:00:12.818
+Frame Number: 94 | Frame Size: 131080 | Frame Time: 127.84 ms | Skipped: 0 | Written: 94 | Total Time: 0:00:12.946
+Frame Number: 95 | Frame Size: 131080 | Frame Time: 130.37 ms | Skipped: 0 | Written: 95 | Total Time: 0:00:13.076
+Frame Number: 96 | Frame Size: 131080 | Frame Time: 130.00 ms | Skipped: 0 | Written: 96 | Total Time: 0:00:13.206
+Frame Number: 97 | Frame Size: 131080 | Frame Time: 130.19 ms | Skipped: 0 | Written: 97 | Total Time: 0:00:13.337
+Frame Number: 98 | Frame Size: 131080 | Frame Time: 129.39 ms | Skipped: 0 | Written: 98 | Total Time: 0:00:13.466
+Frame Number: 99 | Frame Size: 131080 | Frame Time: 130.01 ms | Skipped: 0 | Written: 99 | Total Time: 0:00:13.596
+Frame Number: 100 | Frame Size: 131080 | Frame Time: 130.42 ms | Skipped: 0 | Written: 100 | Total Time: 0:00:13.726
+Frame Number: 101 | Frame Size: 131080 | Frame Time: 130.19 ms | Skipped: 0 | Written: 101 | Total Time: 0:00:13.857
+Frame Number: 102 | Frame Size: 131080 | Frame Time: 130.33 ms | Skipped: 0 | Written: 102 | Total Time: 0:00:13.987
+Frame Number: 103 | Frame Size: 131080 | Frame Time: 130.03 ms | Skipped: 0 | Written: 103 | Total Time: 0:00:14.117
+Frame Number: 104 | Frame Size: 131080 | Frame Time: 130.85 ms | Skipped: 0 | Written: 104 | Total Time: 0:00:14.248
+Frame Number: 105 | Frame Size: 131080 | Frame Time: 128.46 ms | Skipped: 0 | Written: 105 | Total Time: 0:00:14.376
+Frame Number: 106 | Frame Size: 131080 | Frame Time: 130.18 ms | Skipped: 0 | Written: 106 | Total Time: 0:00:14.506
+Frame Number: 107 | Frame Size: 131080 | Frame Time: 130.94 ms | Skipped: 0 | Written: 107 | Total Time: 0:00:14.637
+Frame Number: 108 | Frame Size: 131080 | Frame Time: 130.90 ms | Skipped: 0 | Written: 108 | Total Time: 0:00:14.768
+Frame Number: 109 | Frame Size: 131080 | Frame Time: 131.58 ms | Skipped: 0 | Written: 109 | Total Time: 0:00:14.900
+Frame Number: 110 | Frame Size: 131080 | Frame Time: 130.62 ms | Skipped: 0 | Written: 110 | Total Time: 0:00:15.030
+Frame Number: 111 | Frame Size: 131080 | Frame Time: 125.80 ms | Skipped: 0 | Written: 111 | Total Time: 0:00:15.156
+Frame Number: 112 | Frame Size: 131080 | Frame Time: 130.26 ms | Skipped: 0 | Written: 112 | Total Time: 0:00:15.286
+Frame Number: 113 | Frame Size: 131080 | Frame Time: 129.98 ms | Skipped: 0 | Written: 113 | Total Time: 0:00:15.416
+Frame Number: 114 | Frame Size: 131080 | Frame Time: 129.90 ms | Skipped: 0 | Written: 114 | Total Time: 0:00:15.546
+Frame Number: 115 | Frame Size: 131080 | Frame Time: 129.73 ms | Skipped: 0 | Written: 115 | Total Time: 0:00:15.676
+Frame Number: 116 | Frame Size: 131080 | Frame Time: 131.08 ms | Skipped: 0 | Written: 116 | Total Time: 0:00:15.807
+Frame Number: 117 | Frame Size: 131080 | Frame Time: 130.71 ms | Skipped: 0 | Written: 117 | Total Time: 0:00:15.938
+Frame Number: 118 | Frame Size: 131080 | Frame Time: 129.07 ms | Skipped: 0 | Written: 118 | Total Time: 0:00:16.067
+Frame Number: 119 | Frame Size: 131080 | Frame Time: 129.65 ms | Skipped: 0 | Written: 119 | Total Time: 0:00:16.197
+Frame Number: 120 | Frame Size: 131080 | Frame Time: 129.31 ms | Skipped: 0 | Written: 120 | Total Time: 0:00:16.326
+Frame Number: 121 | Frame Size: 131080 | Frame Time: 130.36 ms | Skipped: 0 | Written: 121 | Total Time: 0:00:16.456
+Frame Number: 122 | Frame Size: 131080 | Frame Time: 135.99 ms | Skipped: 0 | Written: 122 | Total Time: 0:00:16.592
+Frame Number: 123 | Frame Size: 131080 | Frame Time: 124.19 ms | Skipped: 0 | Written: 123 | Total Time: 0:00:16.716
+Frame Number: 124 | Frame Size: 131080 | Frame Time: 130.28 ms | Skipped: 0 | Written: 124 | Total Time: 0:00:16.847
+Frame Number: 125 | Frame Size: 131080 | Frame Time: 130.06 ms | Skipped: 0 | Written: 125 | Total Time: 0:00:16.977
+Frame Number: 126 | Frame Size: 131080 | Frame Time: 129.34 ms | Skipped: 0 | Written: 126 | Total Time: 0:00:17.106
+Frame Number: 127 | Frame Size: 131080 | Frame Time: 133.49 ms | Skipped: 0 | Written: 127 | Total Time: 0:00:17.240
+Frame Number: 128 | Frame Size: 131080 | Frame Time: 126.88 ms | Skipped: 0 | Written: 128 | Total Time: 0:00:17.366
+Frame Number: 129 | Frame Size: 131080 | Frame Time: 132.31 ms | Skipped: 0 | Written: 129 | Total Time: 0:00:17.499
+Frame Number: 130 | Frame Size: 131080 | Frame Time: 129.05 ms | Skipped: 0 | Written: 130 | Total Time: 0:00:17.628
+Frame Number: 131 | Frame Size: 131080 | Frame Time: 128.08 ms | Skipped: 0 | Written: 131 | Total Time: 0:00:17.756
+Frame Number: 132 | Frame Size: 131080 | Frame Time: 130.46 ms | Skipped: 0 | Written: 132 | Total Time: 0:00:17.886
+Frame Number: 133 | Frame Size: 131080 | Frame Time: 138.81 ms | Skipped: 0 | Written: 133 | Total Time: 0:00:18.025
+Frame Number: 134 | Frame Size: 131080 | Frame Time: 123.03 ms | Skipped: 0 | Written: 134 | Total Time: 0:00:18.148
+Frame Number: 135 | Frame Size: 131080 | Frame Time: 128.69 ms | Skipped: 0 | Written: 135 | Total Time: 0:00:18.277
+Frame Number: 136 | Frame Size: 131080 | Frame Time: 129.70 ms | Skipped: 0 | Written: 136 | Total Time: 0:00:18.407
+Frame Number: 137 | Frame Size: 131080 | Frame Time: 134.93 ms | Skipped: 0 | Written: 137 | Total Time: 0:00:18.542
+Frame Number: 138 | Frame Size: 131080 | Frame Time: 126.43 ms | Skipped: 0 | Written: 138 | Total Time: 0:00:18.668
+Frame Number: 139 | Frame Size: 131080 | Frame Time: 131.27 ms | Skipped: 0 | Written: 139 | Total Time: 0:00:18.799
+Frame Number: 140 | Frame Size: 131080 | Frame Time: 128.86 ms | Skipped: 0 | Written: 140 | Total Time: 0:00:18.928
+Frame Number: 141 | Frame Size: 131080 | Frame Time: 131.61 ms | Skipped: 0 | Written: 141 | Total Time: 0:00:19.060
+Frame Number: 142 | Frame Size: 131080 | Frame Time: 128.19 ms | Skipped: 0 | Written: 142 | Total Time: 0:00:19.188
+Frame Number: 143 | Frame Size: 131080 | Frame Time: 130.14 ms | Skipped: 0 | Written: 143 | Total Time: 0:00:19.318
+Frame Number: 144 | Frame Size: 131080 | Frame Time: 130.15 ms | Skipped: 0 | Written: 144 | Total Time: 0:00:19.448
+Frame Number: 145 | Frame Size: 131080 | Frame Time: 131.08 ms | Skipped: 0 | Written: 145 | Total Time: 0:00:19.579
+Frame Number: 146 | Frame Size: 131080 | Frame Time: 130.19 ms | Skipped: 0 | Written: 146 | Total Time: 0:00:19.709
+Frame Number: 147 | Frame Size: 131080 | Frame Time: 129.74 ms | Skipped: 0 | Written: 147 | Total Time: 0:00:19.839
+Frame Number: 148 | Frame Size: 131080 | Frame Time: 130.31 ms | Skipped: 0 | Written: 148 | Total Time: 0:00:19.970
+Frame Number: 149 | Frame Size: 131080 | Frame Time: 128.36 ms | Skipped: 0 | Written: 149 | Total Time: 0:00:20.098
+Frame Number: 150 | Frame Size: 131080 | Frame Time: 128.43 ms | Skipped: 0 | Written: 150 | Total Time: 0:00:20.226
+Frame Number: 151 | Frame Size: 131080 | Frame Time: 130.42 ms | Skipped: 0 | Written: 151 | Total Time: 0:00:20.357
+Frame Number: 152 | Frame Size: 131080 | Frame Time: 130.03 ms | Skipped: 0 | Written: 152 | Total Time: 0:00:20.487
+Frame Number: 153 | Frame Size: 131080 | Frame Time: 134.28 ms | Skipped: 0 | Written: 153 | Total Time: 0:00:20.621
+Frame Number: 154 | Frame Size: 131080 | Frame Time: 132.97 ms | Skipped: 0 | Written: 154 | Total Time: 0:00:20.754
+Frame Number: 155 | Frame Size: 131080 | Frame Time: 125.46 ms | Skipped: 0 | Written: 155 | Total Time: 0:00:20.879
+Frame Number: 156 | Frame Size: 131080 | Frame Time: 128.39 ms | Skipped: 0 | Written: 156 | Total Time: 0:00:21.008
+Frame Number: 157 | Frame Size: 131080 | Frame Time: 130.28 ms | Skipped: 0 | Written: 157 | Total Time: 0:00:21.138
+Frame Number: 158 | Frame Size: 131080 | Frame Time: 130.48 ms | Skipped: 0 | Written: 158 | Total Time: 0:00:21.269
+Frame Number: 159 | Frame Size: 131080 | Frame Time: 129.00 ms | Skipped: 0 | Written: 159 | Total Time: 0:00:21.398
+Frame Number: 160 | Frame Size: 131080 | Frame Time: 130.78 ms | Skipped: 0 | Written: 160 | Total Time: 0:00:21.528
+Frame Number: 161 | Frame Size: 131080 | Frame Time: 131.51 ms | Skipped: 0 | Written: 161 | Total Time: 0:00:21.660
+Frame Number: 162 | Frame Size: 131080 | Frame Time: 128.61 ms | Skipped: 0 | Written: 162 | Total Time: 0:00:21.789
+Frame Number: 163 | Frame Size: 131080 | Frame Time: 130.36 ms | Skipped: 0 | Written: 163 | Total Time: 0:00:21.919
+Frame Number: 164 | Frame Size: 131080 | Frame Time: 130.39 ms | Skipped: 0 | Written: 164 | Total Time: 0:00:22.049
+Frame Number: 165 | Frame Size: 131080 | Frame Time: 128.06 ms | Skipped: 0 | Written: 165 | Total Time: 0:00:22.177
+Frame Number: 166 | Frame Size: 131080 | Frame Time: 132.17 ms | Skipped: 0 | Written: 166 | Total Time: 0:00:22.310
+Frame Number: 167 | Frame Size: 131080 | Frame Time: 128.68 ms | Skipped: 0 | Written: 167 | Total Time: 0:00:22.438
+Frame Number: 168 | Frame Size: 131080 | Frame Time: 132.15 ms | Skipped: 0 | Written: 168 | Total Time: 0:00:22.570
+Frame Number: 169 | Frame Size: 131080 | Frame Time: 129.19 ms | Skipped: 0 | Written: 169 | Total Time: 0:00:22.700
+Frame Number: 170 | Frame Size: 131080 | Frame Time: 128.57 ms | Skipped: 0 | Written: 170 | Total Time: 0:00:22.828
+Frame Number: 171 | Frame Size: 131080 | Frame Time: 130.69 ms | Skipped: 0 | Written: 171 | Total Time: 0:00:22.959
+Frame Number: 172 | Frame Size: 131080 | Frame Time: 129.04 ms | Skipped: 0 | Written: 172 | Total Time: 0:00:23.088
+Frame Number: 173 | Frame Size: 131080 | Frame Time: 148.81 ms | Skipped: 0 | Written: 173 | Total Time: 0:00:23.237
+Frame Number: 174 | Frame Size: 131080 | Frame Time: 114.27 ms | Skipped: 0 | Written: 174 | Total Time: 0:00:23.351
+Frame Number: 175 | Frame Size: 131080 | Frame Time: 127.89 ms | Skipped: 0 | Written: 175 | Total Time: 0:00:23.479
+Frame Number: 176 | Frame Size: 131080 | Frame Time: 168.86 ms | Skipped: 0 | Written: 176 | Total Time: 0:00:23.648
+Frame Number: 177 | Frame Size: 131080 | Frame Time: 143.08 ms | Skipped: 0 | Written: 177 | Total Time: 0:00:23.791
+Frame Number: 178 | Frame Size: 131080 | Frame Time: 179.40 ms | Skipped: 0 | Written: 178 | Total Time: 0:00:23.970
+Frame Number: 179 | Frame Size: 131080 | Frame Time: 76.32 ms | Skipped: 0 | Written: 179 | Total Time: 0:00:24.046
+Frame Number: 180 | Frame Size: 131080 | Frame Time: 81.94 ms | Skipped: 0 | Written: 180 | Total Time: 0:00:24.128
+Frame Number: 181 | Frame Size: 131080 | Frame Time: 131.66 ms | Skipped: 0 | Written: 181 | Total Time: 0:00:24.260
+Frame Number: 182 | Frame Size: 131080 | Frame Time: 128.20 ms | Skipped: 0 | Written: 182 | Total Time: 0:00:24.388
+Frame Number: 183 | Frame Size: 131080 | Frame Time: 254.81 ms | Skipped: 0 | Written: 183 | Total Time: 0:00:24.643
+Frame Number: 184 | Frame Size: 131080 | Frame Time: 136.03 ms | Skipped: 0 | Written: 184 | Total Time: 0:00:24.779
+Frame Number: 185 | Frame Size: 131080 | Frame Time: 135.83 ms | Skipped: 0 | Written: 185 | Total Time: 0:00:24.915
+Frame Number: 186 | Frame Size: 131080 | Frame Time: 122.74 ms | Skipped: 0 | Written: 186 | Total Time: 0:00:25.038
+Frame Number: 187 | Frame Size: 131080 | Frame Time: 135.51 ms | Skipped: 0 | Written: 187 | Total Time: 0:00:25.173
+Frame Number: 188 | Frame Size: 131080 | Frame Time: 150.68 ms | Skipped: 0 | Written: 188 | Total Time: 0:00:25.324
+Frame Number: 189 | Frame Size: 131080 | Frame Time: 104.56 ms | Skipped: 0 | Written: 189 | Total Time: 0:00:25.428
+Frame Number: 190 | Frame Size: 131080 | Frame Time: 154.20 ms | Skipped: 0 | Written: 190 | Total Time: 0:00:25.583
+Frame Number: 191 | Frame Size: 131080 | Frame Time: 106.29 ms | Skipped: 0 | Written: 191 | Total Time: 0:00:25.689
+Frame Number: 192 | Frame Size: 131080 | Frame Time: 136.30 ms | Skipped: 0 | Written: 192 | Total Time: 0:00:25.825
+Frame Number: 193 | Frame Size: 131080 | Frame Time: 124.66 ms | Skipped: 0 | Written: 193 | Total Time: 0:00:25.950
+Frame Number: 194 | Frame Size: 131080 | Frame Time: 131.59 ms | Skipped: 0 | Written: 194 | Total Time: 0:00:26.081
+Frame Number: 195 | Frame Size: 131080 | Frame Time: 130.50 ms | Skipped: 0 | Written: 195 | Total Time: 0:00:26.212
+Frame Number: 196 | Frame Size: 131080 | Frame Time: 138.64 ms | Skipped: 0 | Written: 196 | Total Time: 0:00:26.351
+Frame Number: 197 | Frame Size: 131080 | Frame Time: 119.43 ms | Skipped: 0 | Written: 197 | Total Time: 0:00:26.470
+Frame Number: 198 | Frame Size: 131080 | Frame Time: 130.16 ms | Skipped: 0 | Written: 198 | Total Time: 0:00:26.600
+Frame Number: 199 | Frame Size: 131080 | Frame Time: 131.02 ms | Skipped: 0 | Written: 199 | Total Time: 0:00:26.731
+Frame Number: 200 | Frame Size: 131080 | Frame Time: 129.28 ms | Skipped: 0 | Written: 200 | Total Time: 0:00:26.861
+Frame Number: 201 | Frame Size: 131080 | Frame Time: 130.50 ms | Skipped: 0 | Written: 201 | Total Time: 0:00:26.991
+Frame Number: 202 | Frame Size: 131080 | Frame Time: 128.75 ms | Skipped: 0 | Written: 202 | Total Time: 0:00:27.120
+Frame Number: 203 | Frame Size: 131080 | Frame Time: 131.12 ms | Skipped: 0 | Written: 203 | Total Time: 0:00:27.251
+Frame Number: 204 | Frame Size: 131080 | Frame Time: 129.52 ms | Skipped: 0 | Written: 204 | Total Time: 0:00:27.380
+Frame Number: 205 | Frame Size: 131080 | Frame Time: 129.07 ms | Skipped: 0 | Written: 205 | Total Time: 0:00:27.509
+Frame Number: 206 | Frame Size: 131080 | Frame Time: 131.90 ms | Skipped: 0 | Written: 206 | Total Time: 0:00:27.641
+Frame Number: 207 | Frame Size: 131080 | Frame Time: 127.97 ms | Skipped: 0 | Written: 207 | Total Time: 0:00:27.769
+Frame Number: 208 | Frame Size: 131080 | Frame Time: 131.13 ms | Skipped: 0 | Written: 208 | Total Time: 0:00:27.900
+Frame Number: 209 | Frame Size: 131080 | Frame Time: 130.08 ms | Skipped: 0 | Written: 209 | Total Time: 0:00:28.031
+Frame Number: 210 | Frame Size: 131080 | Frame Time: 130.80 ms | Skipped: 0 | Written: 210 | Total Time: 0:00:28.161
+Frame Number: 211 | Frame Size: 131080 | Frame Time: 128.27 ms | Skipped: 0 | Written: 211 | Total Time: 0:00:28.290
+Frame Number: 212 | Frame Size: 131080 | Frame Time: 130.38 ms | Skipped: 0 | Written: 212 | Total Time: 0:00:28.420
+Frame Number: 213 | Frame Size: 131080 | Frame Time: 129.51 ms | Skipped: 0 | Written: 213 | Total Time: 0:00:28.550
+Frame Number: 214 | Frame Size: 131080 | Frame Time: 130.48 ms | Skipped: 0 | Written: 214 | Total Time: 0:00:28.680
+Frame Number: 215 | Frame Size: 131080 | Frame Time: 136.81 ms | Skipped: 0 | Written: 215 | Total Time: 0:00:28.817
+Frame Number: 216 | Frame Size: 131080 | Frame Time: 127.52 ms | Skipped: 0 | Written: 216 | Total Time: 0:00:28.944
+Frame Number: 217 | Frame Size: 131080 | Frame Time: 131.76 ms | Skipped: 0 | Written: 217 | Total Time: 0:00:29.076
+Frame Number: 218 | Frame Size: 131080 | Frame Time: 126.42 ms | Skipped: 0 | Written: 218 | Total Time: 0:00:29.202
+Frame Number: 219 | Frame Size: 131080 | Frame Time: 127.27 ms | Skipped: 0 | Written: 219 | Total Time: 0:00:29.330
+Frame Number: 220 | Frame Size: 131080 | Frame Time: 130.26 ms | Skipped: 0 | Written: 220 | Total Time: 0:00:29.460
+Frame Number: 221 | Frame Size: 131080 | Frame Time: 132.23 ms | Skipped: 0 | Written: 221 | Total Time: 0:00:29.592
+Frame Number: 222 | Frame Size: 131080 | Frame Time: 126.44 ms | Skipped: 0 | Written: 222 | Total Time: 0:00:29.719
+Frame Number: 223 | Frame Size: 131080 | Frame Time: 131.48 ms | Skipped: 0 | Written: 223 | Total Time: 0:00:29.850
+Frame Number: 224 | Frame Size: 131080 | Frame Time: 128.65 ms | Skipped: 0 | Written: 224 | Total Time: 0:00:29.979
+Frame Number: 225 | Frame Size: 131080 | Frame Time: 134.30 ms | Skipped: 0 | Written: 225 | Total Time: 0:00:30.113
+Frame Number: 226 | Frame Size: 131080 | Frame Time: 136.06 ms | Skipped: 0 | Written: 226 | Total Time: 0:00:30.249
+Frame Number: 227 | Frame Size: 131080 | Frame Time: 243.38 ms | Skipped: 0 | Written: 227 | Total Time: 0:00:30.493
+Frame Number: 228 | Frame Size: 131080 | Frame Time: 135.23 ms | Skipped: 0 | Written: 228 | Total Time: 0:00:30.628
+Frame Number: 229 | Frame Size: 131080 | Frame Time: 129.58 ms | Skipped: 0 | Written: 229 | Total Time: 0:00:30.757
+Frame Number: 230 | Frame Size: 131080 | Frame Time: 131.04 ms | Skipped: 0 | Written: 230 | Total Time: 0:00:30.888
+Frame Number: 231 | Frame Size: 131080 | Frame Time: 129.82 ms | Skipped: 0 | Written: 231 | Total Time: 0:00:31.018
+Frame Number: 232 | Frame Size: 131080 | Frame Time: 129.93 ms | Skipped: 0 | Written: 232 | Total Time: 0:00:31.148
+Frame Number: 233 | Frame Size: 131080 | Frame Time: 130.46 ms | Skipped: 0 | Written: 233 | Total Time: 0:00:31.279
+Frame Number: 234 | Frame Size: 131080 | Frame Time: 130.33 ms | Skipped: 0 | Written: 234 | Total Time: 0:00:31.409
+Frame Number: 235 | Frame Size: 131080 | Frame Time: 129.32 ms | Skipped: 0 | Written: 235 | Total Time: 0:00:31.538
+Frame Number: 236 | Frame Size: 131080 | Frame Time: 129.01 ms | Skipped: 0 | Written: 236 | Total Time: 0:00:31.667
+Frame Number: 237 | Frame Size: 131080 | Frame Time: 131.03 ms | Skipped: 0 | Written: 237 | Total Time: 0:00:31.798
+Frame Number: 238 | Frame Size: 131080 | Frame Time: 129.89 ms | Skipped: 0 | Written: 238 | Total Time: 0:00:31.928
+Frame Number: 239 | Frame Size: 131080 | Frame Time: 130.75 ms | Skipped: 0 | Written: 239 | Total Time: 0:00:32.059
+Frame Number: 240 | Frame Size: 131080 | Frame Time: 131.50 ms | Skipped: 0 | Written: 240 | Total Time: 0:00:32.190
+Frame Number: 241 | Frame Size: 131080 | Frame Time: 126.78 ms | Skipped: 0 | Written: 241 | Total Time: 0:00:32.317
+Frame Number: 242 | Frame Size: 131080 | Frame Time: 131.44 ms | Skipped: 0 | Written: 242 | Total Time: 0:00:32.449
+Frame Number: 243 | Frame Size: 131080 | Frame Time: 129.97 ms | Skipped: 0 | Written: 243 | Total Time: 0:00:32.579
+Frame Number: 244 | Frame Size: 131080 | Frame Time: 131.41 ms | Skipped: 0 | Written: 244 | Total Time: 0:00:32.710
+Frame Number: 245 | Frame Size: 131080 | Frame Time: 128.57 ms | Skipped: 0 | Written: 245 | Total Time: 0:00:32.839
+Frame Number: 246 | Frame Size: 131080 | Frame Time: 130.01 ms | Skipped: 0 | Written: 246 | Total Time: 0:00:32.969
+Frame Number: 247 | Frame Size: 131080 | Frame Time: 138.58 ms | Skipped: 0 | Written: 247 | Total Time: 0:00:33.107
+Frame Number: 248 | Frame Size: 131080 | Frame Time: 162.89 ms | Skipped: 0 | Written: 248 | Total Time: 0:00:33.270
+Frame Number: 249 | Frame Size: 131080 | Frame Time: 124.60 ms | Skipped: 0 | Written: 249 | Total Time: 0:00:33.395
+Frame Number: 250 | Frame Size: 131080 | Frame Time: 215.61 ms | Skipped: 0 | Written: 250 | Total Time: 0:00:33.610
+Frame Number: 251 | Frame Size: 131080 | Frame Time: 137.87 ms | Skipped: 0 | Written: 251 | Total Time: 0:00:33.748
+Frame Number: 252 | Frame Size: 131080 | Frame Time: 132.50 ms | Skipped: 0 | Written: 252 | Total Time: 0:00:33.881
+Frame Number: 253 | Frame Size: 131080 | Frame Time: 127.20 ms | Skipped: 0 | Written: 253 | Total Time: 0:00:34.008
+Frame Number: 254 | Frame Size: 131080 | Frame Time: 132.63 ms | Skipped: 0 | Written: 254 | Total Time: 0:00:34.141
+Frame Number: 255 | Frame Size: 131080 | Frame Time: 126.49 ms | Skipped: 0 | Written: 255 | Total Time: 0:00:34.267
+Frame Number: 256 | Frame Size: 131080 | Frame Time: 131.16 ms | Skipped: 0 | Written: 256 | Total Time: 0:00:34.398
+Frame Number: 257 | Frame Size: 131080 | Frame Time: 161.99 ms | Skipped: 0 | Written: 257 | Total Time: 0:00:34.560
+Frame Number: 258 | Frame Size: 131080 | Frame Time: 150.02 ms | Skipped: 0 | Written: 258 | Total Time: 0:00:34.710
+Frame Number: 259 | Frame Size: 131080 | Frame Time: 85.04 ms | Skipped: 0 | Written: 259 | Total Time: 0:00:34.795
+Frame Number: 260 | Frame Size: 131080 | Frame Time: 123.01 ms | Skipped: 0 | Written: 260 | Total Time: 0:00:34.918
+Frame Number: 261 | Frame Size: 131080 | Frame Time: 129.55 ms | Skipped: 0 | Written: 261 | Total Time: 0:00:35.048
+Frame Number: 262 | Frame Size: 131080 | Frame Time: 130.21 ms | Skipped: 0 | Written: 262 | Total Time: 0:00:35.178
+Frame Number: 263 | Frame Size: 131080 | Frame Time: 130.13 ms | Skipped: 0 | Written: 263 | Total Time: 0:00:35.308
+Frame Number: 264 | Frame Size: 131080 | Frame Time: 130.73 ms | Skipped: 0 | Written: 264 | Total Time: 0:00:35.439
+Frame Number: 265 | Frame Size: 131080 | Frame Time: 214.09 ms | Skipped: 0 | Written: 265 | Total Time: 0:00:35.653
+Frame Number: 266 | Frame Size: 131080 | Frame Time: 45.21 ms | Skipped: 0 | Written: 266 | Total Time: 0:00:35.698
+Frame Number: 267 | Frame Size: 131080 | Frame Time: 157.70 ms | Skipped: 0 | Written: 267 | Total Time: 0:00:35.856
+Frame Number: 268 | Frame Size: 131080 | Frame Time: 199.12 ms | Skipped: 0 | Written: 268 | Total Time: 0:00:36.055
+Frame Number: 269 | Frame Size: 131080 | Frame Time: 293.76 ms | Skipped: 0 | Written: 269 | Total Time: 0:00:36.349
+Frame Number: 270 | Frame Size: 131080 | Frame Time: 134.24 ms | Skipped: 0 | Written: 270 | Total Time: 0:00:36.483
+Frame Number: 271 | Frame Size: 131080 | Frame Time: 160.83 ms | Skipped: 0 | Written: 271 | Total Time: 0:00:36.644
+Frame Number: 272 | Frame Size: 131080 | Frame Time: 117.05 ms | Skipped: 0 | Written: 272 | Total Time: 0:00:36.761
+Frame Number: 273 | Frame Size: 131080 | Frame Time: 141.98 ms | Skipped: 0 | Written: 273 | Total Time: 0:00:36.903
+Frame Number: 274 | Frame Size: 131080 | Frame Time: 185.01 ms | Skipped: 0 | Written: 274 | Total Time: 0:00:37.088
+Frame Number: 275 | Frame Size: 131080 | Frame Time: 60.62 ms | Skipped: 0 | Written: 275 | Total Time: 0:00:37.148
+Frame Number: 276 | Frame Size: 131080 | Frame Time: 135.64 ms | Skipped: 0 | Written: 276 | Total Time: 0:00:37.284
+Frame Number: 277 | Frame Size: 131080 | Frame Time: 124.36 ms | Skipped: 0 | Written: 277 | Total Time: 0:00:37.408
+Frame Number: 278 | Frame Size: 131080 | Frame Time: 109.68 ms | Skipped: 0 | Written: 278 | Total Time: 0:00:37.518
+Frame Number: 279 | Frame Size: 131080 | Frame Time: 147.35 ms | Skipped: 0 | Written: 279 | Total Time: 0:00:37.666
+Frame Number: 280 | Frame Size: 131080 | Frame Time: 112.17 ms | Skipped: 0 | Written: 280 | Total Time: 0:00:37.778
+Frame Number: 281 | Frame Size: 131080 | Frame Time: 130.09 ms | Skipped: 0 | Written: 281 | Total Time: 0:00:37.908
+Frame Number: 282 | Frame Size: 131080 | Frame Time: 129.90 ms | Skipped: 0 | Written: 282 | Total Time: 0:00:38.038
+Frame Number: 283 | Frame Size: 131080 | Frame Time: 130.40 ms | Skipped: 0 | Written: 283 | Total Time: 0:00:38.168
+Frame Number: 284 | Frame Size: 131080 | Frame Time: 137.27 ms | Skipped: 0 | Written: 284 | Total Time: 0:00:38.305
+Frame Number: 285 | Frame Size: 131080 | Frame Time: 182.52 ms | Skipped: 0 | Written: 285 | Total Time: 0:00:38.488
+Frame Number: 286 | Frame Size: 131080 | Frame Time: 71.89 ms | Skipped: 0 | Written: 286 | Total Time: 0:00:38.560
+Frame Number: 287 | Frame Size: 131080 | Frame Time: 132.34 ms | Skipped: 0 | Written: 287 | Total Time: 0:00:38.692
+Frame Number: 288 | Frame Size: 131080 | Frame Time: 128.78 ms | Skipped: 0 | Written: 288 | Total Time: 0:00:38.821
+Frame Number: 289 | Frame Size: 131080 | Frame Time: 131.12 ms | Skipped: 0 | Written: 289 | Total Time: 0:00:38.952
+Frame Number: 290 | Frame Size: 131080 | Frame Time: 130.07 ms | Skipped: 0 | Written: 290 | Total Time: 0:00:39.082
+Frame Number: 291 | Frame Size: 131080 | Frame Time: 127.16 ms | Skipped: 0 | Written: 291 | Total Time: 0:00:39.209
+Frame Number: 292 | Frame Size: 131080 | Frame Time: 131.75 ms | Skipped: 0 | Written: 292 | Total Time: 0:00:39.341
+Frame Number: 293 | Frame Size: 131080 | Frame Time: 129.21 ms | Skipped: 0 | Written: 293 | Total Time: 0:00:39.470
+Frame Number: 294 | Frame Size: 131080 | Frame Time: 129.24 ms | Skipped: 0 | Written: 294 | Total Time: 0:00:39.599
+Frame Number: 295 | Frame Size: 131080 | Frame Time: 131.98 ms | Skipped: 0 | Written: 295 | Total Time: 0:00:39.731
+Frame Number: 296 | Frame Size: 131080 | Frame Time: 128.68 ms | Skipped: 0 | Written: 296 | Total Time: 0:00:39.860
+Frame Number: 297 | Frame Size: 131080 | Frame Time: 129.28 ms | Skipped: 0 | Written: 297 | Total Time: 0:00:39.989
+Frame Number: 298 | Frame Size: 131080 | Frame Time: 130.09 ms | Skipped: 0 | Written: 298 | Total Time: 0:00:40.119
+Frame Number: 299 | Frame Size: 131080 | Frame Time: 135.65 ms | Skipped: 0 | Written: 299 | Total Time: 0:00:40.255
+Frame Number: 300 | Frame Size: 131080 | Frame Time: 124.96 ms | Skipped: 0 | Written: 300 | Total Time: 0:00:40.380
+Frame Number: 301 | Frame Size: 131080 | Frame Time: 144.26 ms | Skipped: 0 | Written: 301 | Total Time: 0:00:40.524
+Frame Number: 302 | Frame Size: 131080 | Frame Time: 120.15 ms | Skipped: 0 | Written: 302 | Total Time: 0:00:40.644
+Frame Number: 303 | Frame Size: 131080 | Frame Time: 129.98 ms | Skipped: 0 | Written: 303 | Total Time: 0:00:40.774
+Frame Number: 304 | Frame Size: 131080 | Frame Time: 131.96 ms | Skipped: 0 | Written: 304 | Total Time: 0:00:40.906
+Frame Number: 305 | Frame Size: 131080 | Frame Time: 127.85 ms | Skipped: 0 | Written: 305 | Total Time: 0:00:41.034
+Frame Number: 306 | Frame Size: 131080 | Frame Time: 133.29 ms | Skipped: 0 | Written: 306 | Total Time: 0:00:41.168
+Frame Number: 307 | Frame Size: 131080 | Frame Time: 135.10 ms | Skipped: 0 | Written: 307 | Total Time: 0:00:41.303
+Frame Number: 308 | Frame Size: 131080 | Frame Time: 123.75 ms | Skipped: 0 | Written: 308 | Total Time: 0:00:41.426
+Frame Number: 309 | Frame Size: 131080 | Frame Time: 128.57 ms | Skipped: 0 | Written: 309 | Total Time: 0:00:41.555
+Frame Number: 310 | Frame Size: 131080 | Frame Time: 133.02 ms | Skipped: 0 | Written: 310 | Total Time: 0:00:41.688
+Frame Number: 311 | Frame Size: 131080 | Frame Time: 127.60 ms | Skipped: 0 | Written: 311 | Total Time: 0:00:41.816
+Frame Number: 312 | Frame Size: 131080 | Frame Time: 128.94 ms | Skipped: 0 | Written: 312 | Total Time: 0:00:41.945
+Frame Number: 313 | Frame Size: 131080 | Frame Time: 130.53 ms | Skipped: 0 | Written: 313 | Total Time: 0:00:42.075
+Frame Number: 314 | Frame Size: 131080 | Frame Time: 129.71 ms | Skipped: 0 | Written: 314 | Total Time: 0:00:42.205
+Frame Number: 315 | Frame Size: 131080 | Frame Time: 128.73 ms | Skipped: 0 | Written: 315 | Total Time: 0:00:42.334
+Frame Number: 316 | Frame Size: 131080 | Frame Time: 131.43 ms | Skipped: 0 | Written: 316 | Total Time: 0:00:42.465
+Frame Number: 317 | Frame Size: 131080 | Frame Time: 130.02 ms | Skipped: 0 | Written: 317 | Total Time: 0:00:42.595
+Frame Number: 318 | Frame Size: 131080 | Frame Time: 134.66 ms | Skipped: 0 | Written: 318 | Total Time: 0:00:42.730
+Frame Number: 319 | Frame Size: 131080 | Frame Time: 125.15 ms | Skipped: 0 | Written: 319 | Total Time: 0:00:42.855
+Frame Number: 320 | Frame Size: 131080 | Frame Time: 130.96 ms | Skipped: 0 | Written: 320 | Total Time: 0:00:42.986
+Frame Number: 321 | Frame Size: 131080 | Frame Time: 132.45 ms | Skipped: 0 | Written: 321 | Total Time: 0:00:43.118
+Frame Number: 322 | Frame Size: 131080 | Frame Time: 128.62 ms | Skipped: 0 | Written: 322 | Total Time: 0:00:43.247
+Frame Number: 323 | Frame Size: 131080 | Frame Time: 128.83 ms | Skipped: 0 | Written: 323 | Total Time: 0:00:43.376
+Frame Number: 324 | Frame Size: 131080 | Frame Time: 123.00 ms | Skipped: 0 | Written: 324 | Total Time: 0:00:43.499
+Frame Number: 325 | Frame Size: 131080 | Frame Time: 131.57 ms | Skipped: 0 | Written: 325 | Total Time: 0:00:43.630
+Frame Number: 326 | Frame Size: 131080 | Frame Time: 128.84 ms | Skipped: 0 | Written: 326 | Total Time: 0:00:43.759
+Frame Number: 327 | Frame Size: 131080 | Frame Time: 130.26 ms | Skipped: 0 | Written: 327 | Total Time: 0:00:43.889
+Frame Number: 328 | Frame Size: 131080 | Frame Time: 129.95 ms | Skipped: 0 | Written: 328 | Total Time: 0:00:44.019
+Frame Number: 329 | Frame Size: 131080 | Frame Time: 131.43 ms | Skipped: 0 | Written: 329 | Total Time: 0:00:44.151
+Frame Number: 330 | Frame Size: 131080 | Frame Time: 128.53 ms | Skipped: 0 | Written: 330 | Total Time: 0:00:44.279
+Frame Number: 331 | Frame Size: 131080 | Frame Time: 130.09 ms | Skipped: 0 | Written: 331 | Total Time: 0:00:44.409
+Frame Number: 332 | Frame Size: 131080 | Frame Time: 131.13 ms | Skipped: 0 | Written: 332 | Total Time: 0:00:44.540
+Frame Number: 333 | Frame Size: 131080 | Frame Time: 129.45 ms | Skipped: 0 | Written: 333 | Total Time: 0:00:44.670
+Frame Number: 334 | Frame Size: 131080 | Frame Time: 131.04 ms | Skipped: 0 | Written: 334 | Total Time: 0:00:44.801
+Frame Number: 335 | Frame Size: 131080 | Frame Time: 127.73 ms | Skipped: 0 | Written: 335 | Total Time: 0:00:44.929
+Frame Number: 336 | Frame Size: 131080 | Frame Time: 132.93 ms | Skipped: 0 | Written: 336 | Total Time: 0:00:45.062
+Frame Number: 337 | Frame Size: 131080 | Frame Time: 128.12 ms | Skipped: 0 | Written: 337 | Total Time: 0:00:45.190
+Frame Number: 338 | Frame Size: 131080 | Frame Time: 131.78 ms | Skipped: 0 | Written: 338 | Total Time: 0:00:45.321
+Frame Number: 339 | Frame Size: 131080 | Frame Time: 127.99 ms | Skipped: 0 | Written: 339 | Total Time: 0:00:45.449
+Frame Number: 340 | Frame Size: 131080 | Frame Time: 131.10 ms | Skipped: 0 | Written: 340 | Total Time: 0:00:45.581
+Frame Number: 341 | Frame Size: 131080 | Frame Time: 128.66 ms | Skipped: 0 | Written: 341 | Total Time: 0:00:45.709
+Frame Number: 342 | Frame Size: 131080 | Frame Time: 131.28 ms | Skipped: 0 | Written: 342 | Total Time: 0:00:45.841
+Frame Number: 343 | Frame Size: 131080 | Frame Time: 129.14 ms | Skipped: 0 | Written: 343 | Total Time: 0:00:45.970
+Frame Number: 344 | Frame Size: 131080 | Frame Time: 134.53 ms | Skipped: 0 | Written: 344 | Total Time: 0:00:46.104
+Frame Number: 345 | Frame Size: 131080 | Frame Time: 126.50 ms | Skipped: 0 | Written: 345 | Total Time: 0:00:46.231
+Frame Number: 346 | Frame Size: 131080 | Frame Time: 129.21 ms | Skipped: 0 | Written: 346 | Total Time: 0:00:46.360
+Frame Number: 347 | Frame Size: 131080 | Frame Time: 130.24 ms | Skipped: 0 | Written: 347 | Total Time: 0:00:46.490
+Frame Number: 348 | Frame Size: 131080 | Frame Time: 130.68 ms | Skipped: 0 | Written: 348 | Total Time: 0:00:46.621
+Frame Number: 349 | Frame Size: 131080 | Frame Time: 130.24 ms | Skipped: 0 | Written: 349 | Total Time: 0:00:46.751
+Frame Number: 350 | Frame Size: 131080 | Frame Time: 130.19 ms | Skipped: 0 | Written: 350 | Total Time: 0:00:46.881
+Frame Number: 351 | Frame Size: 131080 | Frame Time: 130.31 ms | Skipped: 0 | Written: 351 | Total Time: 0:00:47.012
+Frame Number: 352 | Frame Size: 131080 | Frame Time: 126.57 ms | Skipped: 0 | Written: 352 | Total Time: 0:00:47.138
+Frame Number: 353 | Frame Size: 131080 | Frame Time: 130.81 ms | Skipped: 0 | Written: 353 | Total Time: 0:00:47.269
+Frame Number: 354 | Frame Size: 131080 | Frame Time: 129.22 ms | Skipped: 0 | Written: 354 | Total Time: 0:00:47.398
+Frame Number: 355 | Frame Size: 131080 | Frame Time: 131.47 ms | Skipped: 0 | Written: 355 | Total Time: 0:00:47.530
+Frame Number: 356 | Frame Size: 131080 | Frame Time: 128.81 ms | Skipped: 0 | Written: 356 | Total Time: 0:00:47.658
+Frame Number: 357 | Frame Size: 131080 | Frame Time: 130.20 ms | Skipped: 0 | Written: 357 | Total Time: 0:00:47.789
+Frame Number: 358 | Frame Size: 131080 | Frame Time: 133.14 ms | Skipped: 0 | Written: 358 | Total Time: 0:00:47.922
+Frame Number: 359 | Frame Size: 131080 | Frame Time: 126.51 ms | Skipped: 0 | Written: 359 | Total Time: 0:00:48.048
+Frame Number: 360 | Frame Size: 131080 | Frame Time: 132.86 ms | Skipped: 0 | Written: 360 | Total Time: 0:00:48.181
+Frame Number: 361 | Frame Size: 131080 | Frame Time: 129.82 ms | Skipped: 0 | Written: 361 | Total Time: 0:00:48.311
+Frame Number: 362 | Frame Size: 131080 | Frame Time: 128.01 ms | Skipped: 0 | Written: 362 | Total Time: 0:00:48.439
+Frame Number: 363 | Frame Size: 131080 | Frame Time: 128.41 ms | Skipped: 0 | Written: 363 | Total Time: 0:00:48.567
+Frame Number: 364 | Frame Size: 131080 | Frame Time: 130.12 ms | Skipped: 0 | Written: 364 | Total Time: 0:00:48.697
+Frame Number: 365 | Frame Size: 131080 | Frame Time: 130.79 ms | Skipped: 0 | Written: 365 | Total Time: 0:00:48.828
+Frame Number: 366 | Frame Size: 131080 | Frame Time: 129.54 ms | Skipped: 0 | Written: 366 | Total Time: 0:00:48.958
+Frame Number: 367 | Frame Size: 131080 | Frame Time: 130.10 ms | Skipped: 0 | Written: 367 | Total Time: 0:00:49.088
+Frame Number: 368 | Frame Size: 131080 | Frame Time: 129.20 ms | Skipped: 0 | Written: 368 | Total Time: 0:00:49.217
+Frame Number: 369 | Frame Size: 131080 | Frame Time: 130.62 ms | Skipped: 0 | Written: 369 | Total Time: 0:00:49.348
+Frame Number: 370 | Frame Size: 131080 | Frame Time: 129.98 ms | Skipped: 0 | Written: 370 | Total Time: 0:00:49.478
+Frame Number: 371 | Frame Size: 131080 | Frame Time: 146.17 ms | Skipped: 0 | Written: 371 | Total Time: 0:00:49.624
+Frame Number: 372 | Frame Size: 131080 | Frame Time: 114.40 ms | Skipped: 0 | Written: 372 | Total Time: 0:00:49.738
+Frame Number: 373 | Frame Size: 131080 | Frame Time: 130.77 ms | Skipped: 0 | Written: 373 | Total Time: 0:00:49.869
+Frame Number: 374 | Frame Size: 131080 | Frame Time: 128.56 ms | Skipped: 0 | Written: 374 | Total Time: 0:00:49.998
+Frame Number: 375 | Frame Size: 131080 | Frame Time: 130.89 ms | Skipped: 0 | Written: 375 | Total Time: 0:00:50.129
+Frame Number: 376 | Frame Size: 131080 | Frame Time: 129.53 ms | Skipped: 0 | Written: 376 | Total Time: 0:00:50.258
+Frame Number: 377 | Frame Size: 131080 | Frame Time: 131.55 ms | Skipped: 0 | Written: 377 | Total Time: 0:00:50.390
+Frame Number: 378 | Frame Size: 131080 | Frame Time: 130.17 ms | Skipped: 0 | Written: 378 | Total Time: 0:00:50.520
+Frame Number: 379 | Frame Size: 131080 | Frame Time: 127.98 ms | Skipped: 0 | Written: 379 | Total Time: 0:00:50.648
+Frame Number: 380 | Frame Size: 131080 | Frame Time: 130.87 ms | Skipped: 0 | Written: 380 | Total Time: 0:00:50.779
+Frame Number: 381 | Frame Size: 131080 | Frame Time: 130.43 ms | Skipped: 0 | Written: 381 | Total Time: 0:00:50.909
+Frame Number: 382 | Frame Size: 131080 | Frame Time: 129.89 ms | Skipped: 0 | Written: 382 | Total Time: 0:00:51.039
+Frame Number: 383 | Frame Size: 131080 | Frame Time: 253.73 ms | Skipped: 0 | Written: 383 | Total Time: 0:00:51.293
+Frame Number: 384 | Frame Size: 131080 | Frame Time: 135.44 ms | Skipped: 0 | Written: 384 | Total Time: 0:00:51.428
+Frame Number: 385 | Frame Size: 131080 | Frame Time: 147.88 ms | Skipped: 0 | Written: 385 | Total Time: 0:00:51.576
+Frame Number: 386 | Frame Size: 131080 | Frame Time: 124.86 ms | Skipped: 0 | Written: 386 | Total Time: 0:00:51.701
+Frame Number: 387 | Frame Size: 131080 | Frame Time: 122.83 ms | Skipped: 0 | Written: 387 | Total Time: 0:00:51.824
+Frame Number: 388 | Frame Size: 131080 | Frame Time: 128.30 ms | Skipped: 0 | Written: 388 | Total Time: 0:00:51.952
+Frame Number: 389 | Frame Size: 131080 | Frame Time: 125.82 ms | Skipped: 0 | Written: 389 | Total Time: 0:00:52.078
+Frame Number: 390 | Frame Size: 131080 | Frame Time: 158.59 ms | Skipped: 0 | Written: 390 | Total Time: 0:00:52.236
+Frame Number: 391 | Frame Size: 131080 | Frame Time: 112.28 ms | Skipped: 0 | Written: 391 | Total Time: 0:00:52.349
+Frame Number: 392 | Frame Size: 131080 | Frame Time: 164.70 ms | Skipped: 0 | Written: 392 | Total Time: 0:00:52.513
+Frame Number: 393 | Frame Size: 131080 | Frame Time: 135.02 ms | Skipped: 0 | Written: 393 | Total Time: 0:00:52.648
+Frame Number: 394 | Frame Size: 131080 | Frame Time: 128.91 ms | Skipped: 0 | Written: 394 | Total Time: 0:00:52.777
+Frame Number: 395 | Frame Size: 131080 | Frame Time: 395.23 ms | Skipped: 0 | Written: 395 | Total Time: 0:00:53.173
+Frame Number: 396 | Frame Size: 131080 | Frame Time: 1466.67 ms | Skipped: 0 | Written: 396 | Total Time: 0:00:54.639
+Frame Number: 397 | Frame Size: 131080 | Frame Time: 9372.36 ms | Skipped: 0 | Written: 397 | Total Time: 0:01:04.012
+Duration of 60.0 s reached
+Disconnecting VMD3
+[VMD3] Disconnected
+Binary file saved at /home/shaylon/Projects/vmd3/wifi_data/data/radc/2026-08-17/17-13-53.bin with 52169840 bytes (398 frames)
+Metadata saved at /home/shaylon/Projects/vmd3/wifi_data/data/radc/2026-08-17/17-13-53.json
+(.venv) shaylon@x1carbon% python flight/main.py --noStream --saveBin --duration 60
+Recording to /home/shaylon/Projects/vmd3/wifi_data/data/radc/2026-08-17/17-15-41.bin
+Connecting to VMD3...
+[VMD3] Connected to TCP/IP
+[VMD3] Connected to UDP
+[VMD3] Connected to VMD3
+[VMD3] RSET OK
+[VMD3] RDOT OK
+VMD3 connected (rset 1)
+Capture Duration: 60.0 s
+Frame Number: 0 | Frame Size: 131080 | Frame Time: 122.23 ms | Skipped: 0 | Written: 0 | Total Time: 0:00:00.218
+Frame Number: 1 | Frame Size: 131080 | Frame Time: 730.07 ms | Skipped: 0 | Written: 1 | Total Time: 0:00:00.948
+Frame Number: 2 | Frame Size: 131080 | Frame Time: 130.48 ms | Skipped: 0 | Written: 2 | Total Time: 0:00:01.079
+Frame Number: 3 | Frame Size: 131080 | Frame Time: 129.68 ms | Skipped: 0 | Written: 3 | Total Time: 0:00:01.209
+Frame Number: 4 | Frame Size: 131080 | Frame Time: 131.83 ms | Skipped: 0 | Written: 4 | Total Time: 0:00:01.340
+Frame Number: 5 | Frame Size: 131080 | Frame Time: 131.50 ms | Skipped: 0 | Written: 5 | Total Time: 0:00:01.472
+Frame Number: 6 | Frame Size: 131080 | Frame Time: 127.76 ms | Skipped: 0 | Written: 6 | Total Time: 0:00:01.600
+Frame Number: 7 | Frame Size: 131080 | Frame Time: 130.40 ms | Skipped: 0 | Written: 7 | Total Time: 0:00:01.730
+Frame Number: 8 | Frame Size: 131080 | Frame Time: 130.78 ms | Skipped: 0 | Written: 8 | Total Time: 0:00:01.861
+Frame Number: 9 | Frame Size: 131080 | Frame Time: 129.75 ms | Skipped: 0 | Written: 9 | Total Time: 0:00:01.991
+Frame Number: 10 | Frame Size: 131080 | Frame Time: 129.90 ms | Skipped: 0 | Written: 10 | Total Time: 0:00:02.120
+Frame Number: 11 | Frame Size: 131080 | Frame Time: 129.48 ms | Skipped: 0 | Written: 11 | Total Time: 0:00:02.250
+Frame Number: 12 | Frame Size: 131080 | Frame Time: 130.22 ms | Skipped: 0 | Written: 12 | Total Time: 0:00:02.380
+Frame Number: 13 | Frame Size: 131080 | Frame Time: 129.97 ms | Skipped: 0 | Written: 13 | Total Time: 0:00:02.510
+Frame Number: 14 | Frame Size: 131080 | Frame Time: 125.49 ms | Skipped: 0 | Written: 14 | Total Time: 0:00:02.636
+Frame Number: 15 | Frame Size: 131080 | Frame Time: 131.27 ms | Skipped: 0 | Written: 15 | Total Time: 0:00:02.767
+Frame Number: 16 | Frame Size: 131080 | Frame Time: 126.75 ms | Skipped: 0 | Written: 16 | Total Time: 0:00:02.894
+Frame Number: 17 | Frame Size: 131080 | Frame Time: 130.97 ms | Skipped: 0 | Written: 17 | Total Time: 0:00:03.025
+Frame Number: 18 | Frame Size: 131080 | Frame Time: 131.37 ms | Skipped: 0 | Written: 18 | Total Time: 0:00:03.156
+Frame Number: 19 | Frame Size: 131080 | Frame Time: 128.61 ms | Skipped: 0 | Written: 19 | Total Time: 0:00:03.285
+Frame Number: 20 | Frame Size: 131080 | Frame Time: 130.04 ms | Skipped: 0 | Written: 20 | Total Time: 0:00:03.415
+Frame Number: 21 | Frame Size: 131080 | Frame Time: 129.31 ms | Skipped: 0 | Written: 21 | Total Time: 0:00:03.544
+Frame Number: 22 | Frame Size: 131080 | Frame Time: 131.67 ms | Skipped: 0 | Written: 22 | Total Time: 0:00:03.676
+Frame Number: 23 | Frame Size: 131080 | Frame Time: 128.83 ms | Skipped: 0 | Written: 23 | Total Time: 0:00:03.804
+Frame Number: 24 | Frame Size: 131080 | Frame Time: 130.09 ms | Skipped: 0 | Written: 24 | Total Time: 0:00:03.934
+Frame Number: 25 | Frame Size: 131080 | Frame Time: 129.94 ms | Skipped: 0 | Written: 25 | Total Time: 0:00:04.064
+Frame Number: 26 | Frame Size: 131080 | Frame Time: 131.97 ms | Skipped: 0 | Written: 26 | Total Time: 0:00:04.196
+Frame Number: 27 | Frame Size: 131080 | Frame Time: 126.27 ms | Skipped: 0 | Written: 27 | Total Time: 0:00:04.323
+Frame Number: 28 | Frame Size: 131080 | Frame Time: 129.95 ms | Skipped: 0 | Written: 28 | Total Time: 0:00:04.453
+Frame Number: 29 | Frame Size: 131080 | Frame Time: 129.83 ms | Skipped: 0 | Written: 29 | Total Time: 0:00:04.582
+Frame Number: 30 | Frame Size: 131080 | Frame Time: 130.72 ms | Skipped: 0 | Written: 30 | Total Time: 0:00:04.713
+Frame Number: 31 | Frame Size: 131080 | Frame Time: 130.28 ms | Skipped: 0 | Written: 31 | Total Time: 0:00:04.843
+Frame Number: 32 | Frame Size: 131080 | Frame Time: 134.40 ms | Skipped: 0 | Written: 32 | Total Time: 0:00:04.978
+Frame Number: 33 | Frame Size: 131080 | Frame Time: 124.54 ms | Skipped: 0 | Written: 33 | Total Time: 0:00:05.102
+Frame Number: 34 | Frame Size: 131080 | Frame Time: 130.82 ms | Skipped: 0 | Written: 34 | Total Time: 0:00:05.233
+Frame Number: 35 | Frame Size: 131080 | Frame Time: 130.66 ms | Skipped: 0 | Written: 35 | Total Time: 0:00:05.364
+Frame Number: 36 | Frame Size: 131080 | Frame Time: 129.41 ms | Skipped: 0 | Written: 36 | Total Time: 0:00:05.493
+Frame Number: 37 | Frame Size: 131080 | Frame Time: 154.50 ms | Skipped: 0 | Written: 37 | Total Time: 0:00:05.648
+Frame Number: 38 | Frame Size: 131080 | Frame Time: 115.20 ms | Skipped: 0 | Written: 38 | Total Time: 0:00:05.763
+Frame Number: 39 | Frame Size: 131080 | Frame Time: 138.56 ms | Skipped: 0 | Written: 39 | Total Time: 0:00:05.902
+Frame Number: 40 | Frame Size: 131080 | Frame Time: 150.72 ms | Skipped: 0 | Written: 40 | Total Time: 0:00:06.052
+Frame Number: 41 | Frame Size: 131080 | Frame Time: 117.16 ms | Skipped: 0 | Written: 41 | Total Time: 0:00:06.169
+Frame Number: 42 | Frame Size: 131080 | Frame Time: 115.92 ms | Skipped: 0 | Written: 42 | Total Time: 0:00:06.285
+Frame Number: 43 | Frame Size: 131080 | Frame Time: 129.92 ms | Skipped: 0 | Written: 43 | Total Time: 0:00:06.415
+Frame Number: 44 | Frame Size: 131080 | Frame Time: 125.48 ms | Skipped: 0 | Written: 44 | Total Time: 0:00:06.541
+Frame Number: 45 | Frame Size: 131080 | Frame Time: 131.99 ms | Skipped: 0 | Written: 45 | Total Time: 0:00:06.673
+Frame Number: 46 | Frame Size: 131080 | Frame Time: 128.65 ms | Skipped: 0 | Written: 46 | Total Time: 0:00:06.801
+Frame Number: 47 | Frame Size: 131080 | Frame Time: 126.52 ms | Skipped: 0 | Written: 47 | Total Time: 0:00:06.928
+Frame Number: 48 | Frame Size: 131080 | Frame Time: 129.23 ms | Skipped: 0 | Written: 48 | Total Time: 0:00:07.057
+Frame Number: 49 | Frame Size: 131080 | Frame Time: 131.23 ms | Skipped: 0 | Written: 49 | Total Time: 0:00:07.188
+Frame Number: 50 | Frame Size: 131080 | Frame Time: 125.85 ms | Skipped: 0 | Written: 50 | Total Time: 0:00:07.314
+Frame Number: 51 | Frame Size: 131080 | Frame Time: 130.16 ms | Skipped: 0 | Written: 51 | Total Time: 0:00:07.444
+Frame Number: 52 | Frame Size: 131080 | Frame Time: 131.53 ms | Skipped: 0 | Written: 52 | Total Time: 0:00:07.576
+Frame Number: 53 | Frame Size: 131080 | Frame Time: 130.51 ms | Skipped: 0 | Written: 53 | Total Time: 0:00:07.706
+Frame Number: 54 | Frame Size: 131080 | Frame Time: 442.77 ms | Skipped: 0 | Written: 54 | Total Time: 0:00:08.149
+Frame Number: 55 | Frame Size: 131080 | Frame Time: 158.21 ms | Skipped: 0 | Written: 55 | Total Time: 0:00:08.307
+Frame Number: 56 | Frame Size: 131080 | Frame Time: 47.28 ms | Skipped: 0 | Written: 56 | Total Time: 0:00:08.355
+Frame Number: 57 | Frame Size: 131080 | Frame Time: 134.77 ms | Skipped: 0 | Written: 57 | Total Time: 0:00:08.489
+Frame Number: 58 | Frame Size: 131080 | Frame Time: 230.49 ms | Skipped: 0 | Written: 58 | Total Time: 0:00:08.720
+Frame Number: 59 | Frame Size: 131080 | Frame Time: 40.63 ms | Skipped: 0 | Written: 59 | Total Time: 0:00:08.761
+Frame Number: 60 | Frame Size: 131080 | Frame Time: 147.02 ms | Skipped: 0 | Written: 60 | Total Time: 0:00:08.908
+Frame Number: 61 | Frame Size: 131080 | Frame Time: 100.17 ms | Skipped: 0 | Written: 61 | Total Time: 0:00:09.008
+Frame Number: 62 | Frame Size: 131080 | Frame Time: 157.95 ms | Skipped: 0 | Written: 62 | Total Time: 0:00:09.166
+Frame Number: 63 | Frame Size: 131080 | Frame Time: 125.49 ms | Skipped: 0 | Written: 63 | Total Time: 0:00:09.291
+Frame Number: 64 | Frame Size: 131080 | Frame Time: 103.35 ms | Skipped: 0 | Written: 64 | Total Time: 0:00:09.395
+Frame Number: 65 | Frame Size: 131080 | Frame Time: 130.09 ms | Skipped: 0 | Written: 65 | Total Time: 0:00:09.525
+Frame Number: 66 | Frame Size: 131080 | Frame Time: 133.89 ms | Skipped: 0 | Written: 66 | Total Time: 0:00:09.659
+Frame Number: 67 | Frame Size: 131080 | Frame Time: 149.20 ms | Skipped: 0 | Written: 67 | Total Time: 0:00:09.808
+Frame Number: 68 | Frame Size: 131080 | Frame Time: 110.50 ms | Skipped: 0 | Written: 68 | Total Time: 0:00:09.918
+Frame Number: 69 | Frame Size: 131080 | Frame Time: 195.15 ms | Skipped: 0 | Written: 69 | Total Time: 0:00:10.113
+Frame Number: 70 | Frame Size: 131080 | Frame Time: 84.35 ms | Skipped: 0 | Written: 70 | Total Time: 0:00:10.198
+Frame Number: 71 | Frame Size: 131080 | Frame Time: 139.32 ms | Skipped: 0 | Written: 71 | Total Time: 0:00:10.337
+Frame Number: 72 | Frame Size: 131080 | Frame Time: 131.84 ms | Skipped: 0 | Written: 72 | Total Time: 0:00:10.469
+Frame Number: 73 | Frame Size: 131080 | Frame Time: 102.00 ms | Skipped: 0 | Written: 73 | Total Time: 0:00:10.571
+Frame Number: 74 | Frame Size: 131080 | Frame Time: 128.76 ms | Skipped: 0 | Written: 74 | Total Time: 0:00:10.700
+Frame Number: 75 | Frame Size: 131080 | Frame Time: 130.08 ms | Skipped: 0 | Written: 75 | Total Time: 0:00:10.830
+Frame Number: 76 | Frame Size: 131080 | Frame Time: 132.10 ms | Skipped: 0 | Written: 76 | Total Time: 0:00:10.962
+Frame Number: 77 | Frame Size: 131080 | Frame Time: 131.10 ms | Skipped: 0 | Written: 77 | Total Time: 0:00:11.093
+Frame Number: 78 | Frame Size: 131080 | Frame Time: 131.76 ms | Skipped: 0 | Written: 78 | Total Time: 0:00:11.225
+Frame Number: 79 | Frame Size: 131080 | Frame Time: 125.97 ms | Skipped: 0 | Written: 79 | Total Time: 0:00:11.351
+Frame Number: 80 | Frame Size: 131080 | Frame Time: 129.74 ms | Skipped: 0 | Written: 80 | Total Time: 0:00:11.480
+Frame Number: 81 | Frame Size: 131080 | Frame Time: 130.33 ms | Skipped: 0 | Written: 81 | Total Time: 0:00:11.611
+^CDisconnecting VMD3
+[VMD3] Disconnected
+Binary file saved at /home/shaylon/Projects/vmd3/wifi_data/data/radc/2026-08-17/17-15-41.bin with 10748560 bytes (82 frames)
+Metadata saved at /home/shaylon/Projects/vmd3/wifi_data/data/radc/2026-08-17/17-15-41.json
+(.venv) shaylon@x1carbon% python flight/main.py --noStream --saveBin --duration 60
+Recording to /home/shaylon/Projects/vmd3/wifi_data/data/radc/2026-08-17/17-16-03.bin
+Connecting to VMD3...
+[VMD3] Connected to TCP/IP
+[VMD3] Connected to UDP
+[VMD3] Connected to VMD3
+[VMD3] RSET OK
+[VMD3] RDOT OK
+VMD3 connected (rset 1)
+Capture Duration: 60.0 s
+Frame Number: 0 | Frame Size: 131080 | Frame Time: 121.11 ms | Skipped: 0 | Written: 0 | Total Time: 0:00:00.236
+Frame Number: 1 | Frame Size: 131080 | Frame Time: 725.46 ms | Skipped: 0 | Written: 1 | Total Time: 0:00:00.961
+Frame Number: 2 | Frame Size: 131080 | Frame Time: 129.44 ms | Skipped: 0 | Written: 2 | Total Time: 0:00:01.091
+Frame Number: 3 | Frame Size: 131080 | Frame Time: 131.10 ms | Skipped: 0 | Written: 3 | Total Time: 0:00:01.222
+Frame Number: 4 | Frame Size: 131080 | Frame Time: 130.41 ms | Skipped: 0 | Written: 4 | Total Time: 0:00:01.352
+Frame Number: 5 | Frame Size: 131080 | Frame Time: 129.70 ms | Skipped: 0 | Written: 5 | Total Time: 0:00:01.482
+Frame Number: 6 | Frame Size: 131080 | Frame Time: 130.07 ms | Skipped: 0 | Written: 6 | Total Time: 0:00:01.612
+Frame Number: 7 | Frame Size: 131080 | Frame Time: 249.61 ms | Skipped: 0 | Written: 7 | Total Time: 0:00:01.862
+Frame Number: 8 | Frame Size: 131080 | Frame Time: 139.61 ms | Skipped: 0 | Written: 8 | Total Time: 0:00:02.001
+Frame Number: 9 | Frame Size: 131080 | Frame Time: 131.11 ms | Skipped: 0 | Written: 9 | Total Time: 0:00:02.132
+Frame Number: 10 | Frame Size: 131080 | Frame Time: 130.22 ms | Skipped: 0 | Written: 10 | Total Time: 0:00:02.263
+Frame Number: 11 | Frame Size: 131080 | Frame Time: 128.45 ms | Skipped: 0 | Written: 11 | Total Time: 0:00:02.391
+Frame Number: 12 | Frame Size: 131080 | Frame Time: 128.61 ms | Skipped: 0 | Written: 12 | Total Time: 0:00:02.520
+Frame Number: 13 | Frame Size: 131080 | Frame Time: 140.76 ms | Skipped: 0 | Written: 13 | Total Time: 0:00:02.660
+Frame Number: 14 | Frame Size: 131080 | Frame Time: 120.67 ms | Skipped: 0 | Written: 14 | Total Time: 0:00:02.781
+Frame Number: 15 | Frame Size: 131080 | Frame Time: 129.83 ms | Skipped: 0 | Written: 15 | Total Time: 0:00:02.911
+Frame Number: 16 | Frame Size: 131080 | Frame Time: 130.84 ms | Skipped: 0 | Written: 16 | Total Time: 0:00:03.042
+Frame Number: 17 | Frame Size: 131080 | Frame Time: 129.16 ms | Skipped: 0 | Written: 17 | Total Time: 0:00:03.171
+Frame Number: 18 | Frame Size: 131080 | Frame Time: 130.37 ms | Skipped: 0 | Written: 18 | Total Time: 0:00:03.301
+Frame Number: 19 | Frame Size: 131080 | Frame Time: 130.00 ms | Skipped: 0 | Written: 19 | Total Time: 0:00:03.431
+Frame Number: 20 | Frame Size: 131080 | Frame Time: 129.34 ms | Skipped: 0 | Written: 20 | Total Time: 0:00:03.561
+Frame Number: 21 | Frame Size: 131080 | Frame Time: 130.49 ms | Skipped: 0 | Written: 21 | Total Time: 0:00:03.691
+Frame Number: 22 | Frame Size: 131080 | Frame Time: 129.75 ms | Skipped: 0 | Written: 22 | Total Time: 0:00:03.821
+Frame Number: 23 | Frame Size: 131080 | Frame Time: 130.14 ms | Skipped: 0 | Written: 23 | Total Time: 0:00:03.951
+Frame Number: 24 | Frame Size: 131080 | Frame Time: 130.17 ms | Skipped: 0 | Written: 24 | Total Time: 0:00:04.081
+Frame Number: 25 | Frame Size: 131080 | Frame Time: 130.47 ms | Skipped: 0 | Written: 25 | Total Time: 0:00:04.212
+Frame Number: 26 | Frame Size: 131080 | Frame Time: 129.78 ms | Skipped: 0 | Written: 26 | Total Time: 0:00:04.342
+Frame Number: 27 | Frame Size: 131080 | Frame Time: 130.34 ms | Skipped: 0 | Written: 27 | Total Time: 0:00:04.472
+Frame Number: 28 | Frame Size: 131080 | Frame Time: 129.03 ms | Skipped: 0 | Written: 28 | Total Time: 0:00:04.601
+Frame Number: 29 | Frame Size: 131080 | Frame Time: 131.29 ms | Skipped: 0 | Written: 29 | Total Time: 0:00:04.732
+Frame Number: 30 | Frame Size: 131080 | Frame Time: 127.20 ms | Skipped: 0 | Written: 30 | Total Time: 0:00:04.859
+Frame Number: 31 | Frame Size: 131080 | Frame Time: 130.11 ms | Skipped: 0 | Written: 31 | Total Time: 0:00:04.989
+Frame Number: 32 | Frame Size: 131080 | Frame Time: 129.61 ms | Skipped: 0 | Written: 32 | Total Time: 0:00:05.119
+Frame Number: 33 | Frame Size: 131080 | Frame Time: 153.52 ms | Skipped: 0 | Written: 33 | Total Time: 0:00:05.273
+Frame Number: 34 | Frame Size: 131080 | Frame Time: 112.26 ms | Skipped: 0 | Written: 34 | Total Time: 0:00:05.385
+Frame Number: 35 | Frame Size: 131080 | Frame Time: 127.01 ms | Skipped: 0 | Written: 35 | Total Time: 0:00:05.512
+Frame Number: 36 | Frame Size: 131080 | Frame Time: 129.85 ms | Skipped: 0 | Written: 36 | Total Time: 0:00:05.642
+Frame Number: 37 | Frame Size: 131080 | Frame Time: 129.75 ms | Skipped: 0 | Written: 37 | Total Time: 0:00:05.771
+Frame Number: 38 | Frame Size: 131080 | Frame Time: 129.82 ms | Skipped: 0 | Written: 38 | Total Time: 0:00:05.901
+Frame Number: 39 | Frame Size: 131080 | Frame Time: 129.61 ms | Skipped: 0 | Written: 39 | Total Time: 0:00:06.031
+Frame Number: 40 | Frame Size: 131080 | Frame Time: 130.07 ms | Skipped: 0 | Written: 40 | Total Time: 0:00:06.161
+Frame Number: 41 | Frame Size: 131080 | Frame Time: 133.32 ms | Skipped: 0 | Written: 41 | Total Time: 0:00:06.294
+Frame Number: 42 | Frame Size: 131080 | Frame Time: 141.65 ms | Skipped: 0 | Written: 42 | Total Time: 0:00:06.436
+Frame Number: 43 | Frame Size: 131080 | Frame Time: 137.13 ms | Skipped: 0 | Written: 43 | Total Time: 0:00:06.573
+Frame Number: 44 | Frame Size: 131080 | Frame Time: 111.21 ms | Skipped: 0 | Written: 44 | Total Time: 0:00:06.684
+Frame Number: 45 | Frame Size: 131080 | Frame Time: 127.11 ms | Skipped: 0 | Written: 45 | Total Time: 0:00:06.811
+Frame Number: 46 | Frame Size: 131080 | Frame Time: 130.79 ms | Skipped: 0 | Written: 46 | Total Time: 0:00:06.942
+Frame Number: 47 | Frame Size: 131080 | Frame Time: 130.40 ms | Skipped: 0 | Written: 47 | Total Time: 0:00:07.073
+Frame Number: 48 | Frame Size: 131080 | Frame Time: 129.34 ms | Skipped: 0 | Written: 48 | Total Time: 0:00:07.202
+Frame Number: 49 | Frame Size: 131080 | Frame Time: 128.97 ms | Skipped: 0 | Written: 49 | Total Time: 0:00:07.331
+Frame Number: 50 | Frame Size: 131080 | Frame Time: 130.10 ms | Skipped: 0 | Written: 50 | Total Time: 0:00:07.461
+Frame Number: 51 | Frame Size: 131080 | Frame Time: 130.64 ms | Skipped: 0 | Written: 51 | Total Time: 0:00:07.592
+Frame Number: 52 | Frame Size: 131080 | Frame Time: 130.66 ms | Skipped: 0 | Written: 52 | Total Time: 0:00:07.722
+Frame Number: 53 | Frame Size: 131080 | Frame Time: 128.22 ms | Skipped: 0 | Written: 53 | Total Time: 0:00:07.850
+Frame Number: 54 | Frame Size: 131080 | Frame Time: 246.63 ms | Skipped: 0 | Written: 54 | Total Time: 0:00:08.097
+Frame Number: 55 | Frame Size: 131080 | Frame Time: 145.82 ms | Skipped: 0 | Written: 55 | Total Time: 0:00:08.243
+Frame Number: 56 | Frame Size: 131080 | Frame Time: 129.60 ms | Skipped: 0 | Written: 56 | Total Time: 0:00:08.373
+Frame Number: 57 | Frame Size: 131080 | Frame Time: 128.91 ms | Skipped: 0 | Written: 57 | Total Time: 0:00:08.501
+Frame Number: 58 | Frame Size: 131080 | Frame Time: 129.54 ms | Skipped: 0 | Written: 58 | Total Time: 0:00:08.631
+Frame Number: 59 | Frame Size: 131080 | Frame Time: 133.01 ms | Skipped: 0 | Written: 59 | Total Time: 0:00:08.764
+Frame Number: 60 | Frame Size: 131080 | Frame Time: 127.84 ms | Skipped: 0 | Written: 60 | Total Time: 0:00:08.892
+Frame Number: 61 | Frame Size: 131080 | Frame Time: 130.37 ms | Skipped: 0 | Written: 61 | Total Time: 0:00:09.022
+Frame Number: 62 | Frame Size: 131080 | Frame Time: 130.81 ms | Skipped: 0 | Written: 62 | Total Time: 0:00:09.153
+Frame Number: 63 | Frame Size: 131080 | Frame Time: 127.50 ms | Skipped: 0 | Written: 63 | Total Time: 0:00:09.281
+Frame Number: 64 | Frame Size: 131080 | Frame Time: 130.42 ms | Skipped: 0 | Written: 64 | Total Time: 0:00:09.411
+Frame Number: 65 | Frame Size: 131080 | Frame Time: 128.25 ms | Skipped: 0 | Written: 65 | Total Time: 0:00:09.539
+Frame Number: 66 | Frame Size: 131080 | Frame Time: 130.42 ms | Skipped: 0 | Written: 66 | Total Time: 0:00:09.670
+Frame Number: 67 | Frame Size: 131080 | Frame Time: 142.09 ms | Skipped: 0 | Written: 67 | Total Time: 0:00:09.812
+Frame Number: 68 | Frame Size: 131080 | Frame Time: 120.65 ms | Skipped: 0 | Written: 68 | Total Time: 0:00:09.932
+Frame Number: 69 | Frame Size: 131080 | Frame Time: 128.40 ms | Skipped: 0 | Written: 69 | Total Time: 0:00:10.061
+Frame Number: 70 | Frame Size: 131080 | Frame Time: 130.00 ms | Skipped: 0 | Written: 70 | Total Time: 0:00:10.191
+Frame Number: 71 | Frame Size: 131080 | Frame Time: 131.59 ms | Skipped: 0 | Written: 71 | Total Time: 0:00:10.322
+Frame Number: 72 | Frame Size: 131080 | Frame Time: 128.87 ms | Skipped: 0 | Written: 72 | Total Time: 0:00:10.451
+Frame Number: 73 | Frame Size: 131080 | Frame Time: 143.04 ms | Skipped: 0 | Written: 73 | Total Time: 0:00:10.594
+Frame Number: 74 | Frame Size: 131080 | Frame Time: 139.78 ms | Skipped: 0 | Written: 74 | Total Time: 0:00:10.734
+Frame Number: 75 | Frame Size: 131080 | Frame Time: 109.82 ms | Skipped: 0 | Written: 75 | Total Time: 0:00:10.844
+Frame Number: 76 | Frame Size: 131080 | Frame Time: 127.22 ms | Skipped: 0 | Written: 76 | Total Time: 0:00:10.971
+Frame Number: 77 | Frame Size: 131080 | Frame Time: 132.56 ms | Skipped: 0 | Written: 77 | Total Time: 0:00:11.104
+Frame Number: 78 | Frame Size: 131080 | Frame Time: 140.13 ms | Skipped: 0 | Written: 78 | Total Time: 0:00:11.244
+Frame Number: 79 | Frame Size: 131080 | Frame Time: 129.24 ms | Skipped: 0 | Written: 79 | Total Time: 0:00:11.373
+Frame Number: 80 | Frame Size: 131080 | Frame Time: 122.81 ms | Skipped: 0 | Written: 80 | Total Time: 0:00:11.496
+Frame Number: 81 | Frame Size: 131080 | Frame Time: 140.59 ms | Skipped: 0 | Written: 81 | Total Time: 0:00:11.636
+Frame Number: 82 | Frame Size: 131080 | Frame Time: 114.57 ms | Skipped: 0 | Written: 82 | Total Time: 0:00:11.751
+Frame Number: 83 | Frame Size: 131080 | Frame Time: 147.60 ms | Skipped: 0 | Written: 83 | Total Time: 0:00:11.899
+Frame Number: 84 | Frame Size: 131080 | Frame Time: 119.21 ms | Skipped: 0 | Written: 84 | Total Time: 0:00:12.018
+Frame Number: 85 | Frame Size: 131080 | Frame Time: 128.53 ms | Skipped: 0 | Written: 85 | Total Time: 0:00:12.146
+Frame Number: 86 | Frame Size: 131080 | Frame Time: 130.60 ms | Skipped: 0 | Written: 86 | Total Time: 0:00:12.277
+Frame Number: 87 | Frame Size: 131080 | Frame Time: 131.14 ms | Skipped: 0 | Written: 87 | Total Time: 0:00:12.408
+Frame Number: 88 | Frame Size: 131080 | Frame Time: 129.87 ms | Skipped: 0 | Written: 88 | Total Time: 0:00:12.538
+Frame Number: 89 | Frame Size: 131080 | Frame Time: 129.01 ms | Skipped: 0 | Written: 89 | Total Time: 0:00:12.667
+Frame Number: 90 | Frame Size: 131080 | Frame Time: 286.74 ms | Skipped: 0 | Written: 90 | Total Time: 0:00:12.954
+Frame Number: 91 | Frame Size: 131080 | Frame Time: 36.46 ms | Skipped: 0 | Written: 91 | Total Time: 0:00:12.990
+Frame Number: 92 | Frame Size: 131080 | Frame Time: 202.80 ms | Skipped: 0 | Written: 92 | Total Time: 0:00:13.193
+Frame Number: 93 | Frame Size: 131080 | Frame Time: 158.90 ms | Skipped: 0 | Written: 93 | Total Time: 0:00:13.352
+Frame Number: 94 | Frame Size: 131080 | Frame Time: 1880.65 ms | Skipped: 0 | Written: 94 | Total Time: 0:00:15.233
+Frame Number: 95 | Frame Size: 131080 | Frame Time: 115464.66 ms | Skipped: 0 | Written: 95 | Total Time: 0:02:10.697
+Duration of 60.0 s reached
+Disconnecting VMD3
+[VMD3] Disconnected
+Binary file saved at /home/shaylon/Projects/vmd3/wifi_data/data/radc/2026-08-17/17-16-03.bin with 12583680 bytes (96 frames)
+Metadata saved at /home/shaylon/Projects/vmd3/wifi_data/data/radc/2026-08-17/17-16-03.json
