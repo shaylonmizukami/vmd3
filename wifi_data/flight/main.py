@@ -38,7 +38,11 @@ HST = ZoneInfo("Pacific/Honolulu")
 
 
 def handle_sigint(signal_number, frame):
+    if not running.is_set():
+        signal.signal(signal.SIGINT, signal.SIG_DFL)  # second Ctrl-C hard-kills
+        return
     running.clear()
+    raise KeyboardInterrupt
 
 
 signal.signal(signal.SIGINT, handle_sigint)
@@ -82,16 +86,23 @@ def acceptor_thread(server):
 
 
 def writer_thread(bin_path):
-    """Drain write queue to disk, off radar read loop"""
+    """Drain write queue to disk, off radar read loop. File is created on the first frame."""
     global framesWritten, bytesWritten
-    with open(bin_path, "wb") as file:
+    file = None
+    try:
         while True:
             chunk = write_queue.get()
             if chunk is None:
                 break
+            if file is None:
+                bin_path.parent.mkdir(parents=True, exist_ok=True)
+                file = open(bin_path, "wb")  # noqa: SIM115
             file.write(chunk)
             framesWritten += 1
             bytesWritten += len(chunk)
+    finally:
+        if file is not None:
+            file.close()
 
 
 def write_metadata(json_path, rset_config, started, ended, frame_size):
@@ -105,7 +116,7 @@ def write_metadata(json_path, rset_config, started, ended, frame_size):
         "end_time": ended.isoformat(timespec="seconds"),
         "duration_s": round((ended - started).total_seconds(), 3),
         "frame_period_ms": FRAME_PERIOD_MS,
-        "vmd3_setting": VMD3_SETTING.get(rset_config),
+        "vmd3_setting": VMD3_SETTING[rset_config] if 0 <= rset_config < len(VMD3_SETTING) else None,
     }
     with open(json_path, "w") as f:
         json.dump(meta, f, indent=2, default=str)
@@ -120,7 +131,6 @@ def main(rset_config, saveBin, filePath, fileName, duration, noStream):
     writer = None
     bin_path, json_path = resolve_capture_paths(started, filePath, fileName)
     if saveBin:
-        bin_path.parent.mkdir(parents=True, exist_ok=True)
         writer = threading.Thread(target=writer_thread, args=(bin_path,), daemon=True)
         writer.start()
         print(f"Recording to {bin_path}")
@@ -200,11 +210,14 @@ def main(rset_config, saveBin, filePath, fileName, duration, noStream):
         if saveBin:
             write_queue.put(None)
             writer.join(timeout=10)
-            ended = datetime.now(HST)
-            print(
-                f"Binary file saved at {bin_path} with {bytesWritten} bytes ({framesWritten} frames)"
-            )
-            write_metadata(json_path, rset_config, started, ended, frameSize)
+            if framesWritten:
+                ended = datetime.now(HST)
+                print(
+                    f"Binary file saved at {bin_path} with {bytesWritten} bytes ({framesWritten} frames)"
+                )
+                write_metadata(json_path, rset_config, started, ended, frameSize)
+            else:
+                print("No frames captured — nothing saved")
 
 
 if __name__ == "__main__":
