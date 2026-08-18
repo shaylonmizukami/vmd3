@@ -13,6 +13,8 @@ DATA_DIR = BASE_DIR / "data" / "radc"
 
 # --- Network ---
 FLIGHT_IP = "192.168.50.1"  # Pi5 address set as default. Can change with --ip arg
+# Beryl7 IP & PW: 192.168.100.1 | WirelessRadar
+# FLIGHT_IP = "192.168.100.1"
 TCP_PORT = 39123
 
 
