@@ -242,17 +242,17 @@ def main(file_path, file_name, rset_config, on_exists, duration=None):
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description='VMD3 RADC recorder (pure capture)')
-    p.add_argument('--filePath', type=str, default='data/radc',
+    p.add_argument('--filepath', type=str, default='data/radc',
                    help='Directory for .bin files (default: data/radc)')
-    p.add_argument('--fileName', type=str,
+    p.add_argument('--filename', type=str,
                    default=datetime.now().strftime('%Y-%m-%d_%H-%M-%S'),
                    help='Filename without extension (default: timestamp)')
     p.add_argument('--rset', type=int, default=ACTIVE_RSET,
                    help=f'RSET config (default: {ACTIVE_RSET} from config.py)')
-    p.add_argument('--onExists', type=str, default='append',
+    p.add_argument('--exist', type=str, default='append',
                    choices=['overwrite', 'append', 'fail'],
                    help='Behavior if the target file exists (default: append)')
     p.add_argument('--duration', type=float, default=None,
                    help='Capture length in seconds (default: run until Ctrl+C). Use 120 for the two-target measurement.')
     args = p.parse_args()
-    main(args.filePath, args.fileName, args.rset, args.onExists, args.duration)
+    main(args.filepath, args.filename, args.rset, args.exist, args.duration)
