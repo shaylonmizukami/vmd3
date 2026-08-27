@@ -368,7 +368,7 @@ def run_angle(cubes, target_bin, angle_range, avg):
 
 # ---------------------------------------------------------------------
 if __name__ == '__main__':
-    DEFAULT_FILE = '/home/shaylon/Projects/vmd3/vmd3-twotarget/data/radc/2026-08-19/6m-rset1-bore-humanplate-3min.bin'
+    DEFAULT_FILE = '/home/shaylon/Projects/vmd3/vmd3-twotarget/data/radc/2026-08-19/6m-rset1-bore-humanplate-angle20-plate-3min_1.bin'
 
     p = argparse.ArgumentParser(description='Analyze a VMD3 RADC capture.')
     p.add_argument('--file', default=DEFAULT_FILE, 
