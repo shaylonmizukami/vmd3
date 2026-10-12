@@ -2,8 +2,6 @@ from enum import Enum
 import socket
 import sys
 
-import numpy as np
-
 class RdotConfig(Enum):
     DISABLED = 0
     RADC = 0x01
@@ -135,6 +133,7 @@ class VMD3:
         return adc_data
 
     def decode_radc_2d(self, frame):
+        import numpy as np
         if len(frame) != 131072:
             return None
 
@@ -166,6 +165,7 @@ class VMD3:
         return cube
 
     def decode_radc_3d(self, frame):
+        import numpy as np
         if len(frame) != 196608:
             return None
 
