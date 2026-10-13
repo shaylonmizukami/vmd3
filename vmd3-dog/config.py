@@ -9,6 +9,9 @@ DATA_DIR = BASE_DIR / "data"
 
 # Radar protocol
 RADC_HEADER = b"RADC"
+RFFT_HEADER = b"RFFT"
+DONE_HEADER = b"DONE"
+HEADER_SIZE = 8   # 4 byte tage + 4 byte payload length
 FRAME_PERIOD_S = 0.13   # same for every RSET config
 
 # Time
