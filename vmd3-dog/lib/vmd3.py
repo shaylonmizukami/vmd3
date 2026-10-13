@@ -112,6 +112,21 @@ class VMD3:
                 continue
 
             return data
+
+    def read_any_frame(self, headers):
+        """Return the next complete frame whose tag is in headers."""
+        while True:
+            data = self.recv_udp()
+            if data[0:4] not in headers:
+                continue
+
+            # Collect packets until the full frame is in
+            respLength = int.from_bytes(data[4:8], byteorder='little')
+            while len(data) < respLength + 8:
+                data += self.recv_udp()
+
+            if len(data) == respLength + 8:   # drop frames that picked up stray packets
+                return data
          
     def send_tcp(self, frame):
         self.sockTCP.send(frame)
