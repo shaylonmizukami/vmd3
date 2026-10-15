@@ -304,10 +304,11 @@ Detach, close Konsole, `ssh pipi5`, `tmux attach -t radar`. Counter should still
 
 If tmux isn't installed and there's no internet:
 ```
-nohup python3 flight/main.py --saveBin > run.log 2>&1 &
+cd ~/vmd3-dog
+nohup python3 record.py --fileName <name> > run.log 2>&1 &
 tail -f run.log
 ```
-`Ctrl-c` stops `tail`, not the recording.
+`Ctrl-c` stops `tail`, not the recording. Stop the recording with `pkill -INT -f record.py`.
 
 ---
 

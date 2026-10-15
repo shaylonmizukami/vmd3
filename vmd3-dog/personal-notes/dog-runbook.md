@@ -48,9 +48,11 @@ Follow in order. Fill in the blanks with the owner before starting.
 ## 1. Hardware
 
 1. Confirm dog port voltage and pinout match the VMD3 input. If unsure, stop
-2. Mount the radar, ~45° down, boresight forward
+2. Mount the radar right side up, RX array horizontal, ~45° down, boresight forward
 3. Data cable to the Jetson (not plugged in yet, needed for step 4)
 4. Power cable to the dog
+
+Radar upside down = left and right swap. Flip `ANGLE_SIGN` in `config.py` for processing.
 
 ---
 
@@ -112,6 +114,7 @@ ip route | grep 192.168.100
 - `python3`: 3.8 or newer
 - `tmux` missing: use the `nohup` fallback in section 8
 - `rsync` missing: use `scp -r` in sections 5 and 10
+- `df`: ~60 MB free per minute per output
 - `ip route | grep 192.168.100`: must print nothing. Anything = subnet clash, stop and ask the owner
 
 Find the radar interface `[Jetson]`
@@ -144,7 +147,8 @@ scp -r ~/Projects/vmd3/vmd3-dog jetson:~/
 
 `[Jetson]`
 ```
-sudo ~/vmd3-dog/initradar.sh <interface>
+cd ~/vmd3-dog
+sudo ./initradar.sh <interface>
 ```
 
 `[!] ufw is active`: ask the owner before `sudo ufw allow 4567/udp`.
@@ -155,10 +159,10 @@ sudo ~/vmd3-dog/initradar.sh <interface>
 
 At the start position `[Jetson]`
 ```
-python3 ~/vmd3-dog/record.py --duration 10 --fileName test
+python3 record.py --duration 10 --fileName test
 ```
 
-Expect ~130 ms per frame after frame 2, `Missed 5`.
+Expect ~130 ms per frame after frame 2, `Counter` climbing by 1, `Missed 0`.
 
 ---
 
@@ -167,8 +171,10 @@ Expect ~130 ms per frame after frame 2, `Missed 5`.
 `[Jetson]`
 ```
 tmux new -s radar
-python3 ~/vmd3-dog/record.py --fileName dog-run-1
+python3 record.py --fileName dog-run-1
 ```
+
+Add `--outputs radc rfft` to also save RFFT.
 
 Detach: `Ctrl-b` then `d`
 
@@ -220,22 +226,44 @@ No rsync `[Laptop]`
 scp -r jetson:~/vmd3-dog/data ~/Projects/vmd3/vmd3-dog/
 ```
 
-Check: `frame_count` + `frames_missed_estimate` ≈ `duration_s` ÷ 0.13
+Check:
+- `frames_missed_estimate` is 0
+- `output_counts` matches `frame_count`
 
 ---
 
-## 11. Field Notes
+## 11. Process
+
+`[Laptop]` from `~/Projects/vmd3/vmd3-dog` with the venv active
+
+Find the standing segment
+```
+python replay.py data/<date>/dog-run-1 --maxRange 3
+python replay.py data/<date>/dog-run-1 --maxRange 3 --doppler all
+```
+Title shows each frame's clock time. Zero Doppler hides the walk, all Doppler shows it.
+
+Heatmap of the standing segment
+```
+python heatmap.py data/<date>/dog-run-1 --startClock <arrive> --endClock <depart> --maxRange 3
+```
+
+Plot lands in `data/<date>/plots/`.
+
+---
+
+## 12. Field Notes
 
 | Run | Start | Arrive | Depart | Range to target | Angle | Target | Notes |
 |---|---|---|---|---|---|---|---|
 | dog-run-1 | | | | | | | |
 | dog-run-2 | | | | | | | |
 
-Arrive and depart times are used to cut out the stationary segment in processing.
+Arrive and depart times feed `--startClock` and `--endClock`.
 
 ---
 
-## 12. Wrap Up
+## 13. Wrap Up
 
 1. Data on the laptop and checked
 2. Unplug radar power, then data
@@ -244,7 +272,7 @@ Arrive and depart times are used to cut out the stationary segment in processing
 
 ---
 
-## 13. Common Errors
+## 14. Common Errors
 
 | Output | Fix |
 |---|---|
@@ -253,7 +281,9 @@ Arrive and depart times are used to cut out the stationary segment in processing
 | `<interface> not found` | Recheck `ip -br a`, section 4 |
 | `No link on <interface>` | Cable or radar power |
 | `No reply from 192.168.100.201` | Wait ~10 s after radar power up, rerun |
-| `ModuleNotFoundError` | Code not pushed or nested folder, section 5 |
+| `<name> already exists in ...` | Use the next run number |
+| `ModuleNotFoundError` | Code not pushed, nested folder, or not in `~/vmd3-dog` |
 | Folder date wrong | Section 3 |
 | `no sessions` on attach | Recording ended or never started in tmux |
 | `No data from radar for 2 s` | Cable knocked loose on the walk, check mount |
+| `Missed` climbing | Real drops, check data cable |
