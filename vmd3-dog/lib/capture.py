@@ -99,6 +99,16 @@ def time_window(log, start=None, end=None):
     last = len(t) if end is None else np.searchsorted(t, end, side="right")
     return slice(first, last)
 
+def load_window(stem, start=None, end=None, output="radc"):
+    """Return (payloads, log, meta) trimmed to start through end seconds into the capture."""
+    payloads, log, meta = load(stem, output)
+    window = time_window(log, start, end)
+    log = {key: value[window] for key, value in log.items()}
+    payloads = payloads[window]
+    if len(payloads) == 0:
+        raise SystemExit(f"No frames in {to_stem(stem).name} between {start} and {end} s")
+    return payloads, log, meta
+
 def clock_to_seconds(clock, log, meta):
     """Convert a field notes time like '16:22:30' to seconds into the capture."""
     started = datetime.fromisoformat(meta["start_time"])

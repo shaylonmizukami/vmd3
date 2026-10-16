@@ -3,6 +3,7 @@
 import numpy as np
 
 from config import ANGLE_SIGN, LEAKAGE_CUTOFF_M, RX_SPACING_M, WAVELENGTH_M
+from lib.capture import decode_radc
 
 def range_axis(meta, n_bins):
     """Return the range in meters of each range bin."""
@@ -18,6 +19,12 @@ def zero_doppler(range_cube):
     window = np.hanning(range_cube.shape[2]).astype(np.float32)
     window /= window.sum()
     return (range_cube * window[:, None]).sum(axis=2)
+
+def zero_doppler_profiles(payloads, meta, block=64):
+    """Decode payloads to zero Doppler profiles (frames, range, channels), a block at a time."""
+    blocks = [zero_doppler(range_fft(decode_radc(payloads[i:i + block], meta)))
+              for i in range(0, len(payloads), block)]
+    return np.concatenate(blocks)
 
 def steering_matrix(angles_deg, n_channels):
     """Return the (channels, angles) phasors that undo each angle's phase across the RX array."""

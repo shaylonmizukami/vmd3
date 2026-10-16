@@ -5,22 +5,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from config import ANGLE_LIMIT_DEG, ANGLE_STEP_DEG, LEAKAGE_CUTOFF_M, PLOTS_SUBDIR
-from lib.capture import decode_radc, load, time_window, to_stem
-from lib.dsp import complex_correlation, find_peak, range_angle, range_axis, range_fft, to_db, zero_doppler
+from lib.capture import load_window, to_stem
+from lib.dsp import complex_correlation, find_peak, range_angle, range_axis, to_db, zero_doppler_profiles
 from lib.plots import draw_range_angle
 
 BLOCK = 64   # frames decoded at a time, keeps memory small on long windows
 
 def window_profiles(stem, start, end):
     """Return zero Doppler profiles (frames, range, channels) and meta for one time window."""
-    payloads, log, meta = load(stem, "radc")
-    payloads = payloads[time_window(log, start, end)]
-    if len(payloads) == 0:
-        raise SystemExit(f"No frames in {stem.name} between {start} and {end} s")
-
-    blocks = [zero_doppler(range_fft(decode_radc(payloads[i:i + BLOCK], meta)))
-              for i in range(0, len(payloads), BLOCK)]
-    return np.concatenate(blocks), meta
+    payloads, _, meta = load_window(stem, start, end)
+    return zero_doppler_profiles(payloads, meta), meta
 
 def main(stem, target, background, bgStem, method, floor, maxRange, show):
     stem = to_stem(stem)
