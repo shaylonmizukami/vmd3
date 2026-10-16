@@ -1,0 +1,50 @@
+{
+  "rset": 0,
+  "vmd3_setting": {
+    "setting_number": 1,
+    "max_range": 6,
+    "max_speed": 10,
+    "num_samples": 128,
+    "num_chirps": 64,
+    "angle_setting": "2D",
+    "frame_rate": 130,
+    "range_resolution": 4.69,
+    "speed_resolution": 0.31
+  },
+  "outputs": [
+    "radc"
+  ],
+  "start_time": "2026-10-14T21:15:29-10:00",
+  "end_time": "2026-10-14T21:15:49-10:00",
+  "duration_s": 20.146,
+  "frame_count": 150,
+  "output_counts": {
+    "radc": 150
+  },
+  "frame_sizes": {
+    "radc": 131080
+  },
+  "frames_missed_estimate": 0,
+  "marks": [
+    {
+      "frame": 18,
+      "elapsed_s": 3.036,
+      "label": "stand"
+    },
+    {
+      "frame": 47,
+      "elapsed_s": 6.806,
+      "label": "removed"
+    },
+    {
+      "frame": 78,
+      "elapsed_s": 10.836,
+      "label": "hello"
+    },
+    {
+      "frame": 125,
+      "elapsed_s": 16.946,
+      "label": "17 seconds"
+    }
+  ]
+}

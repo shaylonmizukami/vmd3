@@ -1,0 +1,31 @@
+{
+  "rset": 0,
+  "vmd3_setting": {
+    "setting_number": 1,
+    "max_range": 6,
+    "max_speed": 10,
+    "num_samples": 128,
+    "num_chirps": 64,
+    "angle_setting": "2D",
+    "frame_rate": 130,
+    "range_resolution": 4.69,
+    "speed_resolution": 0.31
+  },
+  "outputs": [
+    "radc",
+    "rfft"
+  ],
+  "start_time": "2026-10-11T20:59:24-10:00",
+  "end_time": "2026-10-11T20:59:34-10:00",
+  "duration_s": 10.189,
+  "frame_count": 73,
+  "output_counts": {
+    "radc": 73,
+    "rfft": 73
+  },
+  "frame_sizes": {
+    "radc": 131080,
+    "rfft": 131080
+  },
+  "frames_missed_estimate": 0
+}

@@ -1,0 +1,20 @@
+{
+  "rset": 0,
+  "vmd3_setting": {
+    "setting_number": 1,
+    "max_range": 6,
+    "max_speed": 10,
+    "num_samples": 128,
+    "num_chirps": 64,
+    "angle_setting": "2D",
+    "frame_rate": 130,
+    "range_resolution": 4.69,
+    "speed_resolution": 0.31
+  },
+  "start_time": "2026-10-11T16:22:18-10:00",
+  "end_time": "2026-10-11T16:22:23-10:00",
+  "duration_s": 4.737,
+  "frame_count": 31,
+  "frame_size": 131080,
+  "frames_missed_estimate": 5
+}
