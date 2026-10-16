@@ -60,3 +60,9 @@ def find_peak(db, ranges, angles):
     masked = np.where(ranges[:, None] >= LEAKAGE_CUTOFF_M, db, -np.inf)
     i, j = np.unravel_index(np.argmax(masked), masked.shape)
     return ranges[i], angles[j]
+
+def complex_correlation(a, b):
+    """Per channel match between two (range, channels) complex profiles, 1 is identical."""
+    num = np.abs(np.sum(a * np.conj(b), axis =0))
+    den = np.sqrt(np.sum(np.abs(a) ** 2, axis=0) * np.sum(np.abs(b) ** 2, axis=0))
+    return num / den
