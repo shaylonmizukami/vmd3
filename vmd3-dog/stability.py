@@ -4,7 +4,7 @@ import argparse
 import matplotlib.pyplot as plt
 import numpy as np
 
-from config import ANGLE_LIMIT_DEG, ANGLE_STEP_DEG, LEAKAGE_CUTOFF_M, PLOTS_SUBDIR, WAVELENGTH_M
+from config import ANGLE_LIMIT_DEG, ANGLE_STEP_DEG, LEAKAGE_CUTOFF_M, PLOTS_SUBDIR, WAVELENGTH_M, FLOOR_DB
 from lib.capture import load_window, to_stem
 from lib.dsp import find_peak, range_angle, range_axis, steering_matrix, to_db, zero_doppler_profiles
 from lib.plots import draw_range_angle
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     parser.add_argument("--window", nargs=2, type=float, required=True, metavar=("START", "END"), help="Time window, seconds into the capture")
     parser.add_argument("--range", type=float, default=None, help="Range of the point to track in m. Default: strongest return")
     parser.add_argument("--angle", type=float, default=None, help="Angle of the point to track in deg. Default: strongest return")
-    parser.add_argument("--floor", type=float, default=-40, help="Lowest dB shown. Default: -40")
+    parser.add_argument("--floor", type=float, default=FLOOR_DB, help=f"Lowest dB shown. Default: {FLOOR_DB}")
     parser.add_argument("--maxRange", type=float, default=None, help="Top of the range axis in m. Default: full range")
     parser.add_argument("--show", action="store_true", help="Open the plot window as well as saving it")
     args = parser.parse_args()

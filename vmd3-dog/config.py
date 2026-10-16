@@ -25,6 +25,7 @@ ANGLE_SIGN = -1   # -1 puts a target on the right at a positive angle, radar rig
 ANGLE_LIMIT_DEG = 70
 ANGLE_STEP_DEG = 0.5
 LEAKAGE_CUTOFF_M = 0.3   # ignore the coupling blob right in front of the radar
+FLOOR_DB = -25   # lowest dB shown on maps
 
 # Time
 HST = timezone(timedelta(hours=-10), "HST")   # Hawaii has no DST

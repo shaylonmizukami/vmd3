@@ -5,7 +5,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-from config import ANGLE_LIMIT_DEG, ANGLE_STEP_DEG, LEAKAGE_CUTOFF_M, PLOTS_SUBDIR
+from config import ANGLE_LIMIT_DEG, ANGLE_STEP_DEG, LEAKAGE_CUTOFF_M, PLOTS_SUBDIR, FLOOR_DB
 from lib.capture import clock_to_seconds, decode_radc, load, time_window, to_stem
 from lib.dsp import find_peak, range_angle_power, range_axis, to_db
 from lib.plots import range_angle_axes
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     parser.add_argument("--end", type=float, default=None, help="Window end, seconds into the capture")
     parser.add_argument("--startClock", default=None, help="Window start as HH:MM:SS from field notes")
     parser.add_argument("--endClock", default=None, help="Window end as HH:MM:SS from field notes")
-    parser.add_argument("--floor", type=float, default=-40, help="Lowest dB shown. Default: -40")
+    parser.add_argument("--floor", type=float, default=FLOOR_DB, help=f"Lowest dB shown. Default: {FLOOR_DB}")
     parser.add_argument("--maxRange", type=float, default=None, help="Tope of the range axis in m. Default: full range")
     parser.add_argument("--show", action="store_true", help="Open the plot window as well as saving it")
     args = parser.parse_args()
