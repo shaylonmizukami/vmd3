@@ -1,4 +1,4 @@
-"""Galil control for the CDS-3310 linear mover, positions in mm from the right end."""
+"""Galil control for the CDS-3310 linear mover, positions in mm from the right end (gclib 2.x API)."""
 
 import time
 
@@ -15,16 +15,19 @@ class Stage:
         self.sign = 1 if right_is_positive else -1
         self.cpm = counts_per_mm
         self.accel = accel
-        self.g = gclib.py()
-        self.g.GOpen(address)
+        self.g = gclib.Controller(address)
+
+    def info(self):
+        """Return the address and controller revision string."""
+        return f"{self.address}  {self.g.revision_information().strip()}"
 
     def cmd(self, command):
         """Send one command and return the reply."""
-        return self.g.GCommand(command).strip()
+        return self.g.command(command).strip()
 
     def values(self, *operands):
         """Read numeric operands like _TPA in a single round trip."""
-        return [float(v) for v in self.cmd("MG " + ", ".join(operands)).split()]
+        return [float(v) for v in self.cmd("MG " + ", ".join(operands)).replace(":", " ").split()]
 
     def counts(self, mm):
         """Convert mm (or mm/s) to encoder counts (or counts/s)."""
@@ -35,10 +38,11 @@ class Stage:
         pos, moving = self.values(f"_TP{self.axis}", f"_BG{self.axis}")
         return -self.sign * pos / self.cpm, moving != 0
 
-    def wait(self):
+    def wait(self, settle_s=0.2):
         """Block until motion finishes and let the stage settle."""
-        self.g.GMotionComplete(self.axis)
-        time.sleep(0.2)
+        while self.values(f"_BG{self.axis}")[0] != 0:
+            time.sleep(0.02)
+        time.sleep(settle_s)
 
     def _move(self, command, speed_mm_s):
         """Run one PR or PA move at a speed and wait for it."""
@@ -77,11 +81,11 @@ class Stage:
     def stop(self):
         """Stop the axis and wait for it to come to rest."""
         self.cmd(f"ST{self.axis}")
-        self.g.GMotionComplete(self.axis)
+        self.wait(settle_s=0)
 
     def close(self):
         """Close the Galil connection."""
         try:
-            self.g.GClose()
+            self.g.close()
         except Exception as e:
             print(f"   Galil close warning: {e}")
