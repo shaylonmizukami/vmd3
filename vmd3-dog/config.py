@@ -27,5 +27,14 @@ ANGLE_STEP_DEG = 0.5
 LEAKAGE_CUTOFF_M = 0.3   # ignore the coupling blob right in front of the radar
 FLOOR_DB = -25   # lowest dB shown on maps
 
+# SAR
+RANGE_FFT_SIZE = 1024   # zero padded, a giner grid for interpolation, not more resolution
+PHASE_SIGN = +1   # measured on the rail data
+APERTURE_WINDOW = "hamming"
+SAR_CROSS_RANGE_M = 0.10   # image spans +/- this sideways
+SAR_CROSS_STEP_M = 0.001
+SAR_DOWNRANGE_HALF_M = 0.15   # image spans target range +/- this
+SAR_DOWNRANGE_STEP_M = 0.002
+
 # Time
 HST = timezone(timedelta(hours=-10), "HST")   # Hawaii has no DST

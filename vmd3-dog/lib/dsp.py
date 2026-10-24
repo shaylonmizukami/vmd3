@@ -20,9 +20,9 @@ def zero_doppler(range_cube):
     window /= window.sum()
     return (range_cube * window[:, None]).sum(axis=2)
 
-def zero_doppler_profiles(payloads, meta, block=64):
+def zero_doppler_profiles(payloads, meta, block=64, n_fft=None):
     """Decode payloads to zero Doppler profiles (frames, range, channels), a block at a time."""
-    blocks = [zero_doppler(range_fft(decode_radc(payloads[i:i + block], meta)))
+    blocks = [zero_doppler(range_fft(decode_radc(payloads[i:i + block], meta), n_fft))
               for i in range(0, len(payloads), block)]
     return np.concatenate(blocks)
 
