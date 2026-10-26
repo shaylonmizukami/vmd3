@@ -21,7 +21,7 @@ def arm_position(t, start_x, end_x, speed, hold_s):
     progress = np.clip((t - hold_s) / move_s, 0.0, 1.0)
     return start_x + (end_x - start_x) * progress
 
-def frame_payload(x_radar, scatterers, setting, noise, rng):
+def frame_payload(x_radar, scatterers, setting, noise, rng, range_bias=0.0, phase_sign=PHASE_SIGN):
     """Return one RADC payload for the radar at x_radar seeing the given scatterers."""
     samples, chirps = setting["num_samples"], setting["num_chirps"]
     bin_m = setting["max_range"] / samples
@@ -33,8 +33,8 @@ def frame_payload(x_radar, scatterers, setting, noise, rng):
     signal = np.zeros((samples, 4), dtype=complex)
     for x_t, z_t, gain in scatterers:
         path = np.hypot(x_t - tx_x, z_t) + np.hypot(x_t - rx_x, z_t)
-        beat = 2 * np.pi * n * (path / 2 / bin_m) / samples
-        carrier = PHASE_SIGN * 2 * np.pi * path / WAVELENGTH_M
+        beat = 2 * np.pi * n * ((path / 2 + range_bias) / bin_m) / samples
+        carrier = phase_sign * 2 * np.pi * path / WAVELENGTH_M
         signal += gain * np.exp(1j * (beat + carrier))
 
     # Same return on every chirp plus fresh noise, in ADC counts
@@ -48,7 +48,7 @@ def frame_payload(x_radar, scatterers, setting, noise, rng):
     packed[..., 1] = np.clip(np.round(ordered.real), -32768, 32767)
     return packed.tobytes()
 
-def main(fileName, targetRange, targetCross, start, end, speed, hold, clutter, noTarget, clockOffset, noise, seed):
+def main(fileName, targetRange, targetCross, start, end, speed, hold, clutter, noTarget, clockOffset, noise, seed, rangeBias, flipPhase):
     rng = np.random.default_rng(seed)
     setting = VMD3_SETTING[RSET]
     started = datetime.now(HST)
@@ -66,13 +66,14 @@ def main(fileName, targetRange, targetCross, start, end, speed, hold, clutter, n
     total_s = 2 * hold + abs(end - start) / speed
     frame_t = np.arange(0, total_s, FRAME_PERIOD_S)
     start_unix = time.time()
+    sign = -PHASE_SIGN if flipPhase else PHASE_SIGN
 
     # Radar frames and frame log
     with open(f"{stem}_radc.bin", "wb") as f, open(f"{stem}_frames.csv", "w", newline="") as lf:
         log = csv.writer(lf)
         log.writerow(["frame", "time_unix", "elapsed_s", "radar_counter", "mark", "radc"])
         for k, t in enumerate(frame_t):
-            payload = frame_payload(arm_position(t, start, end, speed, hold), scatterers, setting, noise, rng)
+            payload = frame_payload(arm_position(t, start, end, speed, hold), scatterers, setting, noise, rng, rangeBias, sign)
             f.write(RADC_HEADER + len(payload).to_bytes(4, "little") + payload)
             log.writerow([k, f"{start_unix + t:.3f}", f"{t:.3f}", k + 1, "", 1])
     frame_size = len(RADC_HEADER) + 4 + len(payload)
@@ -105,6 +106,8 @@ def main(fileName, targetRange, targetCross, start, end, speed, hold, clutter, n
             "move_start_s": hold,
             "move_end_s": total_s - hold,
             "clock_offset_s": clockOffset,
+            "range_bias_m": rangeBias,
+            "phase_sign": sign,
         },
     }
     with open(f"{stem}.json", "w") as jf:
@@ -127,6 +130,8 @@ if __name__ == "__main__":
     parser.add_argument("--clockOffset", type=float, default=0.0, help="Seconds added to arm timestamps. Default: 0")
     parser.add_argument("--noise", type=float, default=100.0, help="Noise level in ADC counts. Default: 100")
     parser.add_argument("--seed", type=int, default=0, help="Random seed for the noise. Default: 0")
+    parser.add_argument("--rangeBias", type=float, default=0.0, help="Extra range the radar reads, like an internal delay, in m. Default: 0")
+    parser.add_argument("--flipPhase", action="store_true", help="Simulate the opposite phase sign, to test the sign check")
     args = parser.parse_args()
 
-    main(args.fileName, args.targetRange, args.targetCross, args.start, args.end, args.speed, args.hold, args.clutter, args.noTarget, args.clockOffset, args.noise, args.seed)    
+    main(args.fileName, args.targetRange, args.targetCross, args.start, args.end, args.speed, args.hold, args.clutter, args.noTarget, args.clockOffset, args.noise, args.seed, args.rangeBias, args.flipPhase)    

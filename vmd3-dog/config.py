@@ -35,6 +35,9 @@ SAR_CROSS_RANGE_M = 0.10   # image spans +/- this sideways
 SAR_CROSS_STEP_M = 0.001
 SAR_DOWNRANGE_HALF_M = 0.15   # image spans target range +/- this
 SAR_DOWNRANGE_STEP_M = 0.002
+BG_REFERENCE_M = (0.05, 2.5)   # range span used to match the background
+BG_EXCLUDE_M = 0.15   # skip this far around the target when matching
+CAL_SEARCH_M = 0.30   # search this far around the tape range when calibrating
 
 # Time
 HST = timezone(timedelta(hours=-10), "HST")   # Hawaii has no DST
