@@ -18,7 +18,6 @@ POSITION_HEADER = ["record", "stream", "stream_frame", "t_s", "galil_counts",
 
 
 # Sweep planning
-
 def _sweep_speed(frame_period, sweep_counts, n_frames):
     """Stage speed in counts/s that spreads n_frames frames over the sweep."""
     return int(round(sweep_counts / ((n_frames - 1) * frame_period)))
@@ -39,7 +38,6 @@ def print_sweep_plan(frame_period, sweep_length_mm, n_frames, counts_per_mm):
 
 
 # Output files
-
 def _next_file_path(bin_dir, file_name):
     """Path for file_name in bin_dir, adding _2, _3... instead of overwriting."""
     path = os.path.join(bin_dir, f"{file_name}.bin")
@@ -93,7 +91,6 @@ def _print_summary(bin_path, pos_path, rows, first_stream, n_frames, sweep_lengt
 
 
 # Recording
-
 def record_sweep(radar, stage, data_dir, session_folder, file_name,
                  sweep_length_mm, n_frames, accel, frame_period=None):
     """Run one sweep, record every frame while the stage moves, save the results, and return the .bin path."""
@@ -178,7 +175,6 @@ def record_sweep(radar, stage, data_dir, session_folder, file_name,
 
 
 # Reading and export
-
 def read_records(bin_path):
     """Yield (stream, payload) for each record in a .bin file, in file order."""
     names = {v: k for k, v in STREAM_HEADERS.items()}

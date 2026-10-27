@@ -65,7 +65,6 @@ class Radar:
         self.frame_period = None
 
     # Connection
-
     def connect(self, mode, streams, attempts=3):
         """Open and configure the radar, retrying if the handshake stalls."""
         streams = list(dict.fromkeys(s.strip().lower() for s in streams))
@@ -124,7 +123,6 @@ class Radar:
             raise RuntimeError("Radar is not connected. Run radar.connect(...) first.")
 
     # Streams
-
     def cycle_streams(self):
         """Selected streams in the order they arrive within one radar cycle."""
         self._require_connected()
@@ -135,7 +133,6 @@ class Radar:
         return self.cycle_streams()[-1]
 
     # Frames
-
     def read_frame(self, headers):
         """Read the next complete frame whose header is in headers."""
         self._require_connected()

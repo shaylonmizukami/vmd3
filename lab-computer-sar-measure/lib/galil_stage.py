@@ -18,7 +18,6 @@ class Stage:
         self.home_speed = None
 
     # Connection
-
     def connect(self):
         """Open the controller and stop any leftover motion or GDK program."""
         self.close()
@@ -73,7 +72,6 @@ class Stage:
             return self.g.GCommand(command).strip()
 
     # Motion
-
     def state(self):
         """Return (position in counts, True if the axis is moving)."""
         pos = float(self.cmd(f"MG _TP{self.axis}"))
@@ -143,7 +141,6 @@ class Stage:
             self.wait(10)
 
     # Homing
-
     def home(self, direction, backoff_counts, speed, accel):
         """Seek the home-side limit switch, back off, and set that position as zero."""
         print("[stage] Homing...")
@@ -177,7 +174,6 @@ class Stage:
         return -self.home_direction * pos / self.counts_per_mm
 
     # Calibration
-
     def measure_switch_release(self, step=100, max_counts=20_000):
         """Drive onto the home-side switch and return how many counts it takes to release."""
         self._require_homed()
