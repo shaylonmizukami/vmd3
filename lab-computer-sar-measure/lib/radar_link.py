@@ -6,8 +6,8 @@ import socket
 import base64
 import ctypes
 import subprocess
-from pathlib import Path
 import numpy as np
+from pathlib import Path
 from .vmd3 import VMD3, RdotConfig
 
 # Stream definitions

@@ -4,24 +4,21 @@ import os
 import csv
 import time
 import socket
-from datetime import datetime
 import numpy as np
 import pandas as pd
+from datetime import datetime
 from .radar_link import STREAM_HEADERS
 
 # Constants
 WAVELENGTH_MM = 299_792_458 / 61.0e9 * 1e3
-LOG_HEADER = ["file", "start", "stop", "duration_s", "n_frames",
-              "radar_mode", "streams", "sweep_mm", "speed_mm_s"]
-POSITION_HEADER = ["record", "stream", "stream_frame", "t_s", "galil_counts",
-                   "x_mm", "x_center_mm", "moving"]
+LOG_HEADER = ["file", "start", "stop", "duration_s", "n_frames", "radar_mode", "streams", "sweep_mm", "speed_mm_s"]
+POSITION_HEADER = ["record", "stream", "stream_frame", "t_s", "galil_counts", "x_mm", "x_center_mm", "moving"]
 
 
 # Sweep planning
 def _sweep_speed(frame_period, sweep_counts, n_frames):
     """Stage speed in counts/s that spreads n_frames frames over the sweep."""
     return int(round(sweep_counts / ((n_frames - 1) * frame_period)))
-
 
 def print_sweep_plan(frame_period, sweep_length_mm, n_frames, counts_per_mm):
     """Print the frame rate, sweep speed, and frame spacing for a planned sweep."""
@@ -47,7 +44,6 @@ def _next_file_path(bin_dir, file_name):
         i += 1
     return path
 
-
 def _ensure_session_files(bin_dir, log_path):
     """Create the session folders and the session log with its header if missing."""
     os.makedirs(bin_dir, exist_ok=True)
@@ -55,14 +51,12 @@ def _ensure_session_files(bin_dir, log_path):
         with open(log_path, "w", newline="") as f:
             csv.writer(f).writerow(LOG_HEADER)
 
-
 def _save_positions(path, rows):
     """Write the per-record position log for one sweep."""
     with open(path, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(POSITION_HEADER)
         writer.writerows(rows)
-
 
 def _append_log(log_path, name, start, stop, n_frames, radar_mode, streams, sweep_length_mm, speed_mm_s):
     """Add one summary row for a sweep to the session log."""
@@ -72,7 +66,6 @@ def _append_log(log_path, name, start, stop, n_frames, radar_mode, streams, swee
             f"{(stop - start).total_seconds():.2f}", n_frames, radar_mode,
             "+".join(streams), f"{sweep_length_mm:g}", f"{speed_mm_s:.3f}",
         ])
-
 
 def _print_summary(bin_path, pos_path, rows, first_stream, n_frames, sweep_length_mm, duration_s):
     """Print the frame count, aperture span, and any dropped-frame gaps."""
@@ -183,20 +176,17 @@ def read_records(bin_path):
             length = int.from_bytes(header[4:8], "little")
             yield names.get(header[:4], "unknown"), f.read(length)
 
-
 def decode_radc(payload):
     """Decode a 2D RADC payload to (sample, chirp, rx) complex samples."""
     raw = np.frombuffer(payload, dtype="<i2").reshape(64, 4, 256)
     iq = raw[:, :, 1::2] + 1j * raw[:, :, 0::2]
     return np.transpose(iq, (2, 0, 1))
 
-
 def decode_rfft(payload):
     """Decode a 2D RFFT payload to (range_bin, chirp, rx) complex samples."""
     raw = np.frombuffer(payload, dtype="<i2").reshape(4, 128, 64, 2)
     iq = raw[..., 1] + 1j * raw[..., 0]
     return np.transpose(iq, (1, 2, 0))
-
 
 def export_long_csv(bin_path, streams=("radc",)):
     """Write one row per (frame, bin, chirp, channel) I/Q value to a CSV next to the .bin."""
