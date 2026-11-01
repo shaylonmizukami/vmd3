@@ -1,4 +1,4 @@
-"""Galil DMC-30012 linear stage control for continuous-motion SAR sweeps."""
+"""Galil DMC-30012 linear stage control for SAR scans."""
 
 import time
 import gclib
@@ -149,13 +149,14 @@ class Stage:
         self.cmd(f"DC{self.axis}={int(accel)}")
         self.seek_end(direction, speed)
         self.cmd(f"SH{self.axis}")   # re-enable in case the end tripped the error limit
-        self.move(-direction * backoff_counts, speed)
+        if backoff_counts > 0:
+            self.move(-direction * backoff_counts, speed)
         time.sleep(0.2)
         self.cmd(f"DP{self.axis}=0")
         self.home_direction = direction
         self.home_backoff = backoff_counts
         self.home_speed = speed
-        print(f"[stage] Homed. Position {self.state()[0]} counts = start of sweep.")
+        print(f"[stage] Homed. Position {self.state()[0]} counts = start of scan.")
 
     def _require_homed(self):
         """Raise a clear error if home() has not been run on this connection."""
@@ -163,9 +164,13 @@ class Stage:
             raise RuntimeError("Stage is not homed. Run stage.home(...) first.")
 
     def go_to_start(self):
-        """Return to the zero position set by homing and let it settle."""
+        """Return to the start position set by homing and let it settle."""
         self._require_homed()
-        self.move(0, self.home_speed, absolute=True)
+        if self.home_backoff > 0:
+            self.move(0, self.home_speed, absolute=True)
+        else:
+            self.seek_end(self.home_direction, self.home_speed)   # zero sits on the switch, so approach it the way homing did
+            self.cmd(f"SH{self.axis}")   # re-enable in case the end tripped the error limit
         time.sleep(0.2)
 
     def distance_mm(self, pos):
