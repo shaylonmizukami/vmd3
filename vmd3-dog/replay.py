@@ -7,7 +7,7 @@ import numpy as np
 from matplotlib.animation import FuncAnimation
 from matplotlib.widgets import Button, Slider
 
-from config import ANGLE_LIMIT_DEG, ANGLE_STEP_DEG, FRAME_PERIOD_S, HST, LEAKAGE_CUTOFF_M
+from config import ANGLE_LIMIT_DEG, ANGLE_STEP_DEG, FRAME_PERIOD_S, HST, LEAKAGE_CUTOFF_M, FLOOR_DB
 from lib.capture import decode_radc, load, to_stem
 from lib.dsp import find_peak, range_angle_power, range_axis, to_db
 from lib.plots import range_angle_axes
@@ -84,7 +84,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Replay a VMD3 capture as a range-angle map")
     parser.add_argument("stem", help="Capture path, e.g. data/2026-10-14/sign-right-3")
     parser.add_argument("--doppler", choices=["zero", "all"], default="zero", help="Keep only still targets (zero) or everything (all). Default: zero")
-    parser.add_argument("--floor", type=float, default=-40, help="Lowest dB shown. Default: -40")
+    parser.add_argument("--floor", type=float, default=FLOOR_DB, help="Lowest dB shown. Default: -25")
     parser.add_argument("--maxRange", type=float, default=None, help="Top of the range axis in m. Default: full range")
     parser.add_argument("--speed", type=float, default=1.0, help="Playback speed, 2 = twice real time. Default: 1")
     args = parser.parse_args()

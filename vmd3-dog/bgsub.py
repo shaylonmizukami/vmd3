@@ -9,7 +9,6 @@ from lib.capture import load_window, to_stem
 from lib.dsp import complex_correlation, find_peak, range_angle, range_axis, to_db, zero_doppler_profiles
 from lib.plots import draw_range_angle
 
-BLOCK = 64   # frames decoded at a time, keeps memory small on long windows
 
 def window_profiles(stem, start, end):
     """Return zero Doppler profiles (frames, range, channels) and meta for one time window."""
