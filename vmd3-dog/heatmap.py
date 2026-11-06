@@ -60,7 +60,7 @@ if __name__ == "__main__":
     parser.add_argument("--startClock", default=None, help="Window start as HH:MM:SS from field notes")
     parser.add_argument("--endClock", default=None, help="Window end as HH:MM:SS from field notes")
     parser.add_argument("--floor", type=float, default=FLOOR_DB, help=f"Lowest dB shown. Default: {FLOOR_DB}")
-    parser.add_argument("--maxRange", type=float, default=None, help="Tope of the range axis in m. Default: full range")
+    parser.add_argument("--maxRange", type=float, default=None, help="Top of the range axis in m. Default: full range")
     parser.add_argument("--show", action="store_true", help="Open the plot window as well as saving it")
     args = parser.parse_args()
 

@@ -1,4 +1,4 @@
-"""Signal processing for VMD3 datat cubes."""
+"""Signal processing for VMD3 data cubes."""
 
 import numpy as np
 

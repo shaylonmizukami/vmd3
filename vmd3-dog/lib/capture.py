@@ -40,7 +40,7 @@ def load(stem, output="radc"):
     with open(f"{stem}.json") as f:
         meta = json.load(f)
     if output not in meta["outputs"]:
-        raise ValueError(f"{stem.name} has no {output}, is has {meta['outputs']}")
+        raise ValueError(f"{stem.name} has no {output}, has {meta['outputs']}")
 
     # Keep only the log rows where this output arrived
     log = read_log(stem)
