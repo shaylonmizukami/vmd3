@@ -12,10 +12,16 @@ from lib.sar import (backproject, expected_widths, fuse_power, image_grid, image
                      load_sweep, rx_phase_centers, subtract_background, estimate_range_offset, phase_sign_check)
 
 
-def main(stem, track, targetRange, clockOffset, autoClock, background, bgTrack, bgClockOffset, rangeOffset, calibrate, floor, show):
+def main(stem, track, targetRange, height, clockOffset, autoClock, background, bgTrack, bgClockOffset, rangeOffset, calibrate, floor, show):
     stem = to_stem(stem)
     positions, profiles, meta, clockOffset = load_sweep(stem, track, clockOffset, autoClock)
     ranges = range_axis(meta, RANGE_FFT_SIZE)
+
+    # Ground range of the target from its slant range and the radar's height above it
+    if height >= targetRange:
+        raise SystemExit("--height must be less than --targetRange")
+    groundRange = float(np.sqrt(targetRange ** 2 - height ** 2))
+    plane = "Ground" if height > 0 else "Slant"
     aperture = positions.max() - positions.min()
     spacing = np.median(np.abs(np.diff(positions)))
     if autoClock:
@@ -41,37 +47,37 @@ def main(stem, track, targetRange, clockOffset, autoClock, background, bgTrack, 
     # Focus each RX on the image grid, then add their powers
     bin_m = meta["vmd3_setting"]["max_range"] / RANGE_FFT_SIZE
     centers = rx_phase_centers(positions)
-    cross, down = image_grid(targetRange)
-    images = np.stack([backproject(profiles[:, :, rx], centers[:, rx], cross, down, bin_m, rangeOffset)
+    cross, down = image_grid(groundRange)
+    images = np.stack([backproject(profiles[:, :, rx], centers[:, rx], cross, down, bin_m, rangeOffset, height)
                        for rx in range(profiles.shape[2])])
     power = fuse_power(images)
     db = to_db(power, floor)
 
     # Peak and -3 dB widths, against the ideal for this geometry
     m = image_metrics(power, cross, down)
-    ideal_cross, ideal_range = expected_widths(targetRange, aperture, meta)
+    ideal_cross, ideal_range = expected_widths(targetRange, groundRange, aperture, meta)
 
     # Which phase sign focuses the peak better, per RX
-    signs = phase_sign_check(profiles, positions, m["x"], m["range"], bin_m, rangeOffset)
+    signs = phase_sign_check(profiles, positions, m["x"], m["range"], bin_m, rangeOffset, height)
 
     # Plot in cm, positive cross-range to the right
     fig, ax = plt.subplots(figsize=(7, 6), layout="constrained")
     extent = [cross[0] * 100, cross[-1] * 100, down[0] * 100, down[-1] * 100]
     mesh = ax.imshow(db, origin="lower", extent=extent, aspect="equal", cmap="inferno", vmin=floor, vmax=0)
     ax.plot(m["x"] * 100, m["range"] * 100, "c+", markersize=14, markeredgewidth=2)
-    ax.set(xlabel="Cross-range (cm, + is right)", ylabel="Slant range (cm)",
+    ax.set(xlabel="Cross-range (cm, + is right)", ylabel=f"{plane} range (cm)",
            title=f"{stem.name}{' minus background' if background else ''} | {len(positions)} frames, "
-                 f"{aperture * 100:.1f} cm aperture\npeak x {m['x'] * 100:+.1f} cm, range {m['range'] * 100:.1f} cm")
+                 f"{aperture * 100:.1f} cm aperture\npeak x {m['x'] * 100:+.1f} cm, {plane.lower()} range {m['range'] * 100:.1f} cm")
     fig.colorbar(mesh, ax=ax, label="dB")
 
     # Save to the plots folder and report
-    out = stem.parent / PLOTS_SUBDIR / f"{stem.name}_sar{'_bgsub' if background else ''}.png"
+    out = stem.parent / PLOTS_SUBDIR / f"{stem.name}_sar_{plane.lower()}{'_bgsub' if background else ''}.png"
     out.parent.mkdir(exist_ok=True)
     fig.savefig(out, dpi=150)
     print(f"{len(positions)} frames, {aperture * 100:.1f} cm aperture, {spacing * 1000:.2f} mm spacing")
-    print(f"Peak x {m['x'] * 100:+.1f} cm, range {m['range'] * 100:.1f} cm")
+    print(f"Peak x {m['x'] * 100:+.1f} cm, {plane.lower()} range {m['range'] * 100:.1f} cm")
     print(f"Cross-range width {m['cross_width'] * 100:.2f} cm (ideal {ideal_cross * 100:.2f})")
-    print(f"Range width {m['range_width'] * 100:.2f} cm (ideal {ideal_range * 100:.2f})")
+    print(f"{plane} range width {m['range_width'] * 100:.2f} cm (ideal {ideal_range * 100:.2f})")
     print(f"Phase sign check at the peak: +1 {np.round(signs[1], 3)}, -1 {np.round(signs[-1], 3)}")
     print(f"Saved {out}")
     if show:
@@ -81,12 +87,13 @@ def main(stem, track, targetRange, clockOffset, autoClock, background, bgTrack, 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="SAR image from a VMD3 sweep and arm track")
     parser.add_argument("stem", help="Capture path, e.g. data/2026-10-23/sim-point")
-    parser.add_argument("--track", default=None, help="Arm track CSV. Default: <stem>_arm.csv")
-    parser.add_argument("--targetRange", type=float, required=True, help="Target slant range at sweep center in m")
+    parser.add_argument("--track", default=None, help="Track CSV. Default: <stem>_track.csv")
+    parser.add_argument("--targetRange", type=float, required=True, help="Target slant range from the radar at sweep center in m")
+    parser.add_argument("--height", type=float, default=0.0, help="Radar height above the target in m, for a ground-plane image. Default: 0 (slant plane)")
     parser.add_argument("--clockOffset", type=float, default=0.0, help="Arm clock minus radar clock in s. Default: 0")
     parser.add_argument("--autoClock", action="store_true", help="Estimate clock offsets from the data")
     parser.add_argument("--background", default=None, help="Background sweep to subtract, same setup without the target")
-    parser.add_argument("--bgTrack", default=None, help="Background arm track CSV. Default: <background>_arm.csv")
+    parser.add_argument("--bgTrack", default=None, help="Background track CSV. Default: <background>_track.csv")
     parser.add_argument("--bgClockOffset", type=float, default=0.0, help="Background arm clock minus radar clock in s. Default: 0")
     parser.add_argument("--rangeOffset", type=float, default=0.0, help="Range calibration offset in m. Default: 0")
     parser.add_argument("--calibrate", action="store_true", help="Estimate the range offset from the target and tape range")
@@ -94,5 +101,5 @@ if __name__ == "__main__":
     parser.add_argument("--show", action="store_true", help="Open the plot window as well as saving it")
     args = parser.parse_args()
 
-    main(args.stem, args.track, args.targetRange, args.clockOffset, args.autoClock, args.background,
+    main(args.stem, args.track, args.targetRange, args.height, args.clockOffset, args.autoClock, args.background,
          args.bgTrack, args.bgClockOffset, args.rangeOffset, args.calibrate, args.floor, args.show)

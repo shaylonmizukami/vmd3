@@ -79,7 +79,7 @@ def main(fileName, targetRange, targetCross, start, end, speed, hold, clutter, n
     frame_size = len(RADC_HEADER) + 4 + len(payload)
 
     # Arm track, shifted by clockOffset to mimic unsynced clocks
-    with open(f"{stem}_arm.csv", "w", newline="") as af:
+    with open(f"{stem}_track.csv", "w", newline="") as af:
         arm = csv.writer(af)
         arm.writerow(["time_unix", "x_m"])
         for t in np.arange(0, total_s, ARM_LOG_PERIOD_S):

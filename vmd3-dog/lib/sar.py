@@ -10,7 +10,7 @@ from lib.capture import load, to_stem
 from lib.dsp import range_axis, zero_doppler_profiles
 
 def load_track(path):
-    """Return (time_unix, x_m) arrays from an arm track CSV, sorted by time."""
+    """Return (time_unix, x_m) arrays from a track CSV, sorted by time."""
     with open(path, newline="") as f:
         rows = list(csv.DictReader(f))
     t = np.array([float(r["time_unix"]) for r in rows])
@@ -73,7 +73,7 @@ def load_sweep(stem, track=None, clock_offset=0.0, auto_clock=False):
     """Return (positions, profiles, meta, clock_offset) for the moving frames of one sweep."""
     stem = to_stem(stem)
     payloads, log, meta = load(stem, "radc")
-    track_t, track_x = load_track(track or f"{stem}_arm.csv")
+    track_t, track_x = load_track(track or f"{stem}_track.csv")
     profiles = zero_doppler_profiles(payloads, meta, n_fft=RANGE_FFT_SIZE)
 
     # Line the arm clock up with the radar from the data itself, if asked
@@ -127,7 +127,7 @@ def estimate_range_offset(profiles, ranges, target_range):
                          for rx in range(power.shape[1])])
     return target_range - measured, measured
 
-def phase_sign_check(profiles, positions, x_t, z_t, bin_m, offset_m=0.0):
+def phase_sign_check(profiles, positions, x_t, z_t, bin_m, offset_m=0.0, height_m=0.0):
     """Focusing coherence at one point for phase sign +1 and -1, per RX. The right sign scores near 1."""
     centers = rx_phase_centers(positions)
     frames = np.arange(len(positions))
@@ -136,7 +136,7 @@ def phase_sign_check(profiles, positions, x_t, z_t, bin_m, offset_m=0.0):
         eta = []
         for rx in range(profiles.shape[2]):
             # Complex sample at the predicted range from every frame
-            r = np.hypot(x_t - centers[:, rx], z_t)
+            r = np.sqrt((x_t - centers[:, rx]) ** 2 + z_t ** 2 + height_m ** 2)
             q = (r - offset_m) / bin_m
             lo = np.floor(q).astype(int)
             f = q - lo
@@ -148,28 +148,28 @@ def phase_sign_check(profiles, positions, x_t, z_t, bin_m, offset_m=0.0):
         scores[sign] = np.array(eta)
     return scores
 
-def image_grid(target_range):
-    """Return (cross_m, down_m) pixel axes centered on the target's slant range."""
+def image_grid(ground_range):
+    """Return (cross_m, ground_m) pixel axes centered on the target's ground range."""
     cross = np.arange(-SAR_CROSS_RANGE_M, SAR_CROSS_RANGE_M + SAR_CROSS_STEP_M / 2, SAR_CROSS_STEP_M)
-    down = np.arange(target_range - SAR_DOWNRANGE_HALF_M, target_range + SAR_DOWNRANGE_HALF_M + SAR_DOWNRANGE_STEP_M / 2, SAR_DOWNRANGE_STEP_M)
-    return cross, down
+    ground = np.arange(ground_range - SAR_DOWNRANGE_HALF_M, ground_range + SAR_DOWNRANGE_HALF_M + SAR_DOWNRANGE_STEP_M / 2, SAR_DOWNRANGE_STEP_M)
+    return cross, ground
 
 def aperture_weights(n):
     """Unit-sum taper across n aperture positions."""
     w = np.hamming(n) if APERTURE_WINDOW == "hamming" else np.ones(n)
     return w / w.sum()
 
-def backproject(profiles, positions, cross, down, bin_m, offset_m=0.0):
-    """Focus one RX. profiles (frames, range bins), positions (frames,) to a complex image (down, cross)."""
+def backproject(profiles, positions, cross, down, bin_m, offset_m=0.0, height_m=0.0):
+    """Focus one RX. profiles (frames, range bins), positions (frames,) to a complex image (ground, cross)."""
     X, Z = np.meshgrid(cross, down)
     weights = aperture_weights(len(positions))
-    r_ref = np.hypot(X - positions[len(positions) // 2], Z)
+    r_ref = np.sqrt((X - positions[len(positions) // 2]) ** 2 + Z ** 2 + height_m ** 2)
     image = np.zeros(X.shape, dtype=complex)
     n_bins = profiles.shape[1]
 
     for profile, x_m, w in zip(profiles, positions, weights):
         # Predicted range from this position to every pixel, as a fractional bin
-        r = np.hypot(X - x_m, Z)
+        r = np.sqrt((X - x_m) ** 2 + Z ** 2 + height_m ** 2)
         q = (r - offset_m) / bin_m
         lo = np.clip(np.floor(q).astype(int), 0, n_bins - 2)
         f = q - lo
@@ -210,8 +210,8 @@ def image_metrics(power, cross, down):
         "range_width": minus3db_width(down, power[:, j]),
     }
 
-def expected_widths(target_range, aperture, meta):
-    """Ideal Hamming-weighted -3 dB widths, (cross-range, range) in m."""
-    cross = 0.66 * WAVELENGTH_M * target_range / aperture   # 0.443 for uniform, wider for Hamming
-    rng = 1.30 * meta["vmd3_setting"]["max_range"] / meta["vmd3_setting"]["num_samples"]   # Hamming widens one bin by 1.3
-    return cross, rng
+def expected_widths(slant_range, ground_range, aperture, meta):
+    """Ideal Hamming-weighted -3 dB widths, (cross-range, ground range) in m."""
+    cross = 0.66 * WAVELENGTH_M * slant_range / aperture   # 0.443 for uniform, wider for Hamming
+    slant = 1.30 * meta["vmd3_setting"]["max_range"] / meta["vmd3_setting"]["num_samples"]   # Hamming widens one bin by 1.3
+    return cross, slant * slant_range / ground_range   # a slant range step spreads wider on the ground

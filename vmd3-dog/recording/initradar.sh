@@ -5,7 +5,7 @@
 set -e
 
 # Network settings
-IFACE="${1:-eth0}"
+IFACE="${1:-enp0s13f0u1u2c2}"
 HOST_IP="192.168.100.1/24"
 RADAR_IP="192.168.100.201"
 UDP_PORT="4567"
@@ -33,10 +33,11 @@ if ! ip -br addr show dev "$IFACE" | grep -q "${HOST_IP%/*}/"; then
 fi
 ok "$IFACE at $HOST_IP"
 
-# Open the radar data port if a firewall is running
+# Open the radar data port in whichever firewall zone holds this interface
 if command -v firewall-cmd &>/dev/null && firewall-cmd --state &>/dev/null; then
-    firewall-cmd --add-port="$UDP_PORT/udp" &>/dev/null
-    ok "Opened UDP $UDP_PORT (until reboot)"
+    ZONE=$(firewall-cmd --get-zone-of-interface="$IFACE" 2>/dev/null || firewall-cmd --get-default-zone)
+    firewall-cmd --zone="$ZONE" --add-port="$UDP_PORT/udp" &>/dev/null
+    ok "Opened UDP $UDP_PORT in zone $ZONE (until reboot)"
 fi
 if command -v ufw &>/dev/null && ufw status | grep -q "Status: active"; then
     echo "[!] ufw is active, may need: sudo ufw allow $UDP_PORT/udp"

@@ -16,7 +16,7 @@
 set -e   # exit on any error
 
 # ─── Configuration ────────────────────────────────────────────────
-ETH_IFACE="enp0s13f0u3u2c2"
+ETH_IFACE="enp0s13f0u1u2c2"
 LAPTOP_IP="192.168.100.1/24"
 RADAR_IP="192.168.100.201"
 UDP_PORT="4567"
