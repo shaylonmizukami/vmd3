@@ -66,7 +66,7 @@ def main(bin_path, rset, out, flipX):
         raise SystemExit(f"RADC frames don't match RSET {rset} ({setting['angle_setting']}), check --rset")
 
     # Output stem, refusing to overwrite
-    stem = Path(out) if out else DATA_DIR / started.strftime("%Y-%m-%d") / f"galil-{bin_path.stem}"
+    stem = Path(out) if out else DATA_DIR / started.strftime("%Y-%m-%d") / "galil" / bin_path.stem
     stem.parent.mkdir(parents=True, exist_ok=True)
     if Path(f"{stem}.json").exists():
         raise SystemExit(f"{stem.name} already exists in {stem.parent}, pick another --out")
@@ -114,7 +114,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convert a Galil rail sweep for sar_image.py")
     parser.add_argument("bin", help="Galil sweep .bin, with its _positions.csv beside it")
     parser.add_argument("--rset", type=int, default=0, help="Radar mode if scan_log.csv is missing. Default: 0")
-    parser.add_argument("--out", default=None, help="Output stem. Default: data/<date>/galil-<name>")
+    parser.add_argument("--out", default=None, help="Output stem. Default: data/<date>/galil/<name>")
     parser.add_argument("--flipX", action="store_true", help="Mirror positions if the stage's right is the radar's left")
     args = parser.parse_args()
 

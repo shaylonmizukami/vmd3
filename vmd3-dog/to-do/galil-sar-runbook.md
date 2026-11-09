@@ -19,6 +19,10 @@ Continuous-motion SAR sweeps with the VMD3 on the Galil rail, 2D mode, RADC only
   - **Slant range:** straight-line distance from the radar's antenna center to the target's center
   - **Height:** vertical distance from the radar's antenna center down to the target's center
 - Height must be less than slant range. Ground range is then `sqrt(slant² − height²)`
+- Height can also come from the look angle: `slant × sin(angle below horizontal)`. If measuring to the floor instead, subtract the sphere's radius
+- Height only sets where the target lands in ground range, not how sharply it focuses, so a centimeter or two of error is fine
+- The radar sees the sphere's near surface, so measure slant range to the nearest point of the sphere. `--calibrate` lines up the rest
+- Radar mounted upright, long side along the rail. If it's rotated 90° for horizontal polarization, `sar_image.py` needs a change first
 
 ## Windows: collection
 
@@ -53,7 +57,7 @@ N_FRAMES = 101
 |---|---|
 | `bg` | Target removed |
 | `center` | Target at sweep center |
-| `offset` | Target moved about 3 cm toward the radar's right, measured |
+| `offset` | Target moved about 5 cm toward the radar's right, measured |
 
 Expected per sweep:
 
@@ -92,17 +96,20 @@ Saved data/<date>/galil-<name>_*
 
 ## Linux: SAR images
 
+Current setup: PEC sphere, 0.60 m slant range, 46° below horizontal, so height 0.60 × sin 46° ≈ 0.43 m and ground range 0.60 × cos 46° ≈ 0.42 m. Replace the values if the setup changes.
+
 ```
-python3 -m sar.sar_image data/<date>/galil-center --targetRange <slant m> --height <height m> --background data/<date>/galil-bg --calibrate --show
-python3 -m sar.sar_image data/<date>/galil-offset --targetRange <slant m> --height <height m> --background data/<date>/galil-bg --calibrate --show
+python3 -m sar.sar_image data/<date>/galil-center --targetRange 0.60 --height 0.43 --background data/<date>/galil-bg --calibrate --show
+python3 -m sar.sar_image data/<date>/galil-offset --targetRange 0.60 --height 0.43 --background data/<date>/galil-bg --calibrate --show
 ```
 
 Expected:
 
 - Background match per RX near 1
-- `galil-center`: peak x near 0, offset by a few mm at most from position read lag, ground range near `sqrt(slant² − height²)`
-- `galil-offset`: peak x near +3 cm, same ground range
-- Cross-range and ground range widths close to the printed ideal. Ground range width is larger than slant range width by slant over ground range
+- `galil-center`: peak x near 0, offset by a few mm at most from position read lag, ground range about 42 cm
+- `galil-offset`: peak x near +5 cm, ground range about 42 cm
+- Cross-range width close to its ideal, about 2.0 cm
+- Ground range width close to its ideal, about 8.8 cm, stretched about 1.4 times from slant by the steep look angle
 - Phase sign check: +1 near 1 for every RX, −1 clearly lower
 
 Images save to `data/<date>/plots/` as `galil-<name>_sar_ground_bgsub.png`. Leaving out `--height` gives the slant-plane image instead, saved as `_sar_slant_bgsub.png`.
@@ -111,7 +118,7 @@ Images save to `data/<date>/plots/` as `galil-<name>_sar_ground_bgsub.png`. Leav
 
 | Symptom | Fix |
 |---|---|
-| `galil-offset` peak at −3 cm instead of +3 cm | Stage's right is the radar's left. Delete the converted `galil-*` files and rerun all three conversions with `--flipX` |
+| `galil-offset` peak at −5 cm instead of +5 cm | Stage's right is the radar's left. Delete the converted `galil-*` files and rerun all three conversions with `--flipX` |
 | Ground range far from expected but slant image looks right | Recheck the height measurement, from antenna center to target center |
 | `--height must be less than --targetRange` | Height or slant range swapped or mismeasured |
 | 1b hangs after "Connected to UDP" | Power cycle the radar, wait about 10 s, run 1a and 1b again |
@@ -125,5 +132,5 @@ Images save to `data/<date>/plots/` as `galil-<name>_sar_ground_bgsub.png`. Leav
 | Sweep | Target | Slant range (m) | Height (m) | Sideways offset (m) | Notes |
 |---|---|---|---|---|---|
 | `bg` | none | | | | |
-| `center` | | | | 0 | |
-| `offset` | | | | | |
+| `center` | PEC sphere | 0.60 | 0.43 | 0 | 46° below horizontal |
+| `offset` | PEC sphere | | | about 0.05 | |

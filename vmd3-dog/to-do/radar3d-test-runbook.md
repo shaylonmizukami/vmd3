@@ -1,6 +1,34 @@
 # VMD3 3D Mode Test Runbook
 
-Sections 4, 6, 7, and 8. Run everything from `~/Projects/vmd3/vmd3-dog`. Capture names use `2026-11-08`, adjust to the actual date.
+Linux laptop wired directly to the radar, radar level and looking toward the horizon, sphere at 1 m. Run everything from `~/Projects/vmd3/vmd3-dog`. Capture names use `2026-11-08`, adjust to the actual date.
+
+## Status
+
+### Done
+
+| Capture | Right (m) | Up (m) | Forward (m) | Notes |
+|---|---|---|---|---|
+| `3d-bg` | sphere removed | | | stand left at the `3d-ref` spot |
+| `3d-ref` | 0 | 0 | 1.00 | |
+| `3d-side` | 0.27 | 0 | 1.00 | |
+| `3d-up` | 0 | 0.18 | 1.00 | |
+| `3d-diag` | 0.27 | 0.18 | 1.00 | |
+| `3d-side5` | 0.105 | 0 | 1.00 | aimed for 0.09, placed about 0.10 to 0.11 |
+| `3d-up20` | 0 | 0.36 | 1.00 | **excluded**, radar range 17 cm too long, likely locked onto something else |
+
+### Layout so far
+
+- **Horizontal, settled:** TX2 about +4.3 to +4.9 mm from TX1, TX3 about +8.9 to +9.9 mm. Matches the IWR6843 layout (+4.93 and +9.86)
+- **Vertical, inconclusive:** best fit puts TX2 near 0, but the IWR6843 value of −2.46 mm fits nearly as well. Needs captures at larger elevation, which Part D provides
+- **Not saved yet:** no `geometry.json`
+
+### What depends on the vertical layout
+
+| Task | Needs it? |
+|---|---|
+| 2D SAR and 3D SAR on the rail | No |
+| Section 8 Parts A and B with `--perTx` | No |
+| Sections 6 and 7 full maps, Section 8 Parts C and D processing | Yes |
 
 ## Session start
 
@@ -11,59 +39,76 @@ sudo ./recording/initradar.sh enp0s13f0u1u2c2
 
 Expected: all `[ok]` lines, ending with `Radar responding at 192.168.100.201`.
 
-If no frames arrive after a reboot:
+`Radar did not respond to disconnect` at the end of a capture is harmless. Frames are only saved whole.
+
+## Setup reminders
+
+- Radar must not move between captures that go into the same `channels.py` run
+- Right is the radar's right from behind it, up is straight toward the ceiling, forward is along its boresight
+- Sphere on a firm non-metal support, measured from the radar's antenna center to the sphere's center
+- Wall at least 1 m behind the sphere, surfaces between radar and sphere kept out of the beam or covered with absorber
+
+## Step 1: Part D elevation sweep
+
+Sphere at 1.00 m forward, centered sideways, raised straight up in steps. Hold it firmly so it doesn't drift back as it goes up. Log the measured heights.
+
+| Capture | Elevation | Height above radar |
+|---|---|---|
+| `3d-el05` | 5° | 8.7 cm |
+| `3d-el10` | 10° | 17.6 cm |
+| `3d-el15` | 15° | 26.8 cm |
+| `3d-el20` | 20° | 36.4 cm |
+| `3d-el25` | 25° | 46.6 cm |
+| `3d-el30` | 30° | 57.7 cm |
 
 ```
-sudo firewall-cmd --zone=trusted --change-interface=enp0s13f0u1u2c2
+python3 -m recording.record --rset 6 --duration 10 --fileName 3d-el05
+python3 -m recording.record --rset 6 --duration 10 --fileName 3d-el10
+python3 -m recording.record --rset 6 --duration 10 --fileName 3d-el15
+python3 -m recording.record --rset 6 --duration 10 --fileName 3d-el20
+python3 -m recording.record --rset 6 --duration 10 --fileName 3d-el25
+python3 -m recording.record --rset 6 --duration 10 --fileName 3d-el30
 ```
 
-## Section 4: channel layout
+## Step 2: layout with Part D included
 
-### Captures
-
-Sphere at about 0.5 m. Log the measured right, up, and forward offsets from the radar's center to the sphere's center. Right is the radar's right when standing behind it, up is toward the radar's top.
+Replace the Part D heights with measured values:
 
 ```
-python3 -m recording.record --rset 6 --duration 10 --fileName 3d-ref
-python3 -m recording.record --rset 6 --duration 10 --fileName 3d-side
-python3 -m recording.record --rset 6 --duration 10 --fileName 3d-up
-python3 -m recording.record --rset 6 --duration 10 --fileName 3d-diag
+python3 -m radar3d.channels --background data/2026-11-08/3d-bg \
+  --capture data/2026-11-08/3d-ref 0 0 1.00 \
+  --capture data/2026-11-08/3d-side 0.27 0 1.00 \
+  --capture data/2026-11-08/3d-up 0 0.18 1.00 \
+  --capture data/2026-11-08/3d-diag 0.27 0.18 1.00 \
+  --capture data/2026-11-08/3d-side5 0.105 0 1.00 \
+  --capture data/2026-11-08/3d-el05 0 0.087 1.00 \
+  --capture data/2026-11-08/3d-el10 0 0.176 1.00 \
+  --capture data/2026-11-08/3d-el15 0 0.268 1.00 \
+  --capture data/2026-11-08/3d-el20 0 0.364 1.00 \
+  --capture data/2026-11-08/3d-el25 0 0.466 1.00 \
+  --capture data/2026-11-08/3d-el30 0 0.577 1.00
 ```
 
-| Capture | Right | Up | Forward |
-|---|---|---|---|
-| `3d-ref` | 0 | 0 | 0.5 m |
-| `3d-side` | about 0.13 m | 0 | 0.5 m |
-| `3d-up` | 0 | about 0.09 m | 0.5 m |
-| `3d-diag` | about 0.13 m | about 0.09 m | 0.5 m |
+Check before trusting the fit:
 
-### Solve
-
-Use the measured values, not the targets in the table.
-
-```
-python3 -m radar3d.channels \
-  --capture data/2026-11-08/3d-ref 0 0 0.5 \
-  --capture data/2026-11-08/3d-side 0.13 0 0.5 \
-  --capture data/2026-11-08/3d-up 0 0.09 0.5 \
-  --capture data/2026-11-08/3d-diag 0.13 0.09 0.5
-```
+- Each capture's radar range about 7.5 cm more than its tape distance, within about 3 cm. Drop any capture far outside that and rerun
+- Target/clutter well above 0 dB. Drop the top steps if they fall near 0 dB, since they're outside the beam's −3 dB edge
 
 Expected:
 
-- Radar range within a few cm of tape distance for each capture
-- `RX spacing per TX` near `+2.46` for all three
-- `RX height spread per TX` near 0
-- Residuals under about 20°
-- TX offsets near round multiples of 0.5 λ
+- TX2 and TX3 horizontal offsets as before
+- TX2 vertical clearly near either 0 or ±2.46 mm, with fit 1 well ahead of fit 2
+- Channel residuals mostly under 15°, focusing above about 0.95 for every capture
 
-### Save
+Send the output for review before saving.
 
-Only if the above looks right. Same command with `--save` at the end.
+## Step 3: save
+
+Same command with `--save` at the end. Add `--snap` only if every fitted offset is close to a whole number of 2.46 mm steps, since snapping rounds to the nearest step.
 
 Expected: `Saved .../radar3d/geometry.json`
 
-## Section 6: beamforming check
+## Step 4: beamforming check
 
 ```
 python3 -c "
@@ -75,7 +120,7 @@ from radar3d.mimo import direction_power, load_geometry
 pos, cal = load_geometry()
 az = np.arange(-70, 70.5, 0.5)
 el = np.arange(-45, 45.5, 0.5)
-for name in ['3d-ref', '3d-side', '3d-up', '3d-diag']:
+for name in ['3d-ref', '3d-side', '3d-up', '3d-diag', '3d-side5', '3d-el05', '3d-el10', '3d-el15', '3d-el20', '3d-el25', '3d-el30']:
     p, l, m = load(f'data/2026-11-08/{name}')
     pw = direction_power(zero_doppler_profiles(p, m), pos, cal, az, el)
     r = range_axis(m, pw.shape[0])
@@ -85,53 +130,54 @@ for name in ['3d-ref', '3d-side', '3d-up', '3d-diag']:
 "
 ```
 
-Expected: az and el for each capture match the angles `channels.py` printed, within about 1° to 2°. The diagonal one is the real test.
+Expected: az and el match each capture's tape angles within a few degrees, with el climbing through the Part D steps. If el stays near 0 for every step, the 3D mode has no vertical aperture.
 
-## Section 7: maps
-
-### Per-TX view
+## Step 5: full maps
 
 ```
-python3 -m radar3d.heatmap3d data/2026-11-07/3d-reflector --compare data/2026-11-07/2d-reflector --perTx --maxRange 3 --show
-```
-
-Expected: all panels at 1.55 m and about −2°, same as before.
-
-### Full view
-
-```
-python3 -m radar3d.heatmap3d data/2026-11-08/3d-ref --maxRange 1 --show
-python3 -m radar3d.heatmap3d data/2026-11-08/3d-diag --maxRange 1 --show
+python3 -m radar3d.heatmap3d data/2026-11-08/3d-ref --maxRange 1.6 --show
+python3 -m radar3d.heatmap3d data/2026-11-08/3d-diag --maxRange 1.6 --show
+for e in 05 10 15 20 25 30; do echo "el $e"; python3 -m radar3d.heatmap3d data/2026-11-08/3d-el$e --maxRange 2; done
 ```
 
 Expected:
 
-- `3d-ref`: peak near az 0, el 0
-- `3d-diag`: peak at the diagonal's tape angles
-- One blob on the az-el map, likely taller than wide. Repeated copies stacked in one direction mean ghost peaks from wide transmitter spacing
+- `3d-ref`: peak near az 0, el 0, range about 1.07 m
+- Part D: measured elevation tracks the true one, peak level dropping about 3 dB near 18°
+- One blob on the az-el map, likely taller than wide. Repeated copies in one direction mean ghost peaks
 
-## Section 8: comparisons
+## Step 6: Section 8 comparisons
 
-Radar fixed and level, nothing moving, every target at least 0.5 m away.
+Same level setup, nothing moving, targets around 1 m away. Capture all of these now. The layout is a property of the radar, so it applies to these later.
 
 ### Part A: empty scene
 
 ```
 python3 -m recording.record --duration 10 --fileName 2d-empty
 python3 -m recording.record --rset 6 --duration 10 --fileName 3d-empty
-python3 -m radar3d.heatmap3d data/2026-11-08/3d-empty --compare data/2026-11-08/2d-empty --maxRange 2 --show
+```
+
+Process now:
+
+```
+python3 -m radar3d.heatmap3d data/2026-11-08/3d-empty --compare data/2026-11-08/2d-empty --perTx --maxRange 2.5 --show
 ```
 
 Expected: only room clutter, same spots in both modes.
 
 ### Part B: diagonal pair
 
-Two targets about 25 cm apart diagonally, for example about 0.6 m forward slightly left and about 0.8 m forward slightly right, both at radar height. For each placement N:
+Two targets about 25 cm apart diagonally, for example one at about 1.00 m forward and 0.09 m left, the other at about 1.18 m forward and 0.09 m right, both at radar height. For each placement N:
 
 ```
 python3 -m recording.record --duration 10 --fileName 2d-diag-N
 python3 -m recording.record --rset 6 --duration 10 --fileName 3d-diag-N
-python3 -m radar3d.heatmap3d data/2026-11-08/3d-diag-N --compare data/2026-11-08/2d-diag-N --maxRange 2 --show
+```
+
+Process now:
+
+```
+python3 -m radar3d.heatmap3d data/2026-11-08/3d-diag-N --compare data/2026-11-08/2d-diag-N --perTx --maxRange 2.5 --show
 ```
 
 Expected: both targets in both modes, same ranges and azimuths.
@@ -142,53 +188,36 @@ Two targets at the same sideways position, one at radar height and one raised. O
 
 | Placement | Forward | Upper target raised by |
 |---|---|---|
-| `h-1` | 0.8 m | about 0.25 m (17°) |
-| `h-2` | 0.8 m | about 0.15 m (11°) |
-| `h-3` | 0.8 m | about 0.08 m (6°) |
+| `h-1` | 1.0 m | about 0.31 m (17°) |
+| `h-2` | 1.0 m | about 0.19 m (11°) |
+| `h-3` | 1.0 m | about 0.11 m (6°) |
 
 For N = 1, 2, 3:
 
 ```
 python3 -m recording.record --duration 10 --fileName 2d-h-N
 python3 -m recording.record --rset 6 --duration 10 --fileName 3d-h-N
-python3 -m radar3d.heatmap3d data/2026-11-08/3d-h-N --compare data/2026-11-08/2d-h-N --maxRange 2 --show
-python3 -m radar3d.heatmap3d data/2026-11-08/3d-h-N --sliceRange <upper target range> --maxRange 2 --show
 ```
+
+Process after `geometry.json` exists:
+
+```
+python3 -m radar3d.heatmap3d data/2026-11-08/3d-h-N --compare data/2026-11-08/2d-h-N --maxRange 2.5 --show
+python3 -m radar3d.heatmap3d data/2026-11-08/3d-h-N --sliceRange <upper target range + 0.075> --maxRange 2.5 --show
+```
+
+For `--sliceRange`, add the 7.5 cm range offset to the tape range, since the maps show the radar's raw range.
 
 Expected: 2D shows no height difference. 3D range-elevation separates them, until the gap drops below the vertical resolution.
-
-### Part D: elevation sweep
-
-One target at 0.8 m forward, centered sideways, raised in steps.
-
-| Capture | Elevation | Height above radar |
-|---|---|---|
-| `3d-el00` | 0° | 0 |
-| `3d-el05` | 5° | 7.0 cm |
-| `3d-el10` | 10° | 14.1 cm |
-| `3d-el15` | 15° | 21.4 cm |
-| `3d-el20` | 20° | 29.1 cm |
-| `3d-el25` | 25° | 37.3 cm |
-| `3d-el30` | 30° | 46.2 cm |
-
-```
-python3 -m recording.record --rset 6 --duration 10 --fileName 3d-el00
-python3 -m recording.record --rset 6 --duration 10 --fileName 3d-el05
-python3 -m recording.record --rset 6 --duration 10 --fileName 3d-el10
-python3 -m recording.record --rset 6 --duration 10 --fileName 3d-el15
-python3 -m recording.record --rset 6 --duration 10 --fileName 3d-el20
-python3 -m recording.record --rset 6 --duration 10 --fileName 3d-el25
-python3 -m recording.record --rset 6 --duration 10 --fileName 3d-el30
-```
-
-```
-for e in 00 05 10 15 20 25 30; do echo "el $e"; python3 -m radar3d.heatmap3d data/2026-11-08/3d-el$e --maxRange 1.5; done
-```
-
-Expected: measured elevation tracks the true one, peak level dropping by about 3 dB near 18°.
 
 ## Field log
 
 | Capture | Target | Right (m) | Up (m) | Forward (m) | Notes |
 |---|---|---|---|---|---|
+| `3d-el05` | PEC sphere | 0 | | 1.00 | |
+| `3d-el10` | PEC sphere | 0 | | 1.00 | |
+| `3d-el15` | PEC sphere | 0 | | 1.00 | |
+| `3d-el20` | PEC sphere | 0 | | 1.00 | |
+| `3d-el25` | PEC sphere | 0 | | 1.00 | |
+| `3d-el30` | PEC sphere | 0 | | 1.00 | |
 | | | | | | |
