@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # Bring up the radar ethernet link and confirm the VMD3 responds.
-# Usage: sudo ./initradar.sh [interface] (default: eth0)
+# Usage: sudo ./initradar.sh <interface>
 
 set -e
 
 # Network settings
+# IFACE="${1:?Usage: sudo ./initradar.sh <interface>, check names with: ip -br link}"
 IFACE="${1:-enp0s13f0u1u2c2}"
 HOST_IP="192.168.100.1/24"
 RADAR_IP="192.168.100.201"
