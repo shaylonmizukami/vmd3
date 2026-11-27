@@ -10,17 +10,20 @@ from lib.capture import load, to_stem
 from lib.dsp import range_axis, zero_doppler_profiles
 
 def load_track(path):
-    """Return (time_unix, x_m) arrays from a track CSV, sorted by time."""
+    """Return (time_unix, positions (n, 3)) from a track CSV sorted by time, missing y_m or z_m read as 0."""
     with open(path, newline="") as f:
         rows = list(csv.DictReader(f))
     t = np.array([float(r["time_unix"]) for r in rows])
-    x = np.array([float(r["x_m"]) for r in rows])
+    pos = np.array([[float(r.get(k) or 0.0) for k in ("x_m", "y_m", "z_m")] for r in rows])
     order = np.argsort(t)
-    return t[order], x[order]
+    return t[order], pos[order]
 
-def positions_at(times, track_t, track_x, clock_offset=0.0):
-    """Radar x at each frame time. clock_offset is the arm clock minus the radar clock."""
-    return np.interp(times + clock_offset, track_t, track_x)
+def positions_at(times, track_t, track_pos, clock_offset=0.0):
+    """Radar position at each frame time, (frames, 3) for a 3 column track. clock_offset is the arm clock minus the radar clock."""
+    t = times + clock_offset
+    if track_pos.ndim == 1:
+        return np.interp(t, track_t, track_pos)
+    return np.column_stack([np.interp(t, track_t, column) for column in track_pos.T])
 
 def moving_frames(positions, track_x, trim_m=0.002):
     """Mask of frames taken while the arm was moving, dropping trim_m at each end."""
@@ -65,25 +68,27 @@ def estimate_clock_offset(times, phase, track_t, track_x, window_s=1.5, search_s
     return candidates[int(np.argmin(costs))]
 
 def rx_phase_centers(positions):
-    """(frames, 4) effective x of each RX, halfway between the TX and that RX."""
+    """(frames, 4, 3) effective position of each RX, halfway between the TX and that RX along x."""
     offsets = ANGLE_SIGN * (np.arange(4) - 1.5) * RX_SPACING_M / 2
-    return positions[:, None] + offsets[None, :]
+    centers = np.repeat(positions[:, None, :], 4, axis=1)
+    centers[:, :, 0] += offsets
+    return centers
 
 def load_sweep(stem, track=None, clock_offset=0.0, auto_clock=False):
     """Return (positions, profiles, meta, clock_offset) for the moving frames of one sweep."""
     stem = to_stem(stem)
     payloads, log, meta = load(stem, "radc")
-    track_t, track_x = load_track(track or f"{stem}_track.csv")
+    track_t, track_pos = load_track(track or f"{stem}_track.csv")
     profiles = zero_doppler_profiles(payloads, meta, n_fft=RANGE_FFT_SIZE)
 
     # Line the arm clock up with the radar from the data itself, if asked
     if auto_clock:
         phase = phase_track(profiles, range_axis(meta, RANGE_FFT_SIZE))
-        clock_offset = estimate_clock_offset(log["time_unix"], phase, track_t, track_x)
+        clock_offset = estimate_clock_offset(log["time_unix"], phase, track_t, track_pos[:, 0])
 
     # Radar position at every frame, keeping only the sweep
-    positions = positions_at(log["time_unix"], track_t, track_x, clock_offset)
-    moving = moving_frames(positions, track_x)
+    positions = positions_at(log["time_unix"], track_t, track_pos, clock_offset)
+    moving = moving_frames(positions[:, 0], track_pos[:, 0])
     return positions[moving], profiles[moving], meta, clock_offset
 
 def interpolate_profiles(profiles, positions, new_positions):
@@ -127,6 +132,10 @@ def estimate_range_offset(profiles, ranges, target_range):
                          for rx in range(power.shape[1])])
     return target_range - measured, measured
 
+def pixel_range(X, G, pos, height_m):
+    """Distance from radar position pos (x, y, z) to pixels at cross-range X and ground range G, height_m below the sweep center."""
+    return np.sqrt((X - pos[0]) ** 2 + (G - pos[1]) ** 2 + (height_m + pos[2]) ** 2)
+
 def phase_sign_check(profiles, positions, x_t, z_t, bin_m, offset_m=0.0, height_m=0.0):
     """Focusing coherence at one point for phase sign +1 and -1, per RX. The right sign scores near 1."""
     centers = rx_phase_centers(positions)
@@ -136,7 +145,7 @@ def phase_sign_check(profiles, positions, x_t, z_t, bin_m, offset_m=0.0, height_
         eta = []
         for rx in range(profiles.shape[2]):
             # Complex sample at the predicted range from every frame
-            r = np.sqrt((x_t - centers[:, rx]) ** 2 + z_t ** 2 + height_m ** 2)
+            r = pixel_range(x_t, z_t, centers[:, rx].T, height_m)
             q = (r - offset_m) / bin_m
             lo = np.floor(q).astype(int)
             f = q - lo
@@ -154,22 +163,25 @@ def image_grid(ground_range):
     ground = np.arange(ground_range - SAR_DOWNRANGE_HALF_M, ground_range + SAR_DOWNRANGE_HALF_M + SAR_DOWNRANGE_STEP_M / 2, SAR_DOWNRANGE_STEP_M)
     return cross, ground
 
-def aperture_weights(n):
-    """Unit-sum taper across n aperture positions."""
-    w = np.hamming(n) if APERTURE_WINDOW == "hamming" else np.ones(n)
+def aperture_weights(x):
+    """Unit-sum taper by position along the sweep, scaled by each frame's share of the aperture."""
+    u = (x - x.min()) / np.ptp(x)
+    taper = 0.54 - 0.46 * np.cos(2 * np.pi * u) if APERTURE_WINDOW == "hamming" else np.ones_like(x)
+    share = np.abs(np.gradient(x))   # frames bunched up where the arm slowed count for less
+    w = taper * share
     return w / w.sum()
 
 def backproject(profiles, positions, cross, down, bin_m, offset_m=0.0, height_m=0.0):
-    """Focus one RX. profiles (frames, range bins), positions (frames,) to a complex image (ground, cross)."""
+    """Focus one RX. profiles (frames, range bins), positions (frames, 3) to a complex image (ground, cross)."""
     X, Z = np.meshgrid(cross, down)
-    weights = aperture_weights(len(positions))
-    r_ref = np.sqrt((X - positions[len(positions) // 2]) ** 2 + Z ** 2 + height_m ** 2)
+    weights = aperture_weights(positions[:, 0])
+    r_ref = pixel_range(X, Z, positions[len(positions) // 2], height_m)
     image = np.zeros(X.shape, dtype=complex)
     n_bins = profiles.shape[1]
 
-    for profile, x_m, w in zip(profiles, positions, weights):
+    for profile, pos, w in zip(profiles, positions, weights):
         # Predicted range from this position to every pixel, as a fractional bin
-        r = np.sqrt((X - x_m) ** 2 + Z ** 2 + height_m ** 2)
+        r = pixel_range(X, Z, pos, height_m)
         q = (r - offset_m) / bin_m
         lo = np.clip(np.floor(q).astype(int), 0, n_bins - 2)
         f = q - lo

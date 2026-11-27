@@ -22,15 +22,15 @@ def main(stem, track, targetRange, height, clockOffset, autoClock, background, b
         raise SystemExit("--height must be less than --targetRange")
     groundRange = float(np.sqrt(targetRange ** 2 - height ** 2))
     plane = "Ground" if height > 0 else "Slant"
-    aperture = positions.max() - positions.min()
-    spacing = np.median(np.abs(np.diff(positions)))
+    aperture = np.ptp(positions[:, 0])
+    spacing = np.median(np.abs(np.diff(positions[:, 0])))
     if autoClock:
         print(f"Clock offset {clockOffset * 1000:+.0f} ms")
 
     # Subtract a background sweep resampled to this sweep's positions, if given
     if background:
         bg_pos, bg_prof, _, bg_offset = load_sweep(background, bgTrack, bgClockOffset, autoClock)
-        bg_prof = interpolate_profiles(bg_prof, bg_pos, positions)
+        bg_prof = interpolate_profiles(bg_prof, bg_pos[:, 0], positions[:, 0])
         profiles, rho, reduction = subtract_background(profiles, bg_prof, ranges, targetRange)
         if autoClock:
             print(f"Background clock offset {bg_offset * 1000:+.0f} ms")
@@ -75,6 +75,7 @@ def main(stem, track, targetRange, height, clockOffset, autoClock, background, b
     out.parent.mkdir(exist_ok=True)
     fig.savefig(out, dpi=150)
     print(f"{len(positions)} frames, {aperture * 100:.1f} cm aperture, {spacing * 1000:.2f} mm spacing")
+    print(f"Track wobble: forward {np.ptp(positions[:, 1]) * 1000:.2f} mm, up {np.ptp(positions[:, 2]) * 1000:.2f} mm")
     print(f"Peak x {m['x'] * 100:+.1f} cm, {plane.lower()} range {m['range'] * 100:.1f} cm")
     print(f"Cross-range width {m['cross_width'] * 100:.2f} cm (ideal {ideal_cross * 100:.2f})")
     print(f"{plane} range width {m['range_width'] * 100:.2f} cm (ideal {ideal_range * 100:.2f})")
